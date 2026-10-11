@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- PWA / Add to Home Screen (iOS + Android): installable, standalone, branded icon. -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0B0B0C" />
+    <meta name="description" content="Bustillo Performance — build the athlete." />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="Bustillo" />
+
+    <!-- Brand fonts: Archivo (display a 125% de ancho + texto a ancho normal)
+         e IBM Plex Mono (series, macros, metricas, rotulos). Se sirven desde
+         este dominio — ver src/fonts.css. Archivo se precarga porque cubre
+         titulares Y cuerpo: es la cara que se ve en todas las pantallas, y
+         precargarla la empieza a bajar con el HTML en vez de esperar a que
+         el CSS se termine de interpretar, que es lo que hacia que el texto
+         saltara visiblemente. -->
+    <link rel="preload" href="/fonts/Archivo-variable.woff2" as="font" type="font/woff2" crossorigin />
+
+    <title>Bustillo Performance</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

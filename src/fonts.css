@@ -1,0 +1,46 @@
+/* ============================================================
+   FUENTES — servidas desde este mismo dominio, no desde Google.
+   Desde fonts.googleapis.com el navegador tiene que resolver DNS y
+   negociar TLS con dos hosts mas ANTES de poder pedir el archivo, y
+   hasta que llega el texto se pinta con la fuente de respaldo y salta.
+   Sirviendolas aqui viajan por la conexion que ya esta abierta y suelen
+   llegar antes del primer pintado.
+
+   Solo el subconjunto 'latin' — cubre U+00C0-00FF, o sea todos los
+   acentos del espanol. latin-ext es para Europa del Este y pesaba la
+   mitad del total.
+
+   Dos familias, 110 KB en total:
+
+     Archivo         variable en PESO (100-900) y en ANCHO (62-125%).
+                     Un solo archivo da el display expandido y el texto
+                     normal. "Archivo Expanded" del brand book no es una
+                     familia aparte: es esta misma a font-stretch 125%.
+     IBM Plex Mono   series, macros, metricas, etiquetas. No es variable,
+                     asi que van dos archivos (400 y 500).
+   ============================================================ */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/fonts/Archivo-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/IBMPlexMono-regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/IBMPlexMono-medium.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

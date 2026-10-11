@@ -1,0 +1,225 @@
+@font-face {
+  font-family: 'Fraunces'; font-style: italic; font-weight: 400 600; font-display: swap;
+  src: url('/fonts/Fraunces-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter'; font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('/fonts/Inter-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono'; font-style: normal; font-weight: 400 500; font-display: swap;
+  src: url('/fonts/JetBrainsMono-normal.woff2') format('woff2');
+}
+
+/* ============================================================
+   PÁGINAS LEGALES — hoja aparte, a propósito.
+   Viven fuera de la app: son HTML estático en /public para que Stripe,
+   Google y cualquier persona sin cuenta las puedan abrir sin pasar por
+   el login. Por eso no heredan nada de src/index.css y repiten aquí los
+   tokens de marca.
+   ============================================================ */
+:root {
+  --hueso: #F2EAD8;
+  --crema: #FAF4E6;
+  --tinta: #0B1A14;
+  --oro: #B08A3E;
+  --musgo: #2F4A36;
+  --linea: #0B1A1422;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--hueso);
+  color: var(--tinta);
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.hoja { max-width: 760px; margin: 0 auto; padding-inline: 20px; padding-block: 0 96px; }
+
+header { padding-block: 44px 28px; border-bottom: 3px solid var(--tinta); }
+.marca {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic; font-weight: 600;
+  font-variation-settings: 'opsz' 18, 'wght' 600;
+  font-size: 19px; color: var(--tinta); text-decoration: none;
+}
+h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic; font-weight: 500;
+  font-variation-settings: 'opsz' 144;
+  font-size: clamp(34px, 6.5vw, 58px);
+  line-height: 1.1; margin: 16px 0 0; letter-spacing: -0.01em;
+}
+.vigencia {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--musgo); margin-top: 12px;
+}
+
+h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic; font-weight: 500;
+  font-variation-settings: 'opsz' 60;
+  font-size: 27px; line-height: 1.15;
+  margin: 44px 0 10px; letter-spacing: -0.01em;
+}
+h2 .n {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-style: normal; font-weight: 600; font-size: 13px;
+  letter-spacing: 0.1em; color: var(--oro); margin-right: 10px;
+  vertical-align: 3px;
+}
+h3 { font-size: 17px; font-weight: 650; margin: 24px 0 6px; }
+p, li { max-width: 68ch; }
+p { margin: 0 0 14px; }
+ul { margin: 0 0 14px; padding-left: 20px; }
+li { margin-bottom: 7px; }
+strong { font-weight: 650; }
+a { color: var(--musgo); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---- Barra de regreso. Estas paginas se abren desde el checkout de Stripe:
+        sin una salida visible, quien entra a leer los terminos se queda
+        atorado y abandona un pago a medias. Va fija arriba porque los
+        documentos son largos y la salida no puede vivir solo hasta arriba. ---- */
+.barra-volver {
+  position: sticky; top: 0; z-index: 30;
+  background: var(--tinta);
+  border-bottom: 2px solid var(--oro);
+}
+.barra-volver > div {
+  max-width: 760px; margin: 0 auto; padding-inline: 20px;
+}
+.volver {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 13px 0; text-decoration: none;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--oro);
+}
+.volver:hover { color: var(--crema); }
+.volver .flecha {
+  font-size: 17px; line-height: 1; transition: transform .15s ease;
+}
+.volver:hover .flecha { transform: translateX(-3px); }
+@media (prefers-reduced-motion: reduce) { .volver .flecha { transition: none; } }
+.pista-cerrar {
+  display: none; padding-bottom: 12px; margin-top: -4px;
+  font-size: 12.5px; color: #9FB0A4; line-height: 1.5;
+}
+
+/* ---- Portada, igual que el PDF: bloque verde con la marca y la ficha ---- */
+.portada {
+  background: #1F3A2E; color: var(--crema);
+  padding: 40px 32px 34px; margin-top: 32px; border-bottom: 0;
+}
+.portada .marca { color: var(--crema); display: inline-block; font-size: 34px; }
+.portada .lema {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--arena, #C8B68E); margin-top: 6px;
+}
+.portada h1 { color: var(--crema); margin-top: 26px; font-size: clamp(32px, 6vw, 50px); }
+.portada .sub {
+  font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 500;
+  font-variation-settings: 'opsz' 40;
+  font-size: 19px; color: var(--oro); margin-top: 6px;
+}
+.ficha {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 18px; margin: 26px 0 0; padding-top: 22px; border-top: 1px solid #FAF4E633;
+}
+.ficha div { margin: 0; }
+.ficha dt {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: #9FB0A4; margin-bottom: 5px;
+}
+.ficha dd { margin: 0; font-size: 16px; font-weight: 600; color: var(--crema); }
+
+/* ---- La liberación de responsabilidad. En el PDF lleva marco negro y va
+        en mayúsculas: una cláusula de liberación tiene que saltar a la vista,
+        no esconderse entre el resto del texto. ---- */
+.liberacion {
+  border: 2px solid var(--tinta); background: var(--crema);
+  padding: 20px 22px; margin: 26px 0;
+}
+.liberacion .rotulo {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--oro); margin-bottom: 12px;
+}
+.liberacion p { margin: 0; font-weight: 650; line-height: 1.55; font-size: 15px; }
+.liberacion u { text-underline-offset: 3px; }
+
+.destacado {
+  background: var(--crema); border-left: 5px solid var(--oro);
+  padding: 18px 20px; margin: 20px 0;
+}
+.destacado p:last-child { margin-bottom: 0; }
+
+/* ---- Anexo A ---- */
+.anexo-rotulo {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--musgo); margin-top: 48px;
+}
+h2.sin-n { margin-top: 8px; }
+.nota-anexo { font-size: 14.5px; color: var(--musgo); margin-bottom: 20px; }
+.anexo { margin: 0; }
+.anexo > div {
+  display: grid; grid-template-columns: 190px 1fr; gap: 16px;
+  padding: 13px 0; border-bottom: 1px solid var(--linea); align-items: baseline;
+}
+.anexo dt {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--musgo);
+}
+.anexo dd { margin: 0; font-weight: 600; font-size: 15.5px; }
+/* El hueco que se llena a mano en cada compra. */
+.anexo dd.hueco::before {
+  content: ''; display: inline-block; width: 190px; max-width: 60%;
+  border-bottom: 1px solid var(--tinta); margin-right: 8px; vertical-align: 2px;
+}
+@media (max-width: 560px) {
+  .anexo > div { grid-template-columns: 1fr; gap: 5px; }
+  .portada { padding: 30px 22px 26px; }
+}
+
+/* Lo que el coach tiene que llenar antes de publicar. Imposible de pasar
+   por alto a propósito: si se publica con un hueco, se ve. */
+.pendiente {
+  background: #FFE9A8; color: #6B4E00; padding: 1px 7px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.82em; font-weight: 600; letter-spacing: 0.06em;
+  border-bottom: 2px solid #B08A3E;
+}
+.aviso {
+  background: var(--crema); border-left: 5px solid var(--oro);
+  padding: 18px 20px; margin: 22px 0;
+}
+.aviso p:last-child { margin-bottom: 0; }
+
+.idiomas {
+  display: flex; gap: 8px; margin-top: 20px; flex-wrap: wrap;
+}
+.idiomas a {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; text-decoration: none;
+  padding: 7px 12px; background: var(--crema);
+  border: 1px solid var(--linea); color: var(--musgo);
+}
+.idiomas a[aria-current] { background: var(--tinta); color: var(--oro); border-color: var(--tinta); }
+
+.corte { border: 0; border-top: 3px solid var(--tinta); margin: 64px 0 0; }
+
+footer {
+  margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--linea);
+  font-size: 14px; color: var(--musgo);
+}
+footer a { color: var(--musgo); }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

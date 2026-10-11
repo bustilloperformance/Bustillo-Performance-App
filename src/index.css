@@ -1,0 +1,229 @@
+@import './fonts.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   BUSTILLO PERFORMANCE — TIPOGRAFIA Y CLASES GLOBALES
+   Definidas una sola vez aqui. Las fuentes se sirven desde este
+   dominio — ver fonts.css.
+   ============================================================ */
+@layer base {
+  body {
+    margin: 0;
+    /* 70% negros. El brand book lo pone como proporcion, no como sugerencia. */
+    background: #0B0B0C; /* bone — ver el encabezado de theme.js: el nombre esta invertido */
+    color: #EEEAE2;      /* ink */
+    font-family: 'Archivo', -apple-system, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Los campos adoptan la fuente del cuerpo. El foco se marca con oro: sobre
+     fondo oscuro da 8.28:1 y es el unico acento que la guia permite para
+     senalar estado. Antes era el color del texto, que aqui desaparece. */
+  input,
+  select,
+  textarea {
+    font-family: 'Archivo', sans-serif;
+  }
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #C4A464 !important;
+  }
+}
+
+@layer components {
+  /* ----------------------------------------------------------
+     PAPELES DE MARCA
+     Dos familias, tres papeles. El brand book los reparte asi:
+
+       Archivo a 125% de ancho   titulares, wordmark, nombres    .serif .display .prog-name
+       Archivo a ancho normal    parrafos, interfaz, ayuda       .ui-strong .help
+       IBM Plex Mono             series, macros, metricas, rotulos  .mono .stat-num
+
+     "Archivo Expanded" no es una familia aparte: es esta misma a
+     font-stretch 125%. Un archivo de fuente cubre los dos anchos.
+
+     Los nombres de clase (.serif, .serif-italic, .hand) vienen de la
+     primera instancia de la app, que usaba Fraunces y Caveat. Se
+     conservan porque hay cientos de llamadas; lo que cambio es a que
+     fuente apuntan. Es el mismo patron que ya tenia `.mono`, que durante
+     un tiempo no fue monoespaciada — y que aqui por fin vuelve a serlo.
+     ---------------------------------------------------------- */
+
+  /* DISPLAY — Archivo Expanded 800. Siempre en mayusculas, nunca en
+     cursiva: las dos cosas las manda la guia de uso. El interletraje se
+     cierra porque a 125% de ancho y en caja alta las palabras se abren
+     demasiado. */
+  .serif,
+  .serif-italic {
+    font-family: 'Archivo', sans-serif;
+    font-stretch: 125%;
+    font-weight: 800;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+  }
+
+  /* El wordmark de la barra lateral. Mismo display, mas interletraje
+     porque es una marca y no un titular. */
+  .wordmark {
+    font-family: 'Archivo', sans-serif;
+    font-stretch: 125%;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  /* Nombres de programa, ejercicio y plan: el mismo tipo de dato, y la
+     guia reserva el display ancho justo para eso. */
+  .prog-name,
+  .display {
+    font-family: 'Archivo', sans-serif;
+    font-stretch: 125%;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .prog-name { letter-spacing: -0.005em; line-height: 1.15; }
+  .display   { letter-spacing: 0.005em; }
+
+  /* DATOS — IBM Plex Mono. Series, macros, metricas y cifras grandes.
+     Aporta la precision de laboratorio que pide la guia, y tabular-nums
+     mantiene los digitos alineados en columna. */
+  .stat-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+
+  /* Los 519 rotulos en mayusculas. Vuelven a ser monoespaciados. */
+  .mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* TEXTO — Archivo a ancho normal. La misma familia que el display:
+     un sistema, una voz. */
+  .ui-strong { font-family: 'Archivo', sans-serif; font-weight: 600; letter-spacing: -0.005em; }
+  .help      { font-family: 'Archivo', sans-serif; font-weight: 400; }
+
+  /* LA VOZ DEL COACH — las 17 frases que empiezan con guion y le hablan
+     al atleta. En la instancia anterior iban manuscritas; esta marca no
+     tiene tipografia manuscrita y su arquetipo es El Capitan: "habla poco
+     y con precision". Asi que van en mono, que es lo que la guia manda
+     para los subtitulos de video — una frase, sin adornos. Lo que las
+     distingue es que son la unica ORACION monoespaciada en una app donde
+     el mono solo rotula; no un color aparte. */
+  .hand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  @keyframes ptr-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* Textura de reticula detras de algunas secciones. "Una identidad
+     construida con modulos, retriculas y barras": aqui es un filo de
+     hueso al 9%, que sobre negro se insinua sin competir con el texto. */
+  .yardline {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 39px,
+      #EEEAE217 39px,
+      #EEEAE217 40px
+    );
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #9A968E; /* steel */
+  }
+}
+
+@layer utilities {
+  /* Alto de pantalla real. 100vh en Safari movil mide la ventana COMO SI la
+     barra de direccion y la de abajo estuvieran escondidas, asi que siempre
+     sobra alto: una caja centrada con items-center queda con su centro por
+     debajo del centro de lo que de verdad se ve — hueco arriba y el boton
+     rozando la barra de abajo. 100dvh mide lo visible. El 100vh de la primera
+     linea queda como respaldo para navegadores viejos que no conocen dvh. */
+  .screen-h {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  /* Celda del calendario mensual del cliente. En el teléfono cada columna mide
+     unos 50 px y solo lleva el número y un punto, así que 54 px de alto bastan
+     y el mes entero cabe sin desplazarse. En pantalla grande cabe el nombre de
+     la rutina y se conserva el alto de siempre. */
+  .cal-cell { min-height: 54px; }
+  @media (min-width: 768px) {
+    .cal-cell { min-height: 66px; }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .anim-up {
+    animation: slideUp 0.4s ease-out backwards;
+  }
+  .anim-fade {
+    animation: fadeIn 0.3s ease-out backwards;
+  }
+}
+
+/* iOS zooms in when you focus an input whose font-size is < 16px. Force form
+   controls to 16px on phones so the page never auto-zooms (desktop unchanged). */
+@media (max-width: 767px) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Print: show only the report content (hide app chrome).
+   La app es oscura pero el papel es blanco: imprimir el fondo negro
+   gastaria tinta y saldria sucio. Se fuerza tinta sobre papel, y ahi el
+   oro no se lee — por eso el acento impreso es goldDeep. */
+@media print {
+  aside,
+  .no-print {
+    display: none !important;
+  }
+  main {
+    padding-top: 0 !important;
+  }
+  body {
+    background: #fff !important;
+    color: #0B0B0C !important;
+  }
+}
