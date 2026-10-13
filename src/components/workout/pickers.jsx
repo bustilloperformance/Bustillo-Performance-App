@@ -50,7 +50,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
   const isPrepWork = section === 'Prep Work';
   // Hay un picker por seccion y otro por circuito: el id del datalist tiene que
   // ser distinto en cada uno o se repite en el DOM.
-  const catsId = `fw-cats-${section}-${circuit || 'new'}`.replace(/\s+/g, '-');
+  const catsId = `bp-cats-${section}-${circuit || 'new'}`.replace(/\s+/g, '-');
 
   const sectionExercises = isPrepWork ? [] : exercises.filter((e) => (e.sections || ['Strength']).includes(section));
   const catOf = (e) => ((e.category || '').trim() || 'Uncategorized');

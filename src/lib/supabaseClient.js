@@ -18,7 +18,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
 // Unchecked → sessionStorage: the session is dropped when the tab/app closes.
 // The choice is a tiny flag in localStorage; the session tokens live in whichever
 // storage the flag points to.
-const REMEMBER_KEY = 'fw-remember';
+const REMEMBER_KEY = 'bp-remember';
 
 export function setRemember(remember) {
   try {

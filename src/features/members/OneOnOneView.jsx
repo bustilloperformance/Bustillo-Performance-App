@@ -22,8 +22,8 @@ export default function OneOnOneView() {
   const [search, setSearch] = useState('');
   // El editor abierto se recuerda: si pese a todo la pagina se recarga, el coach
   // vuelve al programa que estaba editando y no a la lista.
-  const [openMemberId, setOpenMemberIdRaw] = useState(() => { try { return localStorage.getItem('fw-staff-program-open') || null; } catch { return null; } });
-  const setOpenMemberId = (id) => { setOpenMemberIdRaw(id); try { if (id) localStorage.setItem('fw-staff-program-open', id); else localStorage.removeItem('fw-staff-program-open'); } catch { /* ignore */ } };
+  const [openMemberId, setOpenMemberIdRaw] = useState(() => { try { return localStorage.getItem('bp-staff-program-open') || null; } catch { return null; } });
+  const setOpenMemberId = (id) => { setOpenMemberIdRaw(id); try { if (id) localStorage.setItem('bp-staff-program-open', id); else localStorage.removeItem('bp-staff-program-open'); } catch { /* ignore */ } };
   const [logMemberId, setLogMemberId] = useState(null);
   const [busyId, setBusyId] = useState(null);
 

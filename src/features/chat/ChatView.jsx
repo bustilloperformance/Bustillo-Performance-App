@@ -18,7 +18,7 @@ import {
 //  mismos. Los mensajes llegan en vivo por Realtime y las fotos se ven con URL
 //  firmada (bucket privado).
 // ============================================================
-const GROUP_KEY = 'fw-chat-group';
+const GROUP_KEY = 'bp-chat-group';
 
 const hhmm = (iso) => new Date(iso).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
 const dayLabel = (iso) => {

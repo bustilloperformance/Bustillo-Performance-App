@@ -122,7 +122,7 @@ export default function ClientHome({ clientMemberId, setView }) {
         const r = setMetric(st, 'reps', exMeasure.get(st.exerciseId));
         return sum + (w > 0 && r > 0 ? w * r : 0);
       }, 0), 0);
-      const useKg = (() => { try { return localStorage.getItem(`fw-weight-unit-${me.id}`) === 'kg'; } catch { return false; } })();
+      const useKg = (() => { try { return localStorage.getItem(`bp-weight-unit-${me.id}`) === 'kg'; } catch { return false; } })();
 
       const stats = [];
       stats.push({ l: 'WORKOUTS', v: scopedLogs.length, c: C.cream });

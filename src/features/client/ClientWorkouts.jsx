@@ -24,15 +24,15 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
   // client exactly where they were (their scroll position is restored too).
   // In coach mode we keep it in memory only, so it can't clash with the coach's
   // own client view.
-  const [expandedDate, setExpandedDateRaw] = useState(() => { if (coach) return null; try { return localStorage.getItem('fw-client-open') || null; } catch { return null; } });
-  const setExpandedDate = (v) => { setExpandedDateRaw(v); if (coach) return; try { if (v) localStorage.setItem('fw-client-open', v); else localStorage.removeItem('fw-client-open'); } catch { /* ignore */ } };
+  const [expandedDate, setExpandedDateRaw] = useState(() => { if (coach) return null; try { return localStorage.getItem('bp-client-open') || null; } catch { return null; } });
+  const setExpandedDate = (v) => { setExpandedDateRaw(v); if (coach) return; try { if (v) localStorage.setItem('bp-client-open', v); else localStorage.removeItem('bp-client-open'); } catch { /* ignore */ } };
   // El calendario abre siempre en el mes de hoy. Antes recordaba el ultimo mes
   // visitado entre cierres de la app, y quien habia ido a ver octubre se
   // encontraba octubre una semana despues en vez de su semana. PREV/NEXT siguen
   // funcionando mientras la pantalla esta abierta; solo no se guardan.
   const [viewMonth, setViewMonth] = useState(() => { const [y, m] = today.split('-').map(Number); return { year: y, month: m }; });
   // La llave vieja se limpia una vez para no dejar basura en el telefono.
-  useEffect(() => { try { localStorage.removeItem('fw-client-month'); } catch { /* ignore */ } }, []);
+  useEffect(() => { try { localStorage.removeItem('bp-client-month'); } catch { /* ignore */ } }, []);
   const shiftMonth = (delta) => setViewMonth(({ year, month }) => { let m = month + delta, y = year; while (m < 1) { m += 12; y--; } while (m > 12) { m -= 12; y++; } return { year: y, month: m }; });
 
   if (!me) return null;

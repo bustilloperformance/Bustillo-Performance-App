@@ -462,9 +462,9 @@ function GoalFormModal({ goal, data, onSave, onClose }) {
     <Modal title={editing ? 'Edit Goal' : 'Add Goal'} eyebrow={`PROGRESS · ${editing ? 'EDIT' : 'NEW'} GOAL`} onClose={onClose} size="md">
       <div className="space-y-3">
         <Field label="METRIC">
-          <input value={form.metric} onChange={(e) => setForm({ ...form, metric: e.target.value })} list="fw-goal-metrics"
+          <input value={form.metric} onChange={(e) => setForm({ ...form, metric: e.target.value })} list="bp-goal-metrics"
             placeholder="e.g. Bench Press, Body Fat %, Weight" className={inputClass} style={inputStyle} />
-          <datalist id="fw-goal-metrics">{suggestions.map((s) => <option key={s} value={s} />)}</datalist>
+          <datalist id="bp-goal-metrics">{suggestions.map((s) => <option key={s} value={s} />)}</datalist>
           {/* Says up front whether this name will track, so nobody saves a goal
               expecting a bar and later wonders why it never fills. */}
           {form.metric.trim() && (

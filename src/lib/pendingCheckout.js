@@ -19,7 +19,7 @@
 //  sesión solo cobra cuando se completa — y la anterior se queda sin usar
 //  hasta que expira sola.
 // ============================================================
-const CLAVE = 'fw-checkout-abierto';
+const CLAVE = 'bp-checkout-abierto';
 // Más que suficiente para leer los Términos y volver; corto para que un intento
 // olvidado no reaparezca en la siguiente sesión del día.
 const VIGENCIA_MS = 30 * 60 * 1000;

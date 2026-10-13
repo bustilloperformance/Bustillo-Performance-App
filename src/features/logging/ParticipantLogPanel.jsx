@@ -80,7 +80,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
   });
   const lmFor = (exId) => logMetricsByEx[exId] || ['weight', 'reps'];
   // Member's remembered weight unit (lb | kg). BW is per-exercise, never the default.
-  const unitPref = (() => { try { return localStorage.getItem(`fw-weight-unit-${member.id}`) || 'lb'; } catch { return 'lb'; } })();
+  const unitPref = (() => { try { return localStorage.getItem(`bp-weight-unit-${member.id}`) || 'lb'; } catch { return 'lb'; } })();
   // Convert an entered weight between display units (lb <-> kg). BW passes through.
   const convertWeight = (val, from, to) => {
     if (val === '' || val == null || from === to) return val;
@@ -93,7 +93,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
   // Autosave draft — survives closing the app / leaving mid-workout. Keyed to
   // this exact session (member + workout + program week/day or date). Cleared on
   // a successful save; kept otherwise so nothing entered is ever lost.
-  const draftKey = `fw-log-draft-${member.id}-${workout.id}-${programWeek ?? 'x'}-${programDayNumber ?? 'x'}-${date || todayISO()}`;
+  const draftKey = `bp-log-draft-${member.id}-${workout.id}-${programWeek ?? 'x'}-${programDayNumber ?? 'x'}-${date || todayISO()}`;
   const draft = (() => { try { return JSON.parse(localStorage.getItem(draftKey) || 'null'); } catch { return null; } })();
   const [restored] = useState(!!draft);
 
@@ -113,7 +113,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
   const [prWon, setPrWon] = useState(null);
   // Which sections the client collapsed — remembered per workout so reopening
   // (or an app reload) keeps their layout instead of expanding everything again.
-  const collapsedKey = `fw-collapsed-${member.id}-${workout.id}`;
+  const collapsedKey = `bp-collapsed-${member.id}-${workout.id}`;
   const [collapsed, setCollapsed] = useState(() => {
     try { return JSON.parse(localStorage.getItem(collapsedKey) || '{}'); } catch { return {}; }
   });
@@ -122,7 +122,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
     try { localStorage.setItem(collapsedKey, JSON.stringify(collapsed)); } catch { /* ignore */ }
   }, [collapsed, collapsedKey]);
   // Same idea, one level down: collapse individual circuits (keyed section+letter).
-  const collapsedCircKey = `fw-collapsed-circ-${member.id}-${workout.id}`;
+  const collapsedCircKey = `bp-collapsed-circ-${member.id}-${workout.id}`;
   const [collapsedCirc, setCollapsedCirc] = useState(() => {
     try { return JSON.parse(localStorage.getItem(collapsedCircKey) || '{}'); } catch { return {}; }
   });
@@ -182,7 +182,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
   // Which exercises are open. All trackable ones open by default so the client
   // immediately sees the inputs/demo; remembered per workout so collapsing one
   // and reopening (or an app reload) keeps it collapsed.
-  const expandedKey = `fw-expanded-${member.id}-${workout.id}`;
+  const expandedKey = `bp-expanded-${member.id}-${workout.id}`;
   const [expanded, setExpanded] = useState(() => {
     try { const saved = localStorage.getItem(expandedKey); if (saved) return JSON.parse(saved); } catch { /* ignore */ }
     return itemsWithKey.filter((it) => !it._isText && it.trackable !== false && it.section !== 'HIIT').map((it) => it._key);
@@ -197,7 +197,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
     const from = wUnitFor(exId);
     if (from === to) return;
     setWUnit((m) => ({ ...m, [exId]: to }));
-    if (to !== 'bw') { try { localStorage.setItem(`fw-weight-unit-${member.id}`, to); } catch { /* ignore */ } }
+    if (to !== 'bw') { try { localStorage.setItem(`bp-weight-unit-${member.id}`, to); } catch { /* ignore */ } }
     if (from !== 'bw' && to !== 'bw') {
       setSets((arr) => arr.map((s) => (s.exerciseId === exId ? { ...s, weight: convertWeight(s.weight, from, to) } : s)));
     }

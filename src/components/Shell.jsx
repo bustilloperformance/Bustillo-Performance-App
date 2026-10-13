@@ -133,8 +133,8 @@ export default function Shell({ profile, onSignOut }) {
   // The app is a single URL, so the current screen lives in state. Persist it to
   // localStorage (not sessionStorage — that's wiped when the app is closed) so
   // reopening the app, or a silent auto-update reload, returns to the same screen.
-  const VIEW_KEY = 'fw-view';
-  const CLIENTMODE_KEY = 'fw-view-as-client';
+  const VIEW_KEY = 'bp-view';
+  const CLIENTMODE_KEY = 'bp-view-as-client';
   const [viewAsClient, setViewAsClient] = useState(() => {
     try { return canViewAsClient && localStorage.getItem(CLIENTMODE_KEY) === 'true'; } catch { return false; }
   });
@@ -172,10 +172,10 @@ export default function Shell({ profile, onSignOut }) {
   // un lugar que ya no le corresponde.
   const [savedScroll] = useState(() => {
     if (!fueRecargaPorUpdate()) {
-      try { localStorage.removeItem('fw-scroll'); } catch { /* ignorar */ }
+      try { localStorage.removeItem('bp-scroll'); } catch { /* ignorar */ }
       return 0;
     }
-    try { return Number(localStorage.getItem('fw-scroll') || 0); } catch { return 0; }
+    try { return Number(localStorage.getItem('bp-scroll') || 0); } catch { return 0; }
   });
   const scrollRestoredRef = useRef(false);
   const navMountedRef = useRef(false);
@@ -219,7 +219,7 @@ export default function Shell({ profile, onSignOut }) {
     const save = () => {
       if (locked || suppressSaveRef.current) return;
       const y = getScroll();
-      if (y > 0) { try { localStorage.setItem('fw-scroll', String(y)); } catch { /* ignore */ } }
+      if (y > 0) { try { localStorage.setItem('bp-scroll', String(y)); } catch { /* ignore */ } }
     };
     // If a leave event fires we pin <body> so the OS can't reset the scroll.
     const lock = () => {
@@ -237,7 +237,7 @@ export default function Shell({ profile, onSignOut }) {
       window.scrollTo(0, lockedY);
       const m = document.querySelector('main'); if (m) m.scrollTop = lockedY;
     };
-    const savedY = () => { try { return Number(localStorage.getItem('fw-scroll') || 0); } catch { return 0; } };
+    const savedY = () => { try { return Number(localStorage.getItem('bp-scroll') || 0); } catch { return 0; } };
     // A synthetic touch nudges iOS into honoring the scroll — this is what made the
     // auto-restore work WITHOUT the user tapping.
     let simulating = false;

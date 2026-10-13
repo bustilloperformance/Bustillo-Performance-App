@@ -24,7 +24,7 @@ import { marcarRecargaPorUpdate } from './lib/coldStart';
 // tira el checkout en el momento exacto en que la persona iba a pagar.
 function isSafeToReload() {
   try {
-    if (localStorage.getItem('fw-client-open')) return false;
+    if (localStorage.getItem('bp-client-open')) return false;
     if (hayCheckoutAbierto()) return false;
     if (hayEdicionAbierta()) return false; // el coach esta a medio editar un programa o una rutina
     return true;

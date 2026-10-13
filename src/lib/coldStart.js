@@ -14,7 +14,7 @@
 //  misma pestaña y no sobrevive cerrar la app. O sea, dice que sí justo cuando
 //  hubo recarga y que no cuando el arranque es de cero.
 // ============================================================
-const CLAVE = 'fw-recarga-por-update';
+const CLAVE = 'bp-recarga-por-update';
 
 export function marcarRecargaPorUpdate() {
   try { sessionStorage.setItem(CLAVE, '1'); } catch { /* ignorar */ }
