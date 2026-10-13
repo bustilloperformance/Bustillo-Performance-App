@@ -85,7 +85,7 @@ export default function RoleEditor() {
                             const on = role.permissions.includes(p.key);
                             return (
                               <button key={p.key} onClick={() => togglePerm(role, p.key)} className="flex items-center gap-2 px-2.5 py-2 text-left"
-                                style={{ background: on ? C.ink : '#fff', border: `1px solid ${on ? C.gold : C.charcoal + '25'}` }}>
+                                style={{ background: on ? C.gold : C.cream, border: `1px solid ${on ? C.gold : C.charcoal + '25'}` }}>
                                 <div className="w-3.5 h-3.5 flex items-center justify-center flex-shrink-0" style={{ background: on ? C.gold : 'transparent', border: `1px solid ${on ? C.gold : C.charcoal + '40'}` }}>
                                   {on && <span style={{ fontSize: '10px', color: C.ink, lineHeight: 1 }}>✓</span>}
                                 </div>
@@ -130,7 +130,7 @@ function NewRoleModal({ onClose, onCreate }) {
                   const on = perms.includes(p.key);
                   return (
                     <button key={p.key} onClick={() => toggle(p.key)} className="flex items-center gap-2 px-2.5 py-2 text-left"
-                      style={{ background: on ? C.ink : '#fff', border: `1px solid ${on ? C.gold : C.charcoal + '25'}` }}>
+                      style={{ background: on ? C.gold : C.cream, border: `1px solid ${on ? C.gold : C.charcoal + '25'}` }}>
                       <div className="w-3.5 h-3.5 flex items-center justify-center flex-shrink-0" style={{ background: on ? C.gold : 'transparent', border: `1px solid ${on ? C.gold : C.charcoal + '40'}` }}>{on && <span style={{ fontSize: '10px', color: C.ink, lineHeight: 1 }}>✓</span>}</div>
                       <span className="mono" style={{ fontSize: '11px', color: on ? C.gold : C.moss }}>{p.label}</span>
                     </button>

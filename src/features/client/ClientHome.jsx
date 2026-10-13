@@ -137,7 +137,7 @@ export default function ClientHome({ clientMemberId, setView }) {
           <div className="flex gap-1">
             {SCOPES.map(([k, l]) => (
               <button key={k} onClick={() => setScope(k)} className="mono px-2.5 py-1"
-                style={{ fontSize: '11px', letterSpacing: '0.1em', background: scope === k ? C.gold : 'transparent', color: scope === k ? C.ink : C.sand, border: `1px solid ${scope === k ? C.gold : C.moss}` }}>{l}</button>
+                style={{ fontSize: '11px', letterSpacing: '0.1em', background: scope === k ? C.gold : 'transparent', color: scope === k ? C.bone : C.moss, border: `1px solid ${scope === k ? C.gold : C.moss}` }}>{l}</button>
             ))}
           </div>
         </div>

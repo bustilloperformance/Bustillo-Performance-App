@@ -106,7 +106,7 @@ export default function FinanceView({ setView }) {
             <button onClick={() => setPeriod({ ...period, ym: shiftMonth(period.ym, 1) })} className="mono px-3 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.ink, border: `1px solid ${C.charcoal}20` }}>→</button>
           </>
         ) : <div className="ui-strong" style={{ fontSize: '22px' }}>All time</div>}
-        <button onClick={() => setPeriod(period.mode === 'month' ? { mode: 'all' } : { mode: 'month', ym: todayISO().slice(0, 7) })} className="mono px-3 py-1.5 ml-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: period.mode === 'all' ? C.ink : 'transparent', color: period.mode === 'all' ? C.gold : C.moss, border: `1px solid ${C.charcoal}30` }}>{period.mode === 'all' ? '◉ ALL TIME' : 'ALL TIME'}</button>
+        <button onClick={() => setPeriod(period.mode === 'month' ? { mode: 'all' } : { mode: 'month', ym: todayISO().slice(0, 7) })} className="mono px-3 py-1.5 ml-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: period.mode === 'all' ? C.gold : 'transparent', color: period.mode === 'all' ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>{period.mode === 'all' ? '◉ ALL TIME' : 'ALL TIME'}</button>
       </div>
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-3">
@@ -248,7 +248,7 @@ export default function FinanceView({ setView }) {
                 <div className="flex gap-1">
                   {[{ id: 'bank', label: 'BANK' }, { id: 'cash', label: 'CASH' }].map((a) => (
                     <button key={a.id} type="button" onClick={() => setExpForm({ ...expForm, paidFrom: a.id })} className="mono flex-1 py-2"
-                      style={{ fontSize: '11px', letterSpacing: '0.1em', background: expForm.paidFrom === a.id ? C.ink : '#fff', color: expForm.paidFrom === a.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}30` }}>{a.label}</button>
+                      style={{ fontSize: '11px', letterSpacing: '0.1em', background: expForm.paidFrom === a.id ? C.gold : C.cream, color: expForm.paidFrom === a.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>{a.label}</button>
                   ))}
                 </div>
               </Field>
@@ -369,7 +369,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
             {incomeCats.map((src) => {
               const on = form.appliesTo.includes(src);
               return (
-                <button key={src} type="button" onClick={() => toggleSource(src)} className="mono px-2.5 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.05em', background: on ? C.forest : '#fff', color: on ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>
+                <button key={src} type="button" onClick={() => toggleSource(src)} className="mono px-2.5 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.05em', background: on ? C.forest : C.cream, color: on ? C.ink : C.moss, border: `1px solid ${C.charcoal}30` }}>
                   {(TYPE_LABEL[src] || src).toUpperCase()}
                 </button>
               );
@@ -394,7 +394,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
                   <div className="ui-strong truncate" style={{ fontSize: '17px' }}>{t.name} · {t.rate}%</div>
                   <div className="mono" style={{ fontSize: '11px', color: C.moss }}>{(t.appliesTo || []).map((s) => (TYPE_LABEL[s] || s)).join(', ') || 'no sources'} · from {t.effectiveFrom}</div>
                 </div>
-                <button onClick={() => flip(t)} className="mono px-2 py-1" style={{ fontSize: '10px', letterSpacing: '0.1em', background: t.enabled ? C.forest : C.sand, color: t.enabled ? C.bone : C.ink }}>{t.enabled ? 'ON' : 'OFF'}</button>
+                <button onClick={() => flip(t)} className="mono px-2 py-1" style={{ fontSize: '10px', letterSpacing: '0.1em', background: t.enabled ? C.forest : C.sand, color: t.enabled ? C.ink : C.bone }}>{t.enabled ? 'ON' : 'OFF'}</button>
                 <button onClick={() => edit(t)} className="p-1" style={{ background: C.cream }}><Edit2 size={11} /></button>
                 <button onClick={() => del(t.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button>
               </div>

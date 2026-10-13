@@ -234,7 +234,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
             {selMetrics.length > 1 && (
               <div className="flex flex-wrap gap-1 mb-3">
                 {selMetrics.map((m) => (
-                  <button key={m} onClick={() => setGraphMetric(m)} className="mono px-3 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, background: graphMetric === m ? C.ink : '#fff', color: graphMetric === m ? C.gold : C.moss, border: `1px solid ${graphMetric === m ? C.gold : C.charcoal + '30'}` }}>
+                  <button key={m} onClick={() => setGraphMetric(m)} className="mono px-3 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, background: graphMetric === m ? C.gold : C.cream, color: graphMetric === m ? C.bone : C.moss, border: `1px solid ${graphMetric === m ? C.gold : C.charcoal + '30'}` }}>
                     {LOG_METRIC_LABEL[m]}{metricUnit(m) ? ` (${unitLabel(metricUnit(m))})` : ''}
                   </button>
                 ))}

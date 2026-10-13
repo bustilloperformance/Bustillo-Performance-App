@@ -73,7 +73,7 @@ export default function MembershipsView() {
           { id: 'all', label: 'ALL' },
         ].map((f) => (
           <button key={f.id} onClick={() => setFilter(f.id)} className="mono px-3 py-2"
-            style={{ fontSize: '11px', letterSpacing: '0.1em', background: filter === f.id ? C.ink : C.cream, color: filter === f.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+            style={{ fontSize: '11px', letterSpacing: '0.1em', background: filter === f.id ? C.gold : C.cream, color: filter === f.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
             {f.label} <span style={{ opacity: 0.6 }}>({f.id === 'all' ? all.length : counts(f.id)})</span>
           </button>
         ))}

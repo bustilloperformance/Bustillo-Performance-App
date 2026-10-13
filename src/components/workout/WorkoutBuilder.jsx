@@ -327,7 +327,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                               <div className="flex gap-1">
                                 <input value={it.target === 'AMAP' ? '' : it.target} disabled={it.target === 'AMAP'} placeholder={it.target === 'AMAP' ? 'AMAP' : ''} onChange={(e) => updateItem(idx, { target: e.target.value })} className="w-full min-w-0 px-2 py-1 text-sm" style={inputStyle} />
                                 <button type="button" onClick={() => updateItem(idx, { target: it.target === 'AMAP' ? '' : 'AMAP' })} title="AMAP — as many as possible"
-                                  className="mono px-1.5 flex-shrink-0" style={{ fontSize: '10px', letterSpacing: '0.05em', background: it.target === 'AMAP' ? C.gold : C.bone, color: it.target === 'AMAP' ? C.ink : C.moss, border: `1px solid ${C.charcoal}30` }}>AMAP</button>
+                                  className="mono px-1.5 flex-shrink-0" style={{ fontSize: '10px', letterSpacing: '0.05em', background: it.target === 'AMAP' ? C.gold : C.bone, color: it.target === 'AMAP' ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>AMAP</button>
                               </div>
                             </div>
                             <div className="col-span-6 md:col-span-2 grid grid-cols-2 gap-1">

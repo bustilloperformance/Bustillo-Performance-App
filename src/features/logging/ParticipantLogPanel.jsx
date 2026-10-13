@@ -352,7 +352,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
         <div className="mb-3" style={{ fontSize: '15px', color: C.ink }}>How recovered &amp; prepared did you feel going in?</div>
         <div className="flex gap-1.5">
           {[1, 2, 3, 4, 5].map((n) => (
-            <button key={n} onClick={() => setReadiness(n)} className="flex-1 py-3 text-center" style={{ background: readiness === n ? C.ink : '#fff', border: `1px solid ${readiness === n ? C.gold : C.charcoal + '25'}` }}>
+            <button key={n} onClick={() => setReadiness(n)} className="flex-1 py-3 text-center" style={{ background: readiness === n ? C.gold : C.cream, border: `1px solid ${readiness === n ? C.gold : C.charcoal + '25'}` }}>
               <div className="ui-strong" style={{ fontSize: '26px', lineHeight: 1, color: readiness === n ? C.gold : C.ink }}>{n}</div>
               <div className="mono mt-1" style={{ fontSize: '11px', letterSpacing: '0.05em', color: readiness === n ? C.sand : C.moss }}>{READINESS_LABELS[n].label.toUpperCase()}</div>
             </button>
@@ -454,7 +454,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                           const note = (item.note || '').trim();
                           return (
                             <div key={`${exId}-${itemIdx}`} style={{ borderBottom: itemIdx < c.items.length - 1 ? `1px solid ${C.charcoal}10` : 'none' }}>
-                              <button onClick={() => isTrackable && toggle(item._key)} disabled={!isTrackable} className="w-full flex items-center gap-2 p-2.5 text-left" style={{ cursor: isTrackable ? 'pointer' : 'default', background: isExpanded ? '#fff' : 'transparent' }}>
+                              <button onClick={() => isTrackable && toggle(item._key)} disabled={!isTrackable} className="w-full flex items-center gap-2 p-2.5 text-left" style={{ cursor: isTrackable ? 'pointer' : 'default', background: isExpanded ? C.charcoal + '12' : 'transparent' }}>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center gap-2 flex-wrap">
                                     <div className="prog-name" style={{ fontSize: '23px', color: C.ink }}>{ex.name}</div>
@@ -521,7 +521,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                             <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>WEIGHT IN</span>
                                             {['lb', 'kg', 'bw'].map((u) => (
                                               <button key={u} type="button" onClick={() => setExUnit(exId, u)} className="mono px-2.5 py-1"
-                                                style={{ fontSize: '12px', letterSpacing: '0.1em', fontWeight: 700, background: wu === u ? C.ink : '#fff', color: wu === u ? C.gold : C.moss, border: `1px solid ${wu === u ? C.gold : C.charcoal + '25'}` }}>
+                                                style={{ fontSize: '12px', letterSpacing: '0.1em', fontWeight: 700, background: wu === u ? C.gold : C.cream, color: wu === u ? C.bone : C.moss, border: `1px solid ${wu === u ? C.gold : C.charcoal + '25'}` }}>
                                                 {u.toUpperCase()}
                                               </button>
                                             ))}

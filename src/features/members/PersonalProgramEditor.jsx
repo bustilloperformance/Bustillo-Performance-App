@@ -308,10 +308,10 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
                 const done = isDone(slot, date);
                 const missed = slot && !done && date < today;
                 return (
-                  <div key={date} className="relative" style={{ background: !inMonth ? C.bone + '80' : (done ? C.forest : (isToday ? C.ink : '#fff')), color: (isToday || done) ? C.bone : C.ink, minHeight: '80px', outline: isToday ? `2px solid ${C.gold}` : 'none', outlineOffset: '-2px', opacity: inMonth ? 1 : 0.45 }}>
+                  <div key={date} className="relative" style={{ background: !inMonth ? C.bone + '80' : (done ? C.forest : C.cream), color: C.ink, minHeight: '80px', outline: isToday ? `2px solid ${C.gold}` : 'none', outlineOffset: '-2px', opacity: inMonth ? 1 : 0.45 }}>
                     <button onClick={() => inMonth && setPopoverDate(isOpen ? null : date)} disabled={!inMonth} className="w-full h-full text-left p-2" style={{ cursor: inMonth ? 'pointer' : 'default' }}>
                       <div className="flex items-center justify-between mb-1">
-                        <span className="mono" style={{ fontSize: isToday ? '14px' : '11px', letterSpacing: '0.1em', color: isToday ? C.gold : (done ? C.bone : (inMonth ? C.ink : C.moss)), fontWeight: isToday ? 700 : 500 }}>{Number(date.split('-')[2])}</span>
+                        <span className="mono" style={{ fontSize: isToday ? '14px' : '11px', letterSpacing: '0.1em', color: isToday ? C.gold : (inMonth ? C.ink : C.moss), fontWeight: isToday ? 700 : 500 }}>{Number(date.split('-')[2])}</span>
                         {done ? <span className="mono" style={{ fontSize: '12px', color: C.gold, fontWeight: 700 }}>✓</span>
                           : missed ? <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold, fontWeight: 700 }}>MISSED</span>
                           : isToday ? <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold }}>NOW</span> : null}
@@ -363,7 +363,7 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
 
 function SourceButton({ active, onClick, title, sub }) {
   return (
-    <button onClick={onClick} className="w-full text-left p-2.5" style={{ background: active ? C.ink : C.bone, color: active ? C.bone : C.ink, border: `1px solid ${active ? C.gold : C.charcoal + '20'}` }}>
+    <button onClick={onClick} className="w-full text-left p-2.5" style={{ background: active ? C.gold : C.bone, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '20'}` }}>
       <div className="ui-strong" style={{ fontSize: '16px' }}>{title}</div>
       <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', opacity: 0.7 }}>{sub}</div>
     </button>

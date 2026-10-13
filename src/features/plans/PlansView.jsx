@@ -189,7 +189,7 @@ export default function PlansView() {
                   ? { ...f, recurrence: 'one-time', billingCycles: '' }
                   : { ...f, recurrence: 'monthly', billingCycles: '' }))}
                   className="px-3 py-2.5 text-left"
-                  style={{ background: (id === 'once') === pagoUnico ? C.ink : '#fff', border: `1px solid ${(id === 'once') === pagoUnico ? C.gold : `${C.charcoal}30`}` }}>
+                  style={{ background: (id === 'once') === pagoUnico ? C.gold : C.cream, border: `1px solid ${(id === 'once') === pagoUnico ? C.gold : `${C.charcoal}30`}` }}>
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, color: (id === 'once') === pagoUnico ? C.gold : C.moss }}>{label}</div>
                   <div style={{ fontSize: '12px', marginTop: 2, lineHeight: 1.35, color: (id === 'once') === pagoUnico ? C.sand : C.moss }}>{eg}</div>
                 </button>
@@ -209,7 +209,7 @@ export default function PlansView() {
                       <button key={id} type="button" onClick={() => setForm((f) => (id === 'block'
                         ? { ...f, recurrence: 'custom', billingCycles: '1', intervalUnit: f.intervalUnit || 'week', intervalCount: f.intervalCount || '12' }
                         : { ...f, recurrence: id, billingCycles: '' }))}
-                        className="mono px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: activo ? C.ink : '#fff', color: activo ? C.gold : C.moss, border: `1px solid ${activo ? C.gold : `${C.charcoal}30`}` }}>
+                        className="mono px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: activo ? C.gold : C.cream, color: activo ? C.bone : C.moss, border: `1px solid ${activo ? C.gold : `${C.charcoal}30`}` }}>
                         {label}
                       </button>
                     );
@@ -315,7 +315,7 @@ export default function PlansView() {
               <div className="grid grid-cols-4 gap-1">
                 {['card', 'cash', 'zelle', 'transfer'].map((m) => (
                   <button key={m} onClick={() => togglePM(m)} className="mono py-2"
-                    style={{ fontSize: '11px', letterSpacing: '0.1em', background: form.paymentMethods.includes(m) ? C.ink : '#fff', color: form.paymentMethods.includes(m) ? C.gold : C.moss, border: `1px solid ${C.charcoal}30` }}>
+                    style={{ fontSize: '11px', letterSpacing: '0.1em', background: form.paymentMethods.includes(m) ? C.gold : C.cream, color: form.paymentMethods.includes(m) ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>
                     {m.toUpperCase()}
                   </button>
                 ))}

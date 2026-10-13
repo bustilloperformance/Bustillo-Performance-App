@@ -138,7 +138,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
                             <div className="mono" style={{ fontSize: '13px', letterSpacing: '0.1em', color: C.moss }}>{(workout.focus || '').toUpperCase()}</div>
                           </div>
                           {logged ? <span className="mono px-3 py-1.5" style={{ fontSize: '13px', letterSpacing: '0.1em', background: C.forest, color: C.ink, fontWeight: 600 }}>✓ COMPLETED</span>
-                            : <span className="mono px-3 py-1.5" style={{ fontSize: '13px', letterSpacing: '0.1em', background: isExpanded ? C.ink : C.gold, color: isExpanded ? C.gold : C.ink }}>{isExpanded ? '× CLOSE' : 'TRAIN →'}</span>}
+                            : <span className="mono px-3 py-1.5" style={{ fontSize: '13px', letterSpacing: '0.1em', background: isExpanded ? C.gold : C.gold, color: isExpanded ? C.bone : C.bone }}>{isExpanded ? '× CLOSE' : 'TRAIN →'}</span>}
                         </button>
                         {isExpanded && <div className="p-3" style={{ borderTop: `2px solid ${C.gold}` }}><ParticipantLogPanel coach={coach} workout={workout} member={me} existingLog={logged} programWeek={s.week} programDayNumber={s.dayNumber} onDone={() => setExpandedDate(null)} /></div>}
                       </div>
@@ -162,7 +162,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
           return (
             <div>
               <button onClick={() => setExpandedDate(null)} className="mono mb-3 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>← BACK TO CALENDAR</button>
-              <div className="p-3 mb-2 flex items-center justify-between gap-2" style={{ background: openDay.date === today ? C.ink : C.cream, color: openDay.date === today ? C.bone : C.ink, border: `1px solid ${C.charcoal}20` }}>
+              <div className="p-3 mb-2 flex items-center justify-between gap-2" style={{ background: openDay.date === today ? C.gold : C.cream, color: openDay.date === today ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
                 <div className="min-w-0">
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: openDay.date === today ? C.gold : C.moss }}>{niceDate(openDay.date)}{openDay.date === today ? ' · TODAY' : ''}</div>
                   <div className="prog-name leading-tight" style={{ fontSize: '24px', color: openDay.date === today ? C.cream : C.ink }}>{openDay.workout.name}</div>
@@ -216,11 +216,11 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
                 const done = pd?.logged;
                 const missed = pd && !done && date < today;
                 return (
-                  <div key={date} className="cal-cell relative" style={{ background: !inMonth ? C.bone + '80' : (done ? C.forest : (isToday ? C.ink : '#fff')), color: (isToday || done) ? C.bone : C.ink, outline: isToday ? `2px solid ${C.gold}` : 'none', outlineOffset: '-2px', opacity: inMonth ? 1 : 0.4 }}>
+                  <div key={date} className="cal-cell relative" style={{ background: !inMonth ? C.bone + '80' : (done ? C.forest : C.cream), color: C.ink, outline: isToday ? `2px solid ${C.gold}` : 'none', outlineOffset: '-2px', opacity: inMonth ? 1 : 0.4 }}>
                     <button onClick={() => inMonth && pd && setExpandedDate(`p-${date}`)} disabled={!inMonth || !pd} className="w-full h-full text-left p-1 md:p-1.5" style={{ cursor: (inMonth && pd) ? 'pointer' : 'default', minHeight: 'inherit' }}>
                       <div className="flex items-center justify-between gap-0.5">
-                        <span className="mono" style={{ fontSize: isToday ? '13px' : '11px', color: isToday ? C.gold : (done ? C.bone : (inMonth ? C.ink : C.moss)), fontWeight: isToday ? 700 : 500 }}>{Number(date.split('-')[2])}</span>
-                        {done ? <span style={{ fontSize: '11px', color: C.gold, fontWeight: 700 }}>✓</span>
+                        <span className="mono" style={{ fontSize: isToday ? '13px' : '11px', color: isToday ? C.gold : (inMonth ? C.ink : C.moss), fontWeight: isToday ? 700 : 500 }}>{Number(date.split('-')[2])}</span>
+                        {done ? <span style={{ fontSize: '11px', color: C.ink, fontWeight: 700 }}>✓</span>
                           : missed ? <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold, fontWeight: 700 }}>!</span>
                           : isToday ? <span className="mono" style={{ fontSize: '9px', letterSpacing: '0.1em', color: C.gold }}>NOW</span> : null}
                       </div>
@@ -230,8 +230,8 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
                               Oswald es condensada, así que en ~42 px útiles entran
                               unos 10 caracteres por renglón — suficiente para
                               "Day 2" o "Bloque 1 Día 1 · S1". */}
-                          <div className="md:hidden prog-name" style={{ fontSize: '9px', lineHeight: 1.15, marginTop: 2, color: (isToday || done) ? C.cream : C.ink, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', wordBreak: 'break-word' }}>{etiquetaCalendario(pd.workout)}</div>
-                          <div className="hidden md:block prog-name" style={{ fontSize: '10px', lineHeight: 1.1, marginTop: 2, color: (isToday || done) ? C.cream : C.ink }}>{pd.workout.name}</div>
+                          <div className="md:hidden prog-name" style={{ fontSize: '9px', lineHeight: 1.15, marginTop: 2, color: C.ink, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', wordBreak: 'break-word' }}>{etiquetaCalendario(pd.workout)}</div>
+                          <div className="hidden md:block prog-name" style={{ fontSize: '10px', lineHeight: 1.1, marginTop: 2, color: C.ink }}>{pd.workout.name}</div>
                         </>
                       )}
                     </button>

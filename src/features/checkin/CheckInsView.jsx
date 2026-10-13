@@ -130,7 +130,7 @@ export default function CheckInsView() {
 
 function Stat({ value, label, gold }) {
   return (
-    <div className="p-4" style={{ background: gold ? C.gold : C.ink, color: gold ? C.ink : C.bone }}>
+    <div className="p-4" style={{ background: gold ? C.gold : C.cream, color: gold ? C.bone : C.moss }}>
       <div className="stat-num" style={{ fontSize: 'clamp(28px,5vw,40px)' }}>{value}</div>
       <div className="mono mt-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 600, color: gold ? C.ink : C.sand }}>{label}</div>
     </div>

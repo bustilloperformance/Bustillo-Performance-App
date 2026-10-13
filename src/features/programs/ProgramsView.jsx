@@ -89,7 +89,7 @@ export default function ProgramsView() {
           const count = f.id === 'all' ? data.programs.length : data.programs.filter((p) => (p.mode || 'in-person') === f.id).length;
           return (
             <button key={f.id} onClick={() => setFilter(f.id)} className="mono px-3 py-2 flex items-center gap-1.5"
-              style={{ fontSize: '11px', letterSpacing: '0.1em', background: filter === f.id ? C.ink : C.cream, color: filter === f.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+              style={{ fontSize: '11px', letterSpacing: '0.1em', background: filter === f.id ? C.gold : C.cream, color: filter === f.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
               {Ic && <Ic size={12} />}{f.label} <span style={{ opacity: 0.6 }}>({count})</span>
             </button>
           );
@@ -106,9 +106,9 @@ export default function ProgramsView() {
             const mode = p.mode || 'in-person';
             const isOnline = mode === 'online';
             return (
-              <div key={p.id} className="p-6 group relative" style={{ background: isOnline ? C.ink : C.cream, color: isOnline ? C.bone : C.ink, border: `1px solid ${C.charcoal}20` }}>
+              <div key={p.id} className="p-6 group relative" style={{ background: isOnline ? C.gold : C.cream, color: isOnline ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
                 <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition">
-                  <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: isOnline ? C.forest : C.bone, color: isOnline ? C.bone : C.ink }}><Edit2 size={11} /></button>
+                  <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: isOnline ? C.forest : C.bone, color: isOnline ? C.ink : C.moss }}><Edit2 size={11} /></button>
                   <button onClick={() => remove(p.id)} className="p-1.5" style={{ background: C.gold, color: C.bone }}><Trash2 size={11} /></button>
                 </div>
                 <div className="flex items-center gap-1.5 mb-2 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>
@@ -145,7 +145,7 @@ export default function ProgramsView() {
                 const active = form.mode === m.id;
                 return (
                   <button key={m.id} onClick={() => setForm({ ...form, mode: m.id, schedule: [] })} className="p-3 text-left flex items-start gap-3"
-                    style={{ background: active ? C.ink : '#fff', color: active ? C.bone : C.ink, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
+                    style={{ background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
                     <Ic size={20} style={{ color: active ? C.gold : C.moss, marginTop: '2px' }} />
                     <div>
                       <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>{m.label}</div>
@@ -178,7 +178,7 @@ export default function ProgramsView() {
                     const active = (form.pricingType || 'one-time') === opt.id;
                     return (
                       <button key={opt.id} type="button" onClick={() => setForm({ ...form, pricingType: opt.id })} className="flex-1 p-2 text-left"
-                        style={{ background: active ? C.ink : '#fff', color: active ? C.bone : C.ink, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
+                        style={{ background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: active ? C.gold : C.moss }}>{opt.label}</div>
                         <div className="help mt-1" style={{ fontSize: '12px', color: active ? C.sand : C.moss }}>— {opt.desc}</div>
                       </button>

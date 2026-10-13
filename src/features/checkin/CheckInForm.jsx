@@ -87,7 +87,7 @@ export default function CheckInForm({ memberId, weekStart, existing, onClose }) 
                     const on = val === o;
                     return (
                       <button key={o} onClick={() => set(q.id, o)} className="w-full text-left px-3 py-2.5"
-                        style={{ background: on ? C.ink : '#fff', color: on ? C.gold : C.ink,
+                        style={{ background: on ? C.gold : C.cream, color: on ? C.bone : C.moss,
                           border: `1px solid ${on ? C.ink : (bad ? C.gold : `${C.charcoal}25`)}`, fontSize: '15px' }}>
                         {o}
                       </button>
@@ -105,7 +105,7 @@ export default function CheckInForm({ memberId, weekStart, existing, onClose }) 
                       const on = Number(val) === n;
                       return (
                         <button key={n} onClick={() => set(q.id, String(n))} className="mono flex-1 py-2.5"
-                          style={{ background: on ? C.gold : '#fff', color: on ? C.ink : C.moss,
+                          style={{ background: on ? C.gold : C.cream, color: on ? C.bone : C.moss,
                             border: `1px solid ${on ? C.gold : (bad ? C.gold : `${C.charcoal}25`)}`,
                             fontSize: '14px', fontWeight: on ? 700 : 400 }}>
                           {n}

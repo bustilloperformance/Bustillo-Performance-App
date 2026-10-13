@@ -108,7 +108,7 @@ export default function ExerciseLibrary() {
           const count = s === 'all' ? data.exercises.length : data.exercises.filter((e) => (e.sections || ['Strength']).includes(s)).length;
           return (
             <button key={s} onClick={() => setSectionFilter(s)} className="mono px-3 py-1.5"
-              style={{ fontSize: '11px', letterSpacing: '0.1em', background: sectionFilter === s ? C.gold : C.cream, color: sectionFilter === s ? C.ink : C.moss, border: `1px solid ${C.charcoal}20` }}>
+              style={{ fontSize: '11px', letterSpacing: '0.1em', background: sectionFilter === s ? C.gold : C.cream, color: sectionFilter === s ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
               {s === 'all' ? 'ALL' : s.toUpperCase()}<span style={{ marginLeft: '6px', opacity: 0.6, fontSize: '9px' }}>{count}</span>
             </button>
           );
@@ -123,14 +123,14 @@ export default function ExerciseLibrary() {
         {/* Missing demos — the fastest way to see what still needs filming. */}
         <button onClick={() => setNoDemoOnly((v) => !v)} className="mono px-3 py-2 flex items-center gap-1.5 flex-shrink-0"
           title={noDemoOnly ? 'Show every exercise' : 'Show only exercises with no video demo'}
-          style={{ fontSize: '11px', letterSpacing: '0.1em', background: noDemoOnly ? C.gold : C.cream, color: noDemoOnly ? C.ink : C.moss, border: `1px solid ${noDemoOnly ? C.gold : `${C.charcoal}20`}` }}>
+          style={{ fontSize: '11px', letterSpacing: '0.1em', background: noDemoOnly ? C.gold : C.cream, color: noDemoOnly ? C.bone : C.moss, border: `1px solid ${noDemoOnly ? C.gold : `${C.charcoal}20`}` }}>
           <VideoOff size={11} className="flex-shrink-0" /> NO VIDEO
           <span style={{ fontSize: '9px', opacity: 0.65 }}>{missingDemos}</span>
         </button>
         <div className="flex gap-1 flex-wrap">
           {categories.map((c) => (
             <button key={c} onClick={() => setFilter(c)} className="mono px-3 py-2"
-              style={{ fontSize: '11px', letterSpacing: '0.1em', background: activeFilter === c ? C.ink : C.cream, color: activeFilter === c ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+              style={{ fontSize: '11px', letterSpacing: '0.1em', background: activeFilter === c ? C.gold : C.cream, color: activeFilter === c ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
               {c.toUpperCase()}
             </button>
           ))}
@@ -214,7 +214,7 @@ export default function ExerciseLibrary() {
                         if (next.includes('distance') && !units.distance) units.distance = 'yd';
                         Object.keys(units).forEach((k) => { if (!next.includes(k)) delete units[k]; });
                         setForm({ ...form, measures: next, measure: next[0], units });
-                      }} className="mono px-3 py-2 flex-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.ink : '#fff', color: active ? C.gold : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
+                      }} className="mono px-3 py-2 flex-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
                         {m.label}
                       </button>
                     );
@@ -238,7 +238,7 @@ export default function ExerciseLibrary() {
                       if (next.includes('time') && !units.time) units.time = 's';
                       if (next.includes('distance') && !units.distance) units.distance = 'yd';
                       setForm({ ...form, logMetrics: next, units });
-                    }} className="mono px-3 py-2 flex-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.ink : '#fff', color: active ? C.gold : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
+                    }} className="mono px-3 py-2 flex-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
                       {LOG_METRIC_LABEL[mt]}
                     </button>
                   );
@@ -256,7 +256,7 @@ export default function ExerciseLibrary() {
                   <div className="help mb-1.5" style={{ fontSize: '13px', color: C.moss }}>— which metric the progress chart shows first (e.g. a sprint graphs TIME, a carry graphs WEIGHT).</div>
                   <div className="flex flex-wrap gap-1">
                     {eff.map((mt) => (
-                      <button key={mt} type="button" onClick={() => setForm({ ...form, graphMetric: mt })} className="mono px-3 py-2 flex-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: active === mt ? C.ink : '#fff', color: active === mt ? C.gold : C.moss, border: `1px solid ${active === mt ? C.gold : C.charcoal + '30'}` }}>
+                      <button key={mt} type="button" onClick={() => setForm({ ...form, graphMetric: mt })} className="mono px-3 py-2 flex-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: active === mt ? C.gold : C.cream, color: active === mt ? C.bone : C.moss, border: `1px solid ${active === mt ? C.gold : C.charcoal + '30'}` }}>
                         {LOG_METRIC_LABEL[mt]}
                       </button>
                     ))}
@@ -286,7 +286,7 @@ export default function ExerciseLibrary() {
                     {OPCIONES.map(([id, label, eg, patch]) => (
                       <button key={id} type="button" onClick={() => setForm({ ...form, ...patch })}
                         className="px-3 py-2 flex-1 text-left" style={{ minWidth: 132,
-                          background: actual === id ? C.ink : '#fff', border: `1px solid ${actual === id ? C.gold : C.charcoal + '30'}` }}>
+                          background: actual === id ? C.gold : C.cream, border: `1px solid ${actual === id ? C.gold : C.charcoal + '30'}` }}>
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: actual === id ? C.gold : C.moss }}>{label}</div>
                         <div style={{ fontSize: '12px', marginTop: 2, color: actual === id ? C.sand : C.moss }}>{eg}</div>
                       </button>
@@ -306,7 +306,7 @@ export default function ExerciseLibrary() {
                     const active = (form.units?.[mm]) === u.id;
                     return (
                       <button key={u.id} type="button" onClick={() => setForm({ ...form, units: { ...(form.units || {}), [mm]: u.id } })} className="mono px-2 py-1"
-                        style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.ink : '#fff', color: active ? C.gold : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
+                        style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
                         {u.label}
                       </button>
                     );
@@ -318,11 +318,11 @@ export default function ExerciseLibrary() {
             <Field label="EXERCISE TYPE">
               <div className="flex gap-1">
                 <button type="button" onClick={() => setForm({ ...form, isTest: false })} className="mono px-3 py-1.5"
-                  style={{ fontSize: '11px', letterSpacing: '0.1em', background: !form.isTest ? C.ink : '#fff', color: !form.isTest ? C.gold : C.moss, border: `1px solid ${!form.isTest ? C.gold : C.charcoal + '30'}` }}>
+                  style={{ fontSize: '11px', letterSpacing: '0.1em', background: !form.isTest ? C.gold : C.cream, color: !form.isTest ? C.bone : C.moss, border: `1px solid ${!form.isTest ? C.gold : C.charcoal + '30'}` }}>
                   TRAINING EXERCISE
                 </button>
                 <button type="button" onClick={() => setForm({ ...form, isTest: true })} className="mono px-3 py-1.5"
-                  style={{ fontSize: '11px', letterSpacing: '0.1em', background: form.isTest ? C.gold : '#fff', color: form.isTest ? C.ink : C.moss, border: `1px solid ${form.isTest ? C.gold : C.charcoal + '30'}` }}>
+                  style={{ fontSize: '11px', letterSpacing: '0.1em', background: form.isTest ? C.gold : C.cream, color: form.isTest ? C.bone : C.moss, border: `1px solid ${form.isTest ? C.gold : C.charcoal + '30'}` }}>
                   ▲ TEST / BENCHMARK
                 </button>
               </div>
@@ -339,7 +339,7 @@ export default function ExerciseLibrary() {
                         setForm({ ...form, sections: active ? cur.filter((x) => x !== s.id) : [...cur, s.id] });
                       }}
                       className="mono px-2 py-1"
-                      style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.ink : '#fff', color: active ? C.gold : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
+                      style={{ fontSize: '11px', letterSpacing: '0.1em', background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
                       {s.label.toUpperCase()}
                     </button>
                   );

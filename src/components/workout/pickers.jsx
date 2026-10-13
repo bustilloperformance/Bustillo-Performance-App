@@ -101,7 +101,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
           if (open) reset(); else setOpen(true); // closing resets back to the category step
         }}
         className="mono px-2 py-1.5"
-        style={{ fontSize: '11px', letterSpacing: '0.1em', background: dark ? C.gold : (open ? C.ink : C.gold), color: dark ? C.ink : (open ? C.gold : C.ink), whiteSpace: 'nowrap' }}>
+        style={{ fontSize: '11px', letterSpacing: '0.1em', background: dark ? C.gold : (open ? C.cream : C.gold), color: dark ? C.bone : (open ? C.ink : C.bone), whiteSpace: 'nowrap' }}>
         {open ? 'CLOSE' : label}
         {!open && !circuit && !hint && <span style={{ marginLeft: '6px', opacity: 0.7 }}>{section?.toUpperCase()}</span>}
         {!open && hint && <span style={{ marginLeft: '6px', opacity: 0.7 }}>· {section?.toUpperCase()}</span>}
@@ -125,7 +125,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
             <div className="flex gap-1">
               {[['reps', 'REPS'], ['time', 'TIME'], ['distance', 'DIST']].map(([m, l]) => (
                 <button key={m} type="button" onClick={() => setNuevo({ ...nuevo, measure: m, unit: m === 'time' ? 's' : m === 'distance' ? 'yd' : '' })}
-                  className="mono flex-1 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: nuevo.measure === m ? C.ink : '#fff', color: nuevo.measure === m ? C.gold : C.ink, border: `1px solid ${C.charcoal}30` }}>
+                  className="mono flex-1 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: nuevo.measure === m ? C.gold : C.cream, color: nuevo.measure === m ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>
                   {l}
                 </button>
               ))}

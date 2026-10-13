@@ -59,7 +59,7 @@ export default function ReportsView() {
       {/* Period selector */}
       <div className="flex items-center gap-2 mb-6 flex-wrap no-print">
         {[{ id: 'month', label: 'MONTH' }, { id: 'year', label: 'YEAR' }, { id: 'all', label: 'ALL TIME' }].map((p) => (
-          <button key={p.id} onClick={() => setMode(p.id)} className="mono px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: mode === p.id ? C.ink : C.cream, color: mode === p.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>{p.label}</button>
+          <button key={p.id} onClick={() => setMode(p.id)} className="mono px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: mode === p.id ? C.gold : C.cream, color: mode === p.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>{p.label}</button>
         ))}
         {mode === 'month' && (
           <div className="flex items-center gap-2 ml-2">
@@ -195,7 +195,7 @@ function ManageItemsModal({ items, onClose, refresh, showToast }) {
           {items.length === 0 && <div className="ui-strong text-center py-3" style={{ fontSize: '16px', color: C.moss }}>No manual items yet.</div>}
           {items.map((it) => (
             <div key={it.id} className="flex items-center justify-between px-3 py-2" style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
-              <div><span className="mono px-1.5 py-0.5 mr-2" style={{ fontSize: '10px', letterSpacing: '0.1em', background: it.kind === 'asset' ? C.forest : C.gold, color: it.kind === 'asset' ? C.bone : C.ink }}>{it.kind.toUpperCase()}</span><span className="ui-strong" style={{ fontSize: '16px' }}>{it.name}</span></div>
+              <div><span className="mono px-1.5 py-0.5 mr-2" style={{ fontSize: '10px', letterSpacing: '0.1em', background: it.kind === 'asset' ? C.forest : C.gold, color: it.kind === 'asset' ? C.ink : C.bone }}>{it.kind.toUpperCase()}</span><span className="ui-strong" style={{ fontSize: '16px' }}>{it.name}</span></div>
               <div className="flex items-center gap-2"><span className="mono" style={{ fontSize: '14px', fontWeight: 600 }}>${it.amount.toLocaleString()}</span><button onClick={() => del(it.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button></div>
             </div>
           ))}

@@ -181,7 +181,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
             className="w-full text-left p-3.5 flex items-center gap-3"
             style={{ background: custom.courtesy ? C.ink : C.cream, border: `1px solid ${custom.courtesy ? C.gold : `${C.charcoal}25`}` }}>
             <span className="flex items-center justify-center flex-shrink-0"
-              style={{ width: 22, height: 22, background: custom.courtesy ? C.gold : '#fff', border: `1px solid ${custom.courtesy ? C.gold : `${C.charcoal}35`}`, color: C.ink, fontSize: '14px', fontWeight: 700 }}>
+              style={{ width: 22, height: 22, background: custom.courtesy ? C.gold : C.cream, border: `1px solid ${custom.courtesy ? C.gold : `${C.charcoal}35`}`, color: C.ink, fontSize: '14px', fontWeight: 700 }}>
               {custom.courtesy ? '✓' : ''}
             </span>
             <span className="min-w-0">
@@ -227,7 +227,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
                 { id: 'amount', label: '$ OFF' },
               ].map((d) => (
                 <button key={d.id} type="button" onClick={() => setCustom({ ...custom, discountType: d.id })} className="mono py-2"
-                  style={{ fontSize: '11px', letterSpacing: '0.1em', background: custom.discountType === d.id ? C.ink : '#fff', color: custom.discountType === d.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}30` }}>
+                  style={{ fontSize: '11px', letterSpacing: '0.1em', background: custom.discountType === d.id ? C.gold : C.cream, color: custom.discountType === d.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}30` }}>
                   {d.label}
                 </button>
               ))}
@@ -257,7 +257,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
             <div className="grid grid-cols-5 gap-1">
               {[{ id: 'none', label: 'NONE' }, { id: 'cash', label: 'CASH' }, { id: 'zelle', label: 'ZELLE' }, { id: 'transfer', label: 'TRANSFER' }, { id: 'card', label: '💳 CARD' }].map((m) => (
                 <button key={m.id} type="button" onClick={() => setCustom({ ...custom, recordMethod: m.id })} className="mono py-2"
-                  style={{ fontSize: '11px', letterSpacing: '0.08em', background: custom.recordMethod === m.id ? C.ink : '#fff', color: custom.recordMethod === m.id ? C.gold : C.moss, border: `1px solid ${custom.recordMethod === m.id ? C.gold : C.charcoal + '30'}` }}>
+                  style={{ fontSize: '11px', letterSpacing: '0.08em', background: custom.recordMethod === m.id ? C.gold : C.cream, color: custom.recordMethod === m.id ? C.bone : C.moss, border: `1px solid ${custom.recordMethod === m.id ? C.gold : C.charcoal + '30'}` }}>
                   {m.label}
                 </button>
               ))}

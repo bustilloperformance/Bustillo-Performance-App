@@ -158,8 +158,8 @@ export default function ChatView({ memberId, staff = false }) {
               const on = selected?.id === g.id;
               return (
                 <button key={g.id} onClick={() => pick(g)} className="w-full text-left px-4 py-3 flex items-center gap-3"
-                  style={{ background: on ? C.ink : 'transparent', color: on ? C.bone : C.ink, borderBottom: `1px solid ${C.charcoal}10` }}>
-                  <div className="flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36, background: on ? C.gold : C.bone, color: on ? C.ink : C.moss }}><Users size={16} /></div>
+                  style={{ background: on ? C.gold : 'transparent', color: on ? C.bone : C.moss, borderBottom: `1px solid ${C.charcoal}10` }}>
+                  <div className="flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36, background: on ? C.gold : C.bone, color: on ? C.bone : C.moss }}><Users size={16} /></div>
                   <div className="min-w-0 flex-1">
                     <div className="prog-name truncate" style={{ fontSize: '18px', lineHeight: 1.1 }}>{g.name}</div>
                     <div className="mono truncate" style={{ fontSize: '11px', letterSpacing: '0.1em', color: on ? C.sand : C.moss }}>
@@ -206,7 +206,7 @@ export default function ChatView({ memberId, staff = false }) {
                           {!mine ? (sameAuthor ? <div style={{ width: 28 }} /> : <Avatar member={avatarOf(m.authorId)} size={28} bg={C.forest} fg={C.bone} />) : null}
                           <div className="max-w-[78%] group">
                             {!mine && !sameAuthor && <div className="mono mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>{nameOf(m.authorId).toUpperCase()}</div>}
-                            <div className="relative px-3 py-2" style={{ background: mine ? C.ink : '#fff', color: mine ? C.bone : C.ink, border: mine ? 'none' : `1px solid ${C.charcoal}15` }}>
+                            <div className="relative px-3 py-2" style={{ background: mine ? C.gold : C.cream, color: mine ? C.bone : C.moss, border: mine ? 'none' : `1px solid ${C.charcoal}15` }}>
                               {m.imagePath && (
                                 urls[m.imagePath]
                                   ? <a href={urls[m.imagePath]} target="_blank" rel="noreferrer"><img src={urls[m.imagePath]} alt="" className="block mb-1" style={{ maxWidth: '100%', maxHeight: 320, objectFit: 'contain' }} /></a>
@@ -327,7 +327,7 @@ function GroupEditor({ group, members, memberships, plans, createdBy, onClose, o
               const plan = planOf(m);
               return (
                 <button key={m.id} type="button" onClick={() => toggle(m.id)} className="w-full flex items-center gap-3 px-3 py-2 text-left" style={{ background: on ? C.cream : 'transparent', borderBottom: `1px solid ${C.charcoal}10` }}>
-                  <div className="w-4 h-4 flex items-center justify-center flex-shrink-0" style={{ background: on ? C.ink : '#fff', border: `1px solid ${on ? C.gold : C.charcoal + '40'}` }}>{on && <span style={{ color: C.gold, fontSize: 10, fontWeight: 700 }}>✓</span>}</div>
+                  <div className="w-4 h-4 flex items-center justify-center flex-shrink-0" style={{ background: on ? C.gold : C.cream, border: `1px solid ${on ? C.gold : C.charcoal + '40'}` }}>{on && <span style={{ color: C.gold, fontSize: 10, fontWeight: 700 }}>✓</span>}</div>
                   <Avatar member={m} size={28} />
                   <div className="min-w-0 flex-1">
                     <div className="ui-strong truncate" style={{ fontSize: '15px', color: C.ink }}>{m.name}</div>

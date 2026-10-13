@@ -84,7 +84,7 @@ export default function MembersList({ onSelect }) {
           { id: 'inactive', label: 'INACTIVE', count: data.members.length - activeCount },
         ].map((f) => (
           <button key={f.id} onClick={() => setStatusFilter(f.id)} className="mono px-3 py-1.5"
-            style={{ fontSize: '11px', letterSpacing: '0.1em', background: statusFilter === f.id ? C.ink : C.cream, color: statusFilter === f.id ? C.gold : C.moss, border: `1px solid ${statusFilter === f.id ? C.gold : C.charcoal + '20'}` }}>
+            style={{ fontSize: '11px', letterSpacing: '0.1em', background: statusFilter === f.id ? C.gold : C.cream, color: statusFilter === f.id ? C.bone : C.moss, border: `1px solid ${statusFilter === f.id ? C.gold : C.charcoal + '20'}` }}>
             {f.label} <span style={{ opacity: 0.6 }}>({f.count})</span>
           </button>
         ))}
@@ -99,7 +99,7 @@ export default function MembersList({ onSelect }) {
           { id: 'none', label: 'NO LOGIN', count: roleCount('none') },
         ].map((f) => (
           <button key={f.id} onClick={() => setRoleFilter(f.id)} className="mono px-3 py-1.5"
-            style={{ fontSize: '11px', letterSpacing: '0.1em', background: roleFilter === f.id ? C.ink : C.cream, color: roleFilter === f.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+            style={{ fontSize: '11px', letterSpacing: '0.1em', background: roleFilter === f.id ? C.gold : C.cream, color: roleFilter === f.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
             {f.label} <span style={{ opacity: 0.6 }}>({f.count})</span>
           </button>
         ))}
@@ -143,7 +143,7 @@ export default function MembersList({ onSelect }) {
           })();
           const segChip = (
             <span className="mono inline-block px-2 py-0.5 truncate" style={{ fontSize: '11px', letterSpacing: '0.1em', maxWidth: '100%',
-              background: planName ? C.forest : 'transparent', color: planName ? C.bone : C.moss,
+              background: planName ? C.forest : 'transparent', color: planName ? C.ink : C.moss,
               border: planName ? 'none' : `1px solid ${C.charcoal}25` }}>{planName ? planName.toUpperCase() : 'NO PLAN'}</span>
           );
           return (

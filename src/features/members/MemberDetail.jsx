@@ -209,7 +209,7 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
           { id: 'account', label: 'ACCOUNT' },
         ].map((t) => (
           <button key={t.id} onClick={() => setTab(t.id)} className="mono px-4 py-2 flex-shrink-0"
-            style={{ fontSize: '11px', letterSpacing: '0.1em', background: tab === t.id ? C.ink : C.cream, color: tab === t.id ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+            style={{ fontSize: '11px', letterSpacing: '0.1em', background: tab === t.id ? C.gold : C.cream, color: tab === t.id ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
             {t.label}
           </button>
         ))}

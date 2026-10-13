@@ -64,7 +64,7 @@ export default function SearchSelect({ value, onChange, options, placeholder = '
           {filtered.map((o, i) => (
             <button key={o.id} type="button" onMouseEnter={() => setHi(i)} onClick={() => choose(o)}
               className="block w-full text-left px-3 py-2"
-              style={{ fontSize: '14px', background: i === hi ? C.cream : '#fff', color: o.id === value ? C.gold : C.ink, borderBottom: `1px solid ${C.charcoal}10` }}>
+              style={{ fontSize: '14px', background: i === hi ? C.cream : C.cream, color: o.id === value ? C.ink : C.moss, borderBottom: `1px solid ${C.charcoal}10` }}>
               {o.label}
             </button>
           ))}

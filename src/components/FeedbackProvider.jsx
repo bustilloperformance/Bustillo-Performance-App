@@ -70,7 +70,7 @@ function ConfirmDialog({ dialog, onClose }) {
               CANCEL
             </button>
             <button onClick={() => { onConfirm?.(); onClose(); }} className="mono px-5 py-3"
-              style={{ fontSize: '12px', letterSpacing: '0.1em', background: danger ? C.gold : C.ink, color: danger ? C.ink : C.gold }}>
+              style={{ fontSize: '12px', letterSpacing: '0.1em', background: danger ? C.gold : C.cream, color: danger ? C.bone : C.moss }}>
               {confirmLabel}
             </button>
           </div>

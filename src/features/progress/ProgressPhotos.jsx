@@ -128,7 +128,7 @@ export default function ProgressPhotos({ memberId, editable = false }) {
         <div className="flex gap-2">
           {canCompare && (
             <button onClick={() => setCompare((v) => !v)} className="mono px-3 py-1.5 flex items-center gap-1.5"
-              style={{ fontSize: '11px', letterSpacing: '0.1em', background: compare ? C.ink : C.cream, color: compare ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+              style={{ fontSize: '11px', letterSpacing: '0.1em', background: compare ? C.gold : C.cream, color: compare ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
               <GitCompare size={12} /> {compare ? 'GALLERY' : 'BEFORE / AFTER'}
             </button>
           )}
@@ -153,7 +153,7 @@ export default function ProgressPhotos({ memberId, editable = false }) {
           <div className="flex gap-1.5 mb-3">
             {POSES.map((p) => (
               <button key={p} onClick={() => setComparePose(p)} className="mono px-3 py-1"
-                style={{ fontSize: '11px', letterSpacing: '0.1em', background: comparePose === p ? C.ink : C.cream, color: comparePose === p ? C.gold : C.moss, border: `1px solid ${C.charcoal}20` }}>
+                style={{ fontSize: '11px', letterSpacing: '0.1em', background: comparePose === p ? C.gold : C.cream, color: comparePose === p ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
                 {POSE_LABEL[p]}
               </button>
             ))}
