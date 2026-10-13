@@ -87,7 +87,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
       {!personalProgram && onlinePrograms.length === 0 && (
         lapsed ? (
           <div className="p-8 text-center" style={{ background: C.cream, border: `2px solid ${C.gold}` }}>
-            <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>MEMBERSHIP LAPSED</div>
+            <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>MEMBERSHIP LAPSED</div>
             <div className="ui-strong" style={{ fontSize: '24px', color: C.ink }}>Your training is on hold.</div>
             <div className="hand mt-2" style={{ fontSize: '17px', color: C.moss }}>— renueva y tu rutina vuelve justo donde la dejaste. No se borró nada.</div>
             <div className="mono mt-3" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss }}>Your logged sessions and progress are still under Track Progress.</div>

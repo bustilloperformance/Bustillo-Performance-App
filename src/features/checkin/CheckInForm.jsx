@@ -60,7 +60,7 @@ export default function CheckInForm({ memberId, weekStart, existing, onClose }) 
           return (
             <div key={q.id} className="pt-4" style={{ borderTop: `1px solid ${C.charcoal}15` }}>
               <div className="flex items-baseline gap-2 mb-1">
-                <span className="mono flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep, fontWeight: 700 }}>{q.n}</span>
+                <span className="mono flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold, fontWeight: 700 }}>{q.n}</span>
                 {/* Body font, not the brand italic: a form is read under a
                     time pressure the rest of the app doesn't have, and an
                     italic serif costs legibility for character nobody wants
@@ -124,7 +124,7 @@ export default function CheckInForm({ memberId, weekStart, existing, onClose }) 
 
         <div className="pt-4" style={{ borderTop: `1px solid ${C.charcoal}15` }}>
           {touched && missing.length > 0 && (
-            <div className="mono mb-2" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>
+            <div className="mono mb-2" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>
               Falta contestar {missing.length} {missing.length === 1 ? 'pregunta' : 'preguntas'}: {missing.map((m) => m.n).join(', ')}
             </div>
           )}

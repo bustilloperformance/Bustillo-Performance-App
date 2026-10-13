@@ -68,7 +68,7 @@ export default function ImageCropperModal({ src, onCancel, onCropped }) {
   return (
     <Modal title="Position Your Photo" eyebrow="PROFILE · PHOTO" onClose={onCancel} size="sm">
       <div className="space-y-4">
-        <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— drag to move, slide to zoom. Any size photo works.</div>
+        <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— drag to move, slide to zoom. Any size photo works.</div>
         <div
           onPointerDown={onDown} onPointerMove={onMove} onPointerUp={onUp} onPointerCancel={onUp}
           style={{ width: V, height: V, margin: '0 auto', position: 'relative', overflow: 'hidden', borderRadius: '50%', background: C.bone, border: `2px solid ${C.gold}`, touchAction: 'none', cursor: 'grab' }}

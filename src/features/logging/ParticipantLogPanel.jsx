@@ -378,7 +378,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                 <div className="p-2.5 space-y-1.5">
                   {g.circuits.flatMap((c) => c.items).map((it, idx) => (
                     <div key={idx} className="flex items-start gap-2 px-2 py-1.5" style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
-                      <div className="mono pt-0.5" style={{ fontSize: '14px', color: C.goldDeep }}>·</div>
+                      <div className="mono pt-0.5" style={{ fontSize: '14px', color: C.gold }}>·</div>
                       <div className="text-sm" style={{ color: C.ink, fontStyle: 'italic' }}>{it.text || ''}</div>
                     </div>
                   ))}
@@ -408,7 +408,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                             );
                           })}
                         </div>
-                        {c.items.length > 1 && <div className="help px-3 pb-2" style={{ fontSize: '13px', color: C.goldDeep }}>— all exercises each round, back-to-back.</div>}
+                        {c.items.length > 1 && <div className="help px-3 pb-2" style={{ fontSize: '13px', color: C.gold }}>— all exercises each round, back-to-back.</div>}
                       </div>
                     );
                   })}
@@ -422,12 +422,12 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                     <div key={c.letter} style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
                       <button type="button" onClick={() => toggleCircuit(circKey)} className="w-full flex items-center justify-between px-3 py-2 text-left" style={{ background: C.cream, borderBottom: circCollapsed ? 'none' : `1px solid ${C.charcoal}15` }}>
                         <div className="flex items-center gap-2">
-                          <div className="ui-strong" style={{ fontSize: '24px', color: C.goldDeep, lineHeight: 1 }}>{c.letter}</div>
+                          <div className="ui-strong" style={{ fontSize: '24px', color: C.gold, lineHeight: 1 }}>{c.letter}</div>
                           <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss, fontWeight: 600 }}>CIRCUIT · {c.items.length} EX</div>
                         </div>
                         <div className="flex items-center gap-2">
-                          {c.items.length > 1 && !circCollapsed && <span style={{ fontSize: '13px', color: C.goldDeep, fontStyle: 'italic' }}>back-to-back</span>}
-                          <span className="flex items-center justify-center flex-shrink-0" style={{ width: 24, height: 24, borderRadius: '50%', border: `2px solid ${C.gold}`, color: C.goldDeep, fontSize: '16px', lineHeight: 1, fontWeight: 700 }}>{circCollapsed ? '+' : '−'}</span>
+                          {c.items.length > 1 && !circCollapsed && <span style={{ fontSize: '13px', color: C.gold, fontStyle: 'italic' }}>back-to-back</span>}
+                          <span className="flex items-center justify-center flex-shrink-0" style={{ width: 24, height: 24, borderRadius: '50%', border: `2px solid ${C.gold}`, color: C.gold, fontSize: '16px', lineHeight: 1, fontWeight: 700 }}>{circCollapsed ? '+' : '−'}</span>
                         </div>
                       </button>
                       {!circCollapsed && (
@@ -578,7 +578,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                                   );
                                                 })}
                                               </div>
-                                              {showEst ? <div className="mono flex items-center flex-shrink-0" style={{ fontSize: '12px', color: C.goldDeep, fontWeight: 600 }}>≈{estimate1RMFromSet(Number(s.weight), Number(s.reps))}</div> : null}
+                                              {showEst ? <div className="mono flex items-center flex-shrink-0" style={{ fontSize: '12px', color: C.gold, fontWeight: 600 }}>≈{estimate1RMFromSet(Number(s.weight), Number(s.reps))}</div> : null}
                                               {/* El azul toca el dato, no la fila: si se pinta el bloque
                                                   entero deja de señalar y empieza a decorar. */}
                                               {isPR && (

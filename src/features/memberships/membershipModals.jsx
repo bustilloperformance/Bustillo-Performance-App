@@ -50,7 +50,7 @@ export function PauseMembershipModal({ membership, onClose }) {
   return (
     <Modal title={isEditing ? 'Edit Membership Pause' : 'Pause Membership'}
       eyebrow={`${plan?.name?.toUpperCase() || 'MEMBERSHIP'} · ${member.name.toUpperCase()}`} onClose={onClose} size="md">
-      <div className="help mb-4 text-center" style={{ fontSize: '14px', color: C.goldDeep }}>
+      <div className="help mb-4 text-center" style={{ fontSize: '14px', color: C.gold }}>
         — billing pauses for the window. paused days are added back to the renewal date.
       </div>
       <div className="grid grid-cols-2 gap-3 mb-3">
@@ -110,7 +110,7 @@ export function CancelMembershipModal({ membership, plan, onClose }) {
     <Modal title="Cancel Membership" eyebrow="OWNER ACTION" onClose={onClose} size="sm">
       <div className="space-y-3">
         <div className="ui-strong" style={{ fontSize: '20px' }}>
-          Cancel <span style={{ color: C.goldDeep }}>{plan?.name}</span>?
+          Cancel <span style={{ color: C.gold }}>{plan?.name}</span>?
         </div>
         <div className="text-sm" style={{ color: C.charcoal }}>
           {immediate
@@ -145,7 +145,7 @@ export function CancelMembershipModal({ membership, plan, onClose }) {
                 <div className="text-sm" style={{ color: C.ink }}>
                   This plan requires <strong>{info.monthsRequired} months</strong> before cancelling. Eligible from <strong>{info.releaseDate}</strong>.
                 </div>
-                <div className="help mt-2" style={{ fontSize: '15px', color: C.goldDeep }}>— You can override as the owner.</div>
+                <div className="help mt-2" style={{ fontSize: '15px', color: C.gold }}>— You can override as the owner.</div>
               </>
             ) : (
               <div className="text-sm" style={{ color: C.ink }}>Commitment cleared. Cancel is allowed.</div>

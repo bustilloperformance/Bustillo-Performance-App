@@ -40,7 +40,7 @@ export default function ClientAccount({ clientMemberId }) {
       <div className="p-6 mb-4" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
         <div className="flex items-baseline justify-between flex-wrap gap-3">
           <div>
-            <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>— MEMBERSHIP</div>
+            <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>— MEMBERSHIP</div>
             {plan ? (
               <>
                 <div className="prog-name" style={{ fontSize: '32px', color: C.ink }}>{plan.name}</div>
@@ -64,7 +64,7 @@ export default function ClientAccount({ clientMemberId }) {
       {/* Active online programs */}
       {myPrograms.length > 0 && (
         <div className="p-6 mb-4" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-          <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>— ONLINE PROGRAMS</div>
+          <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>— ONLINE PROGRAMS</div>
           {myPrograms.map((mp) => {
             const pg = data.programs.find((p) => p.id === mp.programId);
             return (
@@ -80,7 +80,7 @@ export default function ClientAccount({ clientMemberId }) {
       {/* Security */}
       <div className="p-6 mb-4 flex items-center justify-between flex-wrap gap-3" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
         <div>
-          <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>— SECURITY</div>
+          <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>— SECURITY</div>
           <div className="ui-strong" style={{ fontSize: '20px', color: C.ink }}>Password</div>
           <div className="help mt-1" style={{ fontSize: '13px', color: C.moss }}>— change the password you use to sign in.</div>
         </div>

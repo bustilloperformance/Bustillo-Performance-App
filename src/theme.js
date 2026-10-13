@@ -50,6 +50,27 @@
 // texto. Sobre hueso da 7.94:1: ahi si es texto. Los archivos de logo de la
 // marca ya codifican esto — la version clara pone "PERFORMANCE" en azul, la
 // oscura en oro.
+// ------------------------------------------------------------
+//  TABLA DE CONTRASTE — contra los tres fondos que existen
+// ------------------------------------------------------------
+//                  negro     carbon     hueso
+//                 (pagina)  (tarjetas) (cromo)
+//   ink            16.40     14.47      1.00
+//   moss / sand     6.68      5.89      2.46
+//   gold            8.28      7.31      1.98
+//   goldDeep        3.19      2.82      5.13
+//   mossDeep        3.28      2.89      5.00
+//   forest/navy     2.06      1.82      7.94
+//   cream           1.13      1.00     14.47
+//   bone            1.00      1.13     16.40
+//
+// Se lee asi: sobre la PAGINA y las TARJETAS sirven ink, moss y gold. Sobre
+// el CROMO sirven bone, cream, goldDeep, mossDeep y el azul — y ahi gold y
+// moss son los que desaparecen. Son dos juegos de colores que no se mezclan.
+//
+// Si agregas una pantalla: vive sobre negro o carbon, asi que usa la primera
+// columna. goldDeep y mossDeep NO van ahi: existen solo para la barra lateral.
+
 export const C = {
   // --- Los dos extremos. Se usan siempre uno contra el otro: 16.40:1.
   bone: '#0B0B0C',   // BLACK  — fondo de la pagina. Base y autoridad.

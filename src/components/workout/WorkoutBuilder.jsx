@@ -174,7 +174,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
             maxLength={14} placeholder={etiquetaCorta(form.name) || 'B1 - D1'} className={inputClass} style={inputStyle} />
           <div className="help mt-1" style={{ fontSize: '13px', color: C.moss }}>
             — what the client sees in the calendar.{' '}
-            <span style={{ color: C.goldDeep }}>{form.shortLabel?.trim() ? `Shows "${form.shortLabel.trim()}"` : `Blank shows "${etiquetaCorta(form.name) || '—'}"`}</span>
+            <span style={{ color: C.gold }}>{form.shortLabel?.trim() ? `Shows "${form.shortLabel.trim()}"` : `Blank shows "${etiquetaCorta(form.name) || '—'}"`}</span>
           </div>
         </Field>
       </div>
@@ -183,7 +183,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
         <div className="flex items-center justify-between mb-3 p-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
           <div>
             <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>ADD A SECTION</div>
-            <div className="help" style={{ fontSize: '14px', color: C.goldDeep }}>— prep work, mobility, activation, dynamic warm-up, skill, strength, stretch.</div>
+            <div className="help" style={{ fontSize: '14px', color: C.gold }}>— prep work, mobility, activation, dynamic warm-up, skill, strength, stretch.</div>
           </div>
           <AddSectionDropdown sections={missingSections} onAdd={addEmptySection} />
         </div>
@@ -235,10 +235,10 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                     <div key={c.letter} style={{ background: C.cream, border: `1px solid ${C.charcoal}15` }}>
                       <div className="flex items-center justify-between px-3 py-2" style={{ background: C.cream, borderBottom: `1px solid ${C.charcoal}15` }}>
                         <div className="flex items-center gap-3">
-                          <div className="ui-strong" style={{ fontSize: '24px', color: C.goldDeep, lineHeight: 1 }}>{c.letter}</div>
+                          <div className="ui-strong" style={{ fontSize: '24px', color: C.gold, lineHeight: 1 }}>{c.letter}</div>
                           <div>
                             <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>CIRCUIT · {c.items.length} EXERCISE{c.items.length === 1 ? '' : 'S'}</div>
-                            {c.items.length > 1 && <div className="help" style={{ fontSize: '13px', color: C.goldDeep }}>— performed as a group, back-to-back.</div>}
+                            {c.items.length > 1 && <div className="help" style={{ fontSize: '13px', color: C.gold }}>— performed as a group, back-to-back.</div>}
                           </div>
                         </div>
                         <AddToSectionPicker onCreate={crearEjercicio} section={g.section} circuit={c.letter} label="+ ADD TO CIRCUIT" exercises={data.exercises} onPick={(exId) => addItemToCircuit(exId, g.section, c.letter)} />
@@ -254,7 +254,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                                 <input type="number" min={fld.min} value={p[fld.k]} onChange={(e) => updateCircuit(g.section, c.letter, { [fld.k]: Math.max(fld.min, Number(e.target.value) || 0) })} className="px-2 py-1 text-sm" style={{ ...inputStyle, width: fld.w }} />
                               </div>
                             ))}
-                            <div className="help" style={{ fontSize: '13px', color: C.goldDeep }}>— {p.rounds} rounds · {p.workSec}s work / {p.restSec}s rest{c.items.length > 1 ? ` · ${c.items.length} exercises/round` : ''}</div>
+                            <div className="help" style={{ fontSize: '13px', color: C.gold }}>— {p.rounds} rounds · {p.workSec}s work / {p.restSec}s rest{c.items.length > 1 ? ` · ${c.items.length} exercises/round` : ''}</div>
                           </div>
                         );
                       })()}
@@ -317,7 +317,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                                 const val = ms.includes(it.measure) ? it.measure : ms[0];
                                 return ms.length > 1 ? (
                                   <select value={val} onChange={(e) => updateItem(idx, { measure: e.target.value })} title="Measure for this exercise"
-                                    className="mono block mb-0.5 cursor-pointer" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.goldDeep, background: 'transparent', border: 'none', padding: 0 }}>
+                                    className="mono block mb-0.5 cursor-pointer" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold, background: 'transparent', border: 'none', padding: 0 }}>
                                     {ms.map((m) => <option key={m} value={m}>{targetLabel(m, ex)} ▾</option>)}
                                   </select>
                                 ) : (
@@ -395,7 +395,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
       )}
 
       <div className="mt-4 p-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
-        <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>MOTIVATIONAL MESSAGE · OPTIONAL</div>
+        <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>MOTIVATIONAL MESSAGE · OPTIONAL</div>
         <div className="help mb-2" style={{ fontSize: '14px', color: C.moss }}>— shown to the client at the end of this workout. Leave empty for none.</div>
         <textarea value={form.closingMessage || ''} onChange={(e) => setForm({ ...form, closingMessage: e.target.value })} rows="2" placeholder="e.g. Proud of you. That's how we raise the standard. 💪" className={inputClass} style={inputStyle} />
       </div>

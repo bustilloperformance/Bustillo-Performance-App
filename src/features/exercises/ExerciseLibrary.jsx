@@ -162,7 +162,7 @@ export default function ExerciseLibrary() {
                   <div className="mono mt-0.5 flex items-center gap-1.5 flex-wrap" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>
                     {reg && <span style={{ color: C.gold }}>↓ {reg.name}</span>}
                     {reg && prog && <span style={{ opacity: 0.4 }}>·</span>}
-                    {prog && <span style={{ color: C.goldDeep }}>↑ {prog.name}</span>}
+                    {prog && <span style={{ color: C.gold }}>↑ {prog.name}</span>}
                   </div>
                 )}
                 {/* Mobile meta: category + measure */}
@@ -360,14 +360,14 @@ export default function ExerciseLibrary() {
               </div>
             )}
             {form.videoUrl && !getYouTubeId(form.videoUrl) && (
-              <div className="help p-2" style={{ fontSize: '15px', color: C.goldDeep, background: `${C.gold}15`, border: `1px solid ${C.gold}40` }}>
+              <div className="help p-2" style={{ fontSize: '15px', color: C.gold, background: `${C.gold}15`, border: `1px solid ${C.gold}40` }}>
                 — that doesn't look like a YouTube URL. Use the full youtube.com or youtu.be link.
               </div>
             )}
 
             <div className="p-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
               <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>OPTIONAL · MOVEMENT LADDER</div>
-              <div className="help mb-3" style={{ fontSize: '14px', color: C.goldDeep }}>— link an easier (regression) and harder (progression) version.</div>
+              <div className="help mb-3" style={{ fontSize: '14px', color: C.gold }}>— link an easier (regression) and harder (progression) version.</div>
               <div className="grid grid-cols-2 gap-3">
                 <Field label="REGRESSION (EASIER)">
                   <select value={form.regressionId || ''} onChange={(e) => setForm({ ...form, regressionId: e.target.value })} className={inputClass} style={inputStyle}>
@@ -387,7 +387,7 @@ export default function ExerciseLibrary() {
             {(form.measures || []).includes('reps') && (
               <div className="p-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
                 <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>OPTIONAL · % 1RM SOURCE</div>
-                <div className="help mb-3" style={{ fontSize: '14px', color: C.goldDeep }}>— when a workout prescribes a “% 1RM” for this exercise, base it on this test’s best result. Leave empty to use this exercise’s own history.</div>
+                <div className="help mb-3" style={{ fontSize: '14px', color: C.gold }}>— when a workout prescribes a “% 1RM” for this exercise, base it on this test’s best result. Leave empty to use this exercise’s own history.</div>
                 <Field label="1RM COMES FROM">
                   <SearchSelect
                     value={form.oneRmSourceId || ''}

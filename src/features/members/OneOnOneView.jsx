@@ -116,16 +116,16 @@ export default function OneOnOneView() {
                     <div className="mono mt-1 flex flex-wrap items-center gap-x-3 gap-y-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>
                       <span>{st.days} DAY{st.days === 1 ? '' : 'S'}</span>
                       <span style={{ color: C.gold, fontWeight: 600 }}>✓ {st.done} DONE</span>
-                      {st.missed > 0 && <span style={{ color: C.goldDeep, fontWeight: 600 }}>✕ {st.missed} MISSED</span>}
+                      {st.missed > 0 && <span style={{ color: C.gold, fontWeight: 600 }}>✕ {st.missed} MISSED</span>}
                     </div>
                     <div className="mt-1.5" style={{ fontSize: '14px', color: C.ink }}>
                       {st.next
                         ? <>Next: <strong>{st.next.workout?.name || 'Workout'}</strong> <span className="mono" style={{ fontSize: '12px', color: C.moss }}>· {st.next.date === today ? 'TODAY' : st.next.date}</span></>
-                        : <span className="help" style={{ color: C.goldDeep }}>— nothing scheduled ahead.</span>}
+                        : <span className="help" style={{ color: C.gold }}>— nothing scheduled ahead.</span>}
                     </div>
                   </>
                 ) : (
-                  <div className="help mt-1" style={{ fontSize: '14px', color: C.goldDeep }}>— no program yet. Set one up to start scheduling.</div>
+                  <div className="help mt-1" style={{ fontSize: '14px', color: C.gold }}>— no program yet. Set one up to start scheduling.</div>
                 )}
               </div>
               <div className="flex flex-col gap-2 flex-shrink-0">

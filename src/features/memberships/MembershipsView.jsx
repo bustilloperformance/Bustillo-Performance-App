@@ -124,7 +124,7 @@ export default function MembershipsView() {
               <div className="md:col-span-2 mono mt-1.5 md:mt-0" style={{ fontSize: '11px' }}>
                 {mb.pause ? (
                   <>
-                    <span style={{ color: C.goldDeep }}>❚❚ PAUSED</span>
+                    <span style={{ color: C.gold }}>❚❚ PAUSED</span>
                     <span style={{ fontSize: '9px', color: C.moss }}> {mb.pause.from}{mb.pause.to ? ` → ${mb.pause.to}` : ' →…'}{mb.pause.reason && ` · ${mb.pause.reason}`}</span>
                   </>
                 ) : (mb.status === 'active' && membershipNotStarted(mb)) ? (
@@ -143,7 +143,7 @@ export default function MembershipsView() {
                   <span className="hidden md:inline" style={{ color: C.moss }}>—</span>
                 ) : info.monthsRequired > 0 ? (
                   info.locked
-                    ? <span style={{ color: C.goldDeep }}>{info.monthsElapsed}/{info.monthsRequired} MO · LOCKED</span>
+                    ? <span style={{ color: C.gold }}>{info.monthsElapsed}/{info.monthsRequired} MO · LOCKED</span>
                     : <span style={{ color: C.gold }}>{info.monthsRequired}/{info.monthsRequired} MO · CLEARED</span>
                 ) : <span className="hidden md:inline" style={{ color: C.moss }}>NO LOCK</span>}
               </div>

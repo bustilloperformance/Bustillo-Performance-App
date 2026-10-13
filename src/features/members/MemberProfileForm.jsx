@@ -120,7 +120,7 @@ export default function MemberProfileForm({ member, notesEditable = true }) {
       <div className="p-6" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
         <div className="flex items-baseline justify-between mb-4">
           <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss }}>02 — EMERGENCY CONTACT</div>
-          <div className="help" style={{ fontSize: '15px', color: C.goldDeep }}>— who do we call if something happens.</div>
+          <div className="help" style={{ fontSize: '15px', color: C.gold }}>— who do we call if something happens.</div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <Field label="FULL NAME"><input value={form.emergencyContact.name} onChange={(e) => setEC({ name: e.target.value })} className={inputClass} style={inputStyle} /></Field>
@@ -133,7 +133,7 @@ export default function MemberProfileForm({ member, notesEditable = true }) {
       <div className="p-6" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
         <div className="flex items-baseline justify-between mb-4">
           <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss }}>03 — COACH NOTES</div>
-          {!notesEditable && <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>· READ ONLY</div>}
+          {!notesEditable && <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>· READ ONLY</div>}
         </div>
         {notesEditable ? (
           <Field label="NOTES (PRIVATE)">

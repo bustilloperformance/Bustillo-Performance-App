@@ -50,7 +50,7 @@ export default function CommsView() {
       {data.communications.length === 0 ? (
         <div className="p-10 text-center" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="ui-strong" style={{ fontSize: '22px', color: C.ink }}>No campaigns yet.</div>
-          <div className="help mt-2 mb-4" style={{ fontSize: '16px', color: C.goldDeep }}>— e.g. "Welcome the Standard", "Session reminder", "Win-back inactive".</div>
+          <div className="help mt-2 mb-4" style={{ fontSize: '16px', color: C.gold }}>— e.g. "Welcome the Standard", "Session reminder", "Win-back inactive".</div>
           <div className="flex justify-center"><Btn icon={Plus} onClick={openNew}>NEW CAMPAIGN</Btn></div>
         </div>
       ) : (
@@ -63,7 +63,7 @@ export default function CommsView() {
               </div>
               <div className="flex items-start justify-between mb-3 pr-12">
                 <div>
-                  <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>— {c.channel === 'email' ? 'EMAIL' : 'SMS'} · {c.status.toUpperCase()}</div>
+                  <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>— {c.channel === 'email' ? 'EMAIL' : 'SMS'} · {c.status.toUpperCase()}</div>
                   <div className="ui-strong leading-tight" style={{ fontSize: '24px' }}>{c.name}</div>
                 </div>
                 <button onClick={() => toggle(c)} className="w-12 h-6 relative flex-shrink-0" style={{ background: c.status === 'active' ? C.gold : C.sand }}>

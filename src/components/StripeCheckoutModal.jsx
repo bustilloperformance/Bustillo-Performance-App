@@ -46,7 +46,7 @@ export default function StripeCheckoutModal({ args, title = 'Checkout', onClose 
       <div className="min-h-[200px]">
         {err ? (
           <div className="p-4" style={{ background: `${C.gold}15`, border: `1px solid ${C.gold}` }}>
-            <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>⚠ STRIPE ERROR (REAL CAUSE)</div>
+            <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>⚠ STRIPE ERROR (REAL CAUSE)</div>
             <div className="mono break-words" style={{ fontSize: '13px', color: C.ink }}>{err}</div>
           </div>
         ) : (

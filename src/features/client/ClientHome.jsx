@@ -96,12 +96,12 @@ export default function ClientHome({ clientMemberId, setView }) {
       {/* Kept tight on purpose: the numbers and the routine button have to
           clear the fold on a phone, and a greeting shouldn't eat that space. */}
       <div className="mb-3 md:mb-6">
-        <div className="mono mb-1.5 md:mb-2" style={{ fontSize: '12px', letterSpacing: '0.14em', color: C.goldDeep }}>— WELCOME BACK</div>
+        <div className="mono mb-1.5 md:mb-2" style={{ fontSize: '12px', letterSpacing: '0.14em', color: C.gold }}>— WELCOME BACK</div>
         <div style={{ borderTop: `1px solid ${C.charcoal}30`, paddingTop: '12px' }} className="flex items-center justify-between gap-4">
-          <div className="serif-italic min-w-0" style={{ fontSize: 'clamp(36px,8vw,70px)', color: C.ink }}>{me.name.split(' ')[0]}<span style={{ color: C.goldDeep }}>.</span></div>
+          <div className="serif-italic min-w-0" style={{ fontSize: 'clamp(36px,8vw,70px)', color: C.ink }}>{me.name.split(' ')[0]}<span style={{ color: C.gold }}>.</span></div>
           <button onClick={() => setView('client-profile')} className="flex flex-col items-center gap-1.5 group flex-shrink-0">
             <Avatar member={me} size={52} fontSize={22} />
-            <div className="mono group-hover:underline whitespace-nowrap" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>✎ EDIT</div>
+            <div className="mono group-hover:underline whitespace-nowrap" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>✎ EDIT</div>
           </button>
         </div>
       </div>
@@ -155,7 +155,7 @@ export default function ClientHome({ clientMemberId, setView }) {
 
       {/* Open My Training */}
       <button onClick={() => setView('client-workouts')} className="w-full text-left p-5 md:p-6 mb-4 transition-all hover:opacity-95" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-        <div className="mono mb-1 flex items-center gap-1.5" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}><Globe size={11} /> — GO TO MY TRAINING</div>
+        <div className="mono mb-1 flex items-center gap-1.5" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}><Globe size={11} /> — GO TO MY TRAINING</div>
         <div className="serif-italic mb-2" style={{ fontSize: '32px' }}>Open your routine.</div>
         <div className="hand" style={{ fontSize: '17px', color: C.moss }}>— mira qué tienes activo y registra tus sesiones →</div>
       </button>
@@ -198,7 +198,7 @@ export default function ClientHome({ clientMemberId, setView }) {
           <>
             <div className="flex items-baseline justify-between mb-3 flex-wrap gap-2">
               <div>
-                <div className="mono mb-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>— YOUR PLAN</div>
+                <div className="mono mb-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>— YOUR PLAN</div>
                 <div className="prog-name" style={{ fontSize: '34px', color: C.ink }}>{myPlan.name}</div>
               </div>
               <div className="text-right">
@@ -210,7 +210,7 @@ export default function ClientHome({ clientMemberId, setView }) {
                   <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss }}>${effectiveMembershipPrice(myMembership, myPlan, 2)} · {recurrenceLabel(myPlan).toUpperCase()}</div>
                 )}
                 {renew && <div className="mono mt-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: renew.urgent ? C.gold : C.moss }}>{renew.label} · {renew.detail}</div>}
-                {myMembership?.pause && <div className="mono mt-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>❚❚ PAUSED</div>}
+                {myMembership?.pause && <div className="mono mt-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>❚❚ PAUSED</div>}
               </div>
             </div>
               <div className="p-4" style={{ background: C.cream, color: C.ink, borderLeft: `3px solid ${C.gold}` }}>
@@ -220,7 +220,7 @@ export default function ClientHome({ clientMemberId, setView }) {
           </>
         ) : (
           <>
-            <div className="mono mb-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>— NO MEMBERSHIP YET</div>
+            <div className="mono mb-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>— NO MEMBERSHIP YET</div>
             <div className="serif-italic mb-3" style={{ fontSize: '32px', color: C.ink }}>Get on a plan.</div>
             {(() => {
               const listed = data.membershipPlans.filter((p) => p.listed);
@@ -232,7 +232,7 @@ export default function ClientHome({ clientMemberId, setView }) {
                       <div className="min-w-0">
                         <div className="prog-name" style={{ fontSize: '20px', color: C.ink, lineHeight: 1.1 }}>{p.name}</div>
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>${p.price} / {recurrenceLabel(p)}</div>
-                        {planHasPage(p) && <div className="mono mt-1" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.goldDeep }}>▸ TAP FOR DETAILS</div>}
+                        {planHasPage(p) && <div className="mono mt-1" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold }}>▸ TAP FOR DETAILS</div>}
                       </div>
                       <button onClick={(e) => { e.stopPropagation(); subscribe(p.id); }} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
                         SUBSCRIBE →
@@ -253,7 +253,7 @@ export default function ClientHome({ clientMemberId, setView }) {
       {(goals.active.length > 0 || goals.done.length > 0) && (
         <div className="p-6 mb-4" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="flex items-baseline justify-between gap-3 mb-4 flex-wrap">
-            <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>— YOUR GOALS</div>
+            <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>— YOUR GOALS</div>
             {goals.done.length > 0 && (
               <button onClick={() => setView('client-results')} className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold, fontWeight: 600 }}>
                 ✓ {goals.done.length} ACHIEVED →

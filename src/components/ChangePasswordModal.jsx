@@ -36,7 +36,7 @@ export default function ChangePasswordModal({ userId, memberName, onClose }) {
   return (
     <Modal title={admin ? 'Reset Password' : 'Change Password'} eyebrow="ACCOUNT · SECURITY" onClose={onClose} size="sm">
       <div className="space-y-3">
-        {admin && <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— set a new password for {memberName || 'this member'}. Share it with them; they can change it later from their account.</div>}
+        {admin && <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— set a new password for {memberName || 'this member'}. Share it with them; they can change it later from their account.</div>}
         <Field label="NEW PASSWORD">
           <input type="password" value={pw} onChange={(e) => setPw(e.target.value)} className={inputClass} style={inputStyle} autoFocus placeholder="At least 6 characters" />
         </Field>

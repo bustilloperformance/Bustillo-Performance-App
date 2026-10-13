@@ -52,7 +52,7 @@ export default function NutritionViewer({ memberId }) {
       {isIOS ? (
         <div className="p-6 text-center" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="ui-strong" style={{ fontSize: '18px', color: C.ink }}>Tap “Open Nutrition Plan” above</div>
-          <div className="help mt-1" style={{ fontSize: '14px', color: C.goldDeep }}>— it opens full-screen, ready to scroll & zoom.</div>
+          <div className="help mt-1" style={{ fontSize: '14px', color: C.gold }}>— it opens full-screen, ready to scroll & zoom.</div>
         </div>
       ) : (
         <iframe title="Nutrition plan" src={`${url}#view=FitH`}

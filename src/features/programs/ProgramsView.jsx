@@ -111,14 +111,14 @@ export default function ProgramsView() {
                   <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: isOnline ? C.forest : C.bone, color: isOnline ? C.ink : C.moss }}><Edit2 size={11} /></button>
                   <button onClick={() => remove(p.id)} className="p-1.5" style={{ background: C.gold, color: C.bone }}><Trash2 size={11} /></button>
                 </div>
-                <div className="flex items-center gap-1.5 mb-2 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>
+                <div className="flex items-center gap-1.5 mb-2 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>
                   {isOnline ? <Globe size={11} /> : <Building size={11} />}
                   — {mode.toUpperCase()} · {p.durationWeeks}WK{p.focus ? ` · ${p.focus.toUpperCase()}` : ''}
                   {isOnline && p.listed && <span className="ml-auto mono px-1.5 py-0.5" style={{ fontSize: '10px', background: C.gold, color: C.bone, letterSpacing: '0.1em' }}>LISTED</span>}
                 </div>
                 <div className="prog-name mb-3" style={{ fontSize: '36px', color: isOnline ? C.cream : C.ink }}>{p.name}</div>
                 {isOnline && p.price > 0 && (
-                  <div className="mb-2 mono" style={{ fontSize: '14px', color: C.goldDeep, fontWeight: 600 }}>
+                  <div className="mb-2 mono" style={{ fontSize: '14px', color: C.gold, fontWeight: 600 }}>
                     ${p.price}
                     {p.pricingType === 'monthly' && <span style={{ fontSize: '11px', opacity: 0.7 }}> / MONTH</span>}
                     {p.pricingType === 'annual' && <span style={{ fontSize: '11px', opacity: 0.7 }}> / YEAR</span>}
@@ -195,7 +195,7 @@ export default function ProgramsView() {
                 LIST IN CLIENT STOREFRONT (CLIENTS CAN BUY DIRECTLY)
               </label>
               <div className="p-3 mb-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
-                <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>STOREFRONT PAGE</div>
+                <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>STOREFRONT PAGE</div>
                 <div className="help mb-2" style={{ fontSize: '14px', color: C.moss }}>— the detail page clients see when they tap this program. Add text, images, videos & links.</div>
                 <ContentEditor content={form.content || []} onChange={(content) => setForm({ ...form, content })} />
               </div>
@@ -205,7 +205,7 @@ export default function ProgramsView() {
           {form.mode === 'in-person' ? (
             <>
               <div className="flex items-center gap-2 mb-2"><Building size={12} style={{ color: C.gold }} /><div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>WEEKLY TEMPLATE · STANDALONE PROGRAM</div></div>
-              <div className="help mb-3" style={{ fontSize: '14px', color: C.goldDeep }}>— design once. assign it to any client's personal program later.</div>
+              <div className="help mb-3" style={{ fontSize: '14px', color: C.gold }}>— design once. assign it to any client's personal program later.</div>
               <div className="overflow-x-auto" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <table className="w-full text-xs">
                   <thead>
@@ -234,8 +234,8 @@ export default function ProgramsView() {
             </>
           ) : (
             <>
-              <div className="flex items-center gap-2 mb-2"><Globe size={12} style={{ color: C.goldDeep }} /><div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>WEEK × DAY GRID · SELF-PACED</div></div>
-              <div className="help mb-2" style={{ fontSize: '14px', color: C.goldDeep }}>— clients work through Day 1, 2, 3… at their own pace.</div>
+              <div className="flex items-center gap-2 mb-2"><Globe size={12} style={{ color: C.gold }} /><div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>WEEK × DAY GRID · SELF-PACED</div></div>
+              <div className="help mb-2" style={{ fontSize: '14px', color: C.gold }}>— clients work through Day 1, 2, 3… at their own pace.</div>
               <div className="overflow-x-auto" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <table className="w-full text-xs">
                   <thead>
@@ -277,7 +277,7 @@ export default function ProgramsView() {
                   return (
                     <div className="text-sm" style={{ color: C.ink }}>
                       <strong>{withVideo}/{total}</strong> exercises in this program have YouTube videos attached.
-                      {withVideo < total && <div className="help mt-1" style={{ fontSize: '14px', color: C.goldDeep }}>— add the missing videos in the Library so online clients can see the form.</div>}
+                      {withVideo < total && <div className="help mt-1" style={{ fontSize: '14px', color: C.gold }}>— add the missing videos in the Library so online clients can see the form.</div>}
                     </div>
                   );
                 })()}

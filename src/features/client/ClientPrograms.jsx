@@ -68,7 +68,7 @@ export default function ClientPrograms({ clientMemberId, setView }) {
       {detail && (
         <Modal title={detail.name} eyebrow={`ONLINE PROGRAM · ${detail.durationWeeks}WK`} onClose={() => setDetail(null)} size="lg">
           <div className="space-y-4">
-            {detail.tagline && <div className="help" style={{ fontSize: '20px', color: C.goldDeep }}>— {detail.tagline}</div>}
+            {detail.tagline && <div className="help" style={{ fontSize: '20px', color: C.gold }}>— {detail.tagline}</div>}
             {detail.description && <div className="text-sm" style={{ color: C.charcoal, whiteSpace: 'pre-wrap' }}>{detail.description}</div>}
             <ContentView content={detail.content} />
             {detail.equipment && <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>EQUIPMENT · {detail.equipment.toUpperCase()}</div>}

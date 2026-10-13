@@ -338,7 +338,7 @@ function GroupEditor({ group, members, memberships, plans, createdBy, onClose, o
             })}
             {list.length === 0 && <div className="p-3 text-center help" style={{ fontSize: '14px', color: C.moss }}>No matches.</div>}
           </div>
-          <div className="help mt-1" style={{ fontSize: '13px', color: C.goldDeep }}>— only the people checked here see this group. You can leave yourself out.</div>
+          <div className="help mt-1" style={{ fontSize: '13px', color: C.gold }}>— only the people checked here see this group. You can leave yourself out.</div>
         </Field>
         <div className="flex gap-2 pt-1">
           <Btn full onClick={save} disabled={saving}>{saving ? 'SAVING…' : group ? 'SAVE CHANGES' : 'CREATE GROUP'}</Btn>

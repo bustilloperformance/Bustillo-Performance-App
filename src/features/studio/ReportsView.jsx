@@ -140,7 +140,7 @@ function Statement({ title, sub, action, children }) {
 function Section({ label, rows, money, className = '' }) {
   return (
     <div className={className}>
-      <div className="mono mb-1.5" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.goldDeep }}>{label}</div>
+      <div className="mono mb-1.5" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.gold }}>{label}</div>
       {rows.length === 0 ? <div className="ui-strong" style={{ fontSize: '15px', color: C.moss }}>— none —</div>
         : rows.map((rr, i) => (
           <div key={i} className="flex items-baseline justify-between py-1" style={{ borderBottom: `1px solid ${C.charcoal}10` }}>
@@ -182,7 +182,7 @@ function ManageItemsModal({ items, onClose, refresh, showToast }) {
   return (
     <Modal title="Assets & Liabilities" eyebrow="ACCOUNTING · BALANCE SHEET" onClose={onClose} size="md">
       <div className="space-y-3">
-        <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— add things you own (equipment, deposits) and what you owe (loans, payables). Cash, bank & inventory are automatic.</div>
+        <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— add things you own (equipment, deposits) and what you owe (loans, payables). Cash, bank & inventory are automatic.</div>
         <div className="grid grid-cols-4 gap-2 items-end">
           <Field label="TYPE">
             <select value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value })} className={inputClass} style={inputStyle}><option value="asset">Asset</option><option value="liability">Liability</option></select>

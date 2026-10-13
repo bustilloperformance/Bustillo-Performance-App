@@ -44,7 +44,7 @@ export default function RoleEditor() {
 
       <div className="mb-6 p-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
         <div className="help" style={{ fontSize: '15px', color: C.ink, lineHeight: 1.5 }}>
-          — check what each role can access in the app. <strong style={{ color: C.goldDeep }}>Owner</strong> always has full access. <strong style={{ color: C.moss }}>Client</strong> is the member experience. Assign roles to people from a member's profile (Members → Account).
+          — check what each role can access in the app. <strong style={{ color: C.gold }}>Owner</strong> always has full access. <strong style={{ color: C.moss }}>Client</strong> is the member experience. Assign roles to people from a member's profile (Members → Account).
         </div>
       </div>
 
@@ -72,7 +72,7 @@ export default function RoleEditor() {
 
               <div className="p-4">
                 {isOwner ? (
-                  <div className="help" style={{ fontSize: '16px', color: C.goldDeep }}>— full access to everything. (can't be restricted)</div>
+                  <div className="help" style={{ fontSize: '16px', color: C.gold }}>— full access to everything. (can't be restricted)</div>
                 ) : isClient ? (
                   <div className="help" style={{ fontSize: '16px', color: C.moss }}>— the member/client experience: their own training, booking and progress.</div>
                 ) : (

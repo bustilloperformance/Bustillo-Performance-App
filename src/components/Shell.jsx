@@ -673,7 +673,7 @@ function Overview({ setView, can }) {
                   return (
                     <div key={l.id} className="flex items-center justify-between py-1.5" style={{ borderBottom: `1px solid ${C.charcoal}10` }}>
                       <div className="flex items-center gap-2 min-w-0"><Avatar member={member} size={24} /><span className="ui-strong truncate" style={{ fontSize: '17px' }}>{member?.name || '—'}</span></div>
-                      <div className="mono flex-shrink-0" style={{ fontSize: '12px', color: C.goldDeep }}>{l.date}</div>
+                      <div className="mono flex-shrink-0" style={{ fontSize: '12px', color: C.gold }}>{l.date}</div>
                     </div>
                   );
                 })}

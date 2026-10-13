@@ -102,7 +102,7 @@ export function ContentEditor({ content, onChange }) {
       {blocks.map((b, i) => (
         <div key={i} className="p-2" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="flex items-center justify-between mb-1.5">
-            <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.goldDeep }}>{b.type.toUpperCase()}</span>
+            <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold }}>{b.type.toUpperCase()}</span>
             <div className="flex gap-1">
               <button type="button" onClick={() => move(i, -1)} className="p-1" style={{ background: C.bone }}><ArrowUp size={11} /></button>
               <button type="button" onClick={() => move(i, 1)} className="p-1" style={{ background: C.bone }}><ArrowDown size={11} /></button>

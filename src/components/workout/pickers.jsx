@@ -25,7 +25,7 @@ export function AddSectionDropdown({ sections, onAdd }) {
             <button key={s.id} onClick={() => { onAdd(s.id); setOpen(false); }} className="w-full text-left px-3 py-2 hover:bg-amber-100"
               style={{ borderBottom: `1px solid ${C.charcoal}10` }}>
               <div className="ui-strong" style={{ fontSize: '16px', color: C.ink }}>{s.label}</div>
-              <div className="help" style={{ fontSize: '13px', color: C.goldDeep }}>— {s.hint}</div>
+              <div className="help" style={{ fontSize: '13px', color: C.gold }}>— {s.hint}</div>
             </button>
           ))}
         </div>
@@ -111,7 +111,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
           style={{ background: C.cream, border: `1px solid ${C.charcoal}30`, boxShadow: '0 8px 16px rgba(0,0,0,0.2)' }}>
           <div className="p-2" style={{ borderBottom: `1px solid ${C.charcoal}15` }}>
             <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>NEW EXERCISE · {section.toUpperCase()}</div>
-            <div className="help" style={{ fontSize: '13px', color: C.goldDeep }}>— it gets tagged for this section and added to the circuit.</div>
+            <div className="help" style={{ fontSize: '13px', color: C.gold }}>— it gets tagged for this section and added to the circuit.</div>
           </div>
           <div className="p-2 space-y-2">
             <input value={nuevo.name} onChange={(e) => setNuevo({ ...nuevo, name: e.target.value })} placeholder="Exercise name" autoFocus

@@ -116,7 +116,7 @@ export default function FinanceView({ setView }) {
         <StatCard label="NET PROFIT" value={`$${net.toLocaleString()}`} icon={TrendingUp} accent="bone" />
       </div>
       <div className="mb-6 mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss }}>
-        TOTAL ON HAND: <strong style={{ color: C.ink }}>${bal.total.toLocaleString()}</strong> · TOTAL EXPENSES: ${totalExpenses.toLocaleString()}{hasTaxes && <> · SALES TAX OWED: <strong style={{ color: C.goldDeep }}>${taxOwed.toLocaleString(undefined, { maximumFractionDigits: 2 })}</strong></>} · <button onClick={() => setView && setView('reports')} className="underline" style={{ color: C.moss }}>view full reports →</button> · <button onClick={() => setShowCategories(true)} className="underline" style={{ color: C.moss }}>manage categories</button> · <button onClick={() => setShowTaxes(true)} className="underline" style={{ color: C.moss }}>tax settings</button>
+        TOTAL ON HAND: <strong style={{ color: C.ink }}>${bal.total.toLocaleString()}</strong> · TOTAL EXPENSES: ${totalExpenses.toLocaleString()}{hasTaxes && <> · SALES TAX OWED: <strong style={{ color: C.gold }}>${taxOwed.toLocaleString(undefined, { maximumFractionDigits: 2 })}</strong></>} · <button onClick={() => setView && setView('reports')} className="underline" style={{ color: C.moss }}>view full reports →</button> · <button onClick={() => setShowCategories(true)} className="underline" style={{ color: C.moss }}>manage categories</button> · <button onClick={() => setShowTaxes(true)} className="underline" style={{ color: C.moss }}>tax settings</button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
@@ -262,7 +262,7 @@ export default function FinanceView({ setView }) {
       {showIncome && (
         <Modal title="Record Income" eyebrow="STUDIO · INFLOW" onClose={() => setShowIncome(false)} size="md">
           <div className="space-y-3">
-            <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— a cash/zelle/transfer payment for a membership, drop-in, etc.</div>
+            <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— a cash/zelle/transfer payment for a membership, drop-in, etc.</div>
             <div className="grid grid-cols-2 gap-3">
               <Field label="AMOUNT"><input value={incForm.amount} onChange={(e) => setIncForm({ ...incForm, amount: e.target.value })} type="number" className={inputClass} style={inputStyle} /></Field>
               <Field label="TYPE">
@@ -343,7 +343,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
   return (
     <Modal title="Tax Settings" eyebrow="STUDIO · TAXES" onClose={onClose} size="lg">
       <div className="space-y-5">
-        <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— define a tax, choose which income it applies to. The tax is carved out of that revenue and tracked as owed to the state. Built for products; confirm with your CPA what's taxable.</div>
+        <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— define a tax, choose which income it applies to. The tax is carved out of that revenue and tracked as owed to the state. Built for products; confirm with your CPA what's taxable.</div>
 
         {/* Owed summary */}
         <div className="grid grid-cols-2 gap-3">
@@ -359,7 +359,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
 
         {/* Add / edit a tax rule */}
         <div className="p-4" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-          <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.goldDeep }}>{editing ? 'EDIT TAX' : 'NEW TAX'}</div>
+          <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.gold }}>{editing ? 'EDIT TAX' : 'NEW TAX'}</div>
           <div className="grid grid-cols-3 gap-2 mb-3">
             <div className="col-span-2"><Field label="NAME"><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} style={inputStyle} /></Field></div>
             <Field label="RATE %"><input type="number" step="0.01" value={form.rate} onChange={(e) => setForm({ ...form, rate: e.target.value })} className={inputClass} style={inputStyle} /></Field>
@@ -404,7 +404,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
 
         {/* Remittances */}
         <div className="p-4" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-          <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.goldDeep }}>RECORD A REMITTANCE (PAY THE STATE)</div>
+          <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.gold }}>RECORD A REMITTANCE (PAY THE STATE)</div>
           <div className="grid grid-cols-4 gap-2 items-end">
             <Field label="AMOUNT"><input type="number" value={remit.amount} onChange={(e) => setRemit({ ...remit, amount: e.target.value })} className={inputClass} style={inputStyle} /></Field>
             <Field label="DATE"><input type="date" value={remit.date} onChange={(e) => setRemit({ ...remit, date: e.target.value })} className={inputClass} style={inputStyle} /></Field>
@@ -441,7 +441,7 @@ function CategoriesModal({ categories, incomeDefaults, expenseDefaults, onClose,
   return (
     <Modal title="Categories" eyebrow="STUDIO · INCOME & EXPENSES" onClose={onClose} size="md">
       <div className="space-y-4">
-        <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— add your own income sources and expense categories. The built-in ones (grey) always stay available.</div>
+        <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— add your own income sources and expense categories. The built-in ones (grey) always stay available.</div>
         <div className="grid grid-cols-4 gap-2 items-end">
           <Field label="FOR">
             <select value={form.kind} onChange={(e) => setForm({ ...form, kind: e.target.value })} className={inputClass} style={inputStyle}><option value="expense">Expense</option><option value="income">Income</option></select>
@@ -462,7 +462,7 @@ function CategoryGroup({ title, categories, kind, defaults, onDelete }) {
   const custom = categories.filter((c) => c.kind === kind);
   return (
     <div>
-      <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.goldDeep }}>{title}</div>
+      <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.gold }}>{title}</div>
       <div className="flex flex-wrap gap-1.5 mb-2">
         {defaults.map((d) => (
           <span key={d} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.05em', background: C.bone, color: C.moss, border: `1px solid ${C.charcoal}15` }}>{(TYPE_LABEL[d] || d).toUpperCase()}</span>

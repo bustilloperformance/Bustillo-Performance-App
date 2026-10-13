@@ -61,7 +61,7 @@ export default function WorkoutsView() {
       {data.workouts.length === 0 ? (
         <div className="text-center py-16" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="serif-italic" style={{ fontSize: '28px', color: C.ink }}>No workouts yet.</div>
-          <div className="help mt-2 mb-5" style={{ fontSize: '18px', color: C.goldDeep }}>— build your first session by sections and circuits.</div>
+          <div className="help mt-2 mb-5" style={{ fontSize: '18px', color: C.gold }}>— build your first session by sections and circuits.</div>
           <div className="flex justify-center"><Btn icon={Plus} onClick={openNew}>BUILD WORKOUT</Btn></div>
         </div>
       ) : (
@@ -75,7 +75,7 @@ export default function WorkoutsView() {
                   <button onClick={() => openEdit(w)} className="p-1.5" style={{ background: C.bone }}><Edit2 size={11} /></button>
                   <button onClick={() => remove(w.id)} className="p-1.5" style={{ background: C.gold }}><Trash2 size={11} /></button>
                 </div>
-                <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>
+                <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>
                   — {(w.difficulty || '').toUpperCase()}{w.focus ? ` · ${w.focus.toUpperCase()}` : ''}
                 </div>
                 <div className="prog-name mb-2" style={{ fontSize: '28px' }}>{w.name}</div>
@@ -85,7 +85,7 @@ export default function WorkoutsView() {
                 <div className="space-y-2 pt-3" style={{ borderTop: `1px solid ${C.charcoal}20` }}>
                   {wGrouped.slice(0, 3).map((g) => (
                     <div key={g.section}>
-                      <div className="mono mb-1" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.goldDeep }}>{g.section.toUpperCase()}</div>
+                      <div className="mono mb-1" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold }}>{g.section.toUpperCase()}</div>
                       {g.circuits.map((c) => (
                         <div key={c.letter} className="text-xs mb-0.5">
                           {g.section !== 'Prep Work' && <span className="mono mr-1.5" style={{ fontSize: '11px', color: C.moss, letterSpacing: '0.1em' }}>{c.letter}</span>}
@@ -98,10 +98,10 @@ export default function WorkoutsView() {
                               <span key={ii}>
                                 {ii > 0 && <span style={{ color: C.moss }}> + </span>}
                                 {ex?.name || '?'}
-                                {hasLadder && <span title="Has progression/regression" style={{ color: C.goldDeep, fontSize: '11px', marginLeft: '3px' }}>⇅</span>}{' '}
+                                {hasLadder && <span title="Has progression/regression" style={{ color: C.gold, fontSize: '11px', marginLeft: '3px' }}>⇅</span>}{' '}
                                 <span className="mono" style={{ color: C.moss, fontSize: '11px' }}>{it.section === 'HIIT' ? `${it.rounds ?? 1}rds·${it.workSec ?? 0}/${it.restSec ?? 0}s` : `${it.sets}×${it.target}${(() => { const m = it.measure || ex?.measure; const u = m && m !== 'reps' ? (ex?.units?.[m] || ex?.unit) : null; return u ? unitLabel(u) : ''; })()}${it.perSide ? '/side' : ''}`}</span>
                                 {tempoStr && <span className="mono" style={{ color: C.gold, fontSize: '11px', marginLeft: '4px' }} title="Tempo">@ {tempoStr}</span>}
-                                {it.loadPct > 0 && <span className="mono" style={{ color: C.goldDeep, fontSize: '11px', marginLeft: '4px' }} title="Load % of 1RM">{it.loadPct}%</span>}
+                                {it.loadPct > 0 && <span className="mono" style={{ color: C.gold, fontSize: '11px', marginLeft: '4px' }} title="Load % of 1RM">{it.loadPct}%</span>}
                               </span>
                             );
                           })}

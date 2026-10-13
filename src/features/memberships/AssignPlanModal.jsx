@@ -152,14 +152,14 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
                 <div className="flex justify-between"><span style={{ color: C.moss }}>PRICE</span><span style={{ fontWeight: 600 }}>${plan.price}</span></div>
                 <div className="flex justify-between"><span style={{ color: C.moss }}>RECURRENCE</span><span style={{ fontWeight: 600 }}>{recurrenceLabel(plan)}</span></div>
                 {plan.minCommitmentMonths > 0 && (
-                  <div className="flex justify-between"><span style={{ color: C.goldDeep }}>COMMITMENT</span><span style={{ fontWeight: 600, color: C.moss }}>{plan.minCommitmentMonths} MO MIN</span></div>
+                  <div className="flex justify-between"><span style={{ color: C.gold }}>COMMITMENT</span><span style={{ fontWeight: 600, color: C.moss }}>{plan.minCommitmentMonths} MO MIN</span></div>
                 )}
                 {plan.freeTrialDays > 0 && <div className="flex justify-between"><span style={{ color: C.moss }}>TRIAL</span><span style={{ fontWeight: 600 }}>{plan.freeTrialDays}D</span></div>}
               </div>
             </div>
           )}
           {member && (data.memberships.some((mb) => mb.memberId === member.id && (mb.status === 'active' || mb.status === 'paused'))) && (
-            <div className="help" style={{ fontSize: '14px', color: C.goldDeep }}>
+            <div className="help" style={{ fontSize: '14px', color: C.gold }}>
               — {member.name} already has an active membership. Assigning a new plan ends the current one.
             </div>
           )}
@@ -168,7 +168,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
       ) : (
         <div className="space-y-3">
           <div className="prog-name" style={{ fontSize: '22px', color: C.ink }}>
-            {plan.name} <span style={{ color: C.goldDeep }}>· {member.name}</span>
+            {plan.name} <span style={{ color: C.gold }}>· {member.name}</span>
           </div>
 
           {/* Cortesía. Se declara aquí y no se deduce del precio: antes bastaba
@@ -262,7 +262,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
                 </button>
               ))}
             </div>
-            <div className="help mt-1" style={{ fontSize: '13px', color: C.goldDeep }}>
+            <div className="help mt-1" style={{ fontSize: '13px', color: C.gold }}>
               {custom.recordMethod === 'none' ? '— assign only, no payment recorded.'
                 : custom.recordMethod === 'card' ? `— charges $${plan.price} by card via Stripe. The membership activates automatically once paid.`
                 : `— records $${pricePreview} as ${custom.recordMethod} income.`}
@@ -288,7 +288,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
       {linkUrl && (
         <Modal title="Payment Link" eyebrow={`BILLING · ${(member?.name || '').toUpperCase()}`} onClose={() => setLinkUrl('')} size="md">
           <div className="space-y-3">
-            <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— send this secure Stripe link to {member?.name?.split(' ')[0]} to pay ${plan?.price}. The membership activates automatically once paid.</div>
+            <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— send this secure Stripe link to {member?.name?.split(' ')[0]} to pay ${plan?.price}. The membership activates automatically once paid.</div>
             <div className="p-2 mono break-all" style={{ fontSize: '11px', color: C.ink, background: C.bone, border: `1px solid ${C.charcoal}20` }}>{linkUrl}</div>
             <div className="flex gap-2">
               <Btn full onClick={() => { navigator.clipboard?.writeText(linkUrl); showToast('Link copied.'); }}>⧉ COPY LINK</Btn>

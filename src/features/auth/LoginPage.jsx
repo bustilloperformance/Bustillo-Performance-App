@@ -116,7 +116,7 @@ export default function LoginPage() {
                 fontSize: '12px',
                 letterSpacing: '0.1em',
                 background: C.cream,
-                color: C.goldDeep,
+                color: C.gold,
                 opacity: busy ? 0.6 : 1,
                 cursor: busy ? 'default' : 'pointer',
               }}

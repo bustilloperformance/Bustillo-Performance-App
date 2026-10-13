@@ -38,7 +38,7 @@ export default function CreateLoginModal({ member, onClose }) {
   return (
     <Modal title="Create Login" eyebrow={`ACCOUNT · ${member.name.toUpperCase()}`} onClose={onClose} size="sm">
       <div className="space-y-3">
-        <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>
+        <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>
           — they'll sign in with this email + password. share it with them; they can change it later.
         </div>
         <Field label="EMAIL">

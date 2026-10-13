@@ -104,7 +104,7 @@ export default function PlansView() {
       {data.membershipPlans.length === 0 ? (
         <div className="text-center py-16" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="serif-italic" style={{ fontSize: '28px', color: C.ink }}>No plans yet.</div>
-          <div className="help mt-2" style={{ fontSize: '18px', color: C.goldDeep }}>— create your first plan to set the standard.</div>
+          <div className="help mt-2" style={{ fontSize: '18px', color: C.gold }}>— create your first plan to set the standard.</div>
           <div className="mt-6 flex justify-center"><Btn icon={Plus} onClick={openNew}>NEW PLAN</Btn></div>
         </div>
       ) : (
@@ -117,7 +117,7 @@ export default function PlansView() {
                   <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: C.bone }}><Edit2 size={12} /></button>
                   <button onClick={() => remove(p.id)} className="p-1.5" style={{ background: C.gold, color: C.bone }}><Trash2 size={12} /></button>
                 </div>
-                <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>
+                <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>
                   — {planBillingLabel(p).toUpperCase()}
                 </div>
                 <div className="prog-name mb-2" style={{ fontSize: '32px' }}>{p.name}</div>
@@ -338,7 +338,7 @@ export default function PlansView() {
                 </div>
               </label>
               <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${C.charcoal}15` }}>
-                <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>STOREFRONT PAGE</div>
+                <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>STOREFRONT PAGE</div>
                 <div className="help mb-2" style={{ fontSize: '13px', color: C.moss }}>— the detail page clients see when they tap this plan. Text, images, videos & links.</div>
                 <ContentEditor content={form.content || []} onChange={(content) => setForm({ ...form, content })} />
               </div>

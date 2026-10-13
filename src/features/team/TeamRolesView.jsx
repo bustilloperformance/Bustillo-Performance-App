@@ -12,7 +12,7 @@ function RoleSection({ title, hint, list, currentUserId, onChangeRole, onRemove 
     <div className="mb-6">
       <div className="flex items-baseline gap-3 mb-2">
         <div className="display" style={{ fontSize: '18px', fontWeight: 600 }}>{title}</div>
-        <div className="help" style={{ fontSize: '15px', color: C.goldDeep }}>{hint}</div>
+        <div className="help" style={{ fontSize: '15px', color: C.gold }}>{hint}</div>
         <div className="mono ml-auto" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>{list.length}</div>
       </div>
       <div style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
@@ -128,7 +128,7 @@ export default function TeamRolesView({ currentUserId }) {
       <div className="mb-6 p-3" style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
         <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>ROLE PERMISSIONS</div>
         <div className="help" style={{ fontSize: '15px', color: C.ink, lineHeight: 1.5 }}>
-          — <strong style={{ color: C.goldDeep }}>Owner</strong>: full access — finances, role assignment, all data.<br />
+          — <strong style={{ color: C.gold }}>Owner</strong>: full access — finances, role assignment, all data.<br />
           — <strong style={{ color: C.gold }}>Coach</strong>: members, workouts, programs, schedule. No finances or POS.<br />
           — <strong style={{ color: C.moss }}>Client</strong>: their own profile, training, and progress only.
         </div>
@@ -144,7 +144,7 @@ export default function TeamRolesView({ currentUserId }) {
             <Field label="FULL NAME"><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="e.g. Alex Rivera" className={inputClass} style={inputStyle} /></Field>
             <Field label="EMAIL"><input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="nombre@correo.com" className={inputClass} style={inputStyle} /></Field>
             <Field label="TEMPORARY PASSWORD"><input value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} placeholder="They can change it later" className={inputClass} style={inputStyle} /></Field>
-            <div className="help" style={{ fontSize: '13px', color: C.goldDeep }}>— a coach manages members, workouts, programs and the schedule. Promote to owner later if needed.</div>
+            <div className="help" style={{ fontSize: '13px', color: C.gold }}>— a coach manages members, workouts, programs and the schedule. Promote to owner later if needed.</div>
             <Btn full onClick={addCoach} disabled={saving}>{saving ? 'ADDING…' : 'ADD COACH'}</Btn>
           </div>
         </Modal>

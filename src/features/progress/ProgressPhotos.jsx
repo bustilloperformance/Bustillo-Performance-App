@@ -143,7 +143,7 @@ export default function ProgressPhotos({ memberId, editable = false }) {
       {rows && sessions.length === 0 && (
         <div className="p-8 text-center" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="ui-strong" style={{ fontSize: '20px', color: C.ink }}>No progress photos yet.</div>
-          <div className="help mt-1" style={{ fontSize: '14px', color: C.goldDeep }}>{editable ? '— add front, side & back to start your before/after.' : '— none uploaded yet.'}</div>
+          <div className="help mt-1" style={{ fontSize: '14px', color: C.gold }}>{editable ? '— add front, side & back to start your before/after.' : '— none uploaded yet.'}</div>
         </div>
       )}
 

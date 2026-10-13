@@ -101,11 +101,11 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
   // todavía no ha ocurrido, que es lo más confuso de los tres.
   const porEmpezar = memberships.find((mb) => mb.status === 'active' && membershipNotStarted(mb));
   const membershipState = active
-    ? (active.cancelAt ? { label: `CANCELLING ${active.cancelAt}`, color: C.goldDeep }
-      : active.pause ? { label: 'PAUSED', color: C.goldDeep }
+    ? (active.cancelAt ? { label: `CANCELLING ${active.cancelAt}`, color: C.gold }
+      : active.pause ? { label: 'PAUSED', color: C.gold }
       : { label: 'ACTIVE', color: C.gold })
     : porEmpezar ? { label: `EMPIEZA ${porEmpezar.startDate}`, color: C.gold }
-    : lapsed ? { label: 'EXPIRED', color: C.goldDeep }
+    : lapsed ? { label: 'EXPIRED', color: C.gold }
     : memberships.length ? { label: 'CANCELLED', color: C.moss }
     : { label: 'NO MEMBERSHIP', color: C.moss };
 
@@ -274,7 +274,7 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
                 <div className="ui-strong" style={{ fontSize: '22px', color: C.ink }}>No login yet.</div>
-                <div className="help mt-1" style={{ fontSize: '15px', color: C.goldDeep }}>— create an account so {member.name.split(' ')[0]} can sign in from their phone.</div>
+                <div className="help mt-1" style={{ fontSize: '15px', color: C.gold }}>— create an account so {member.name.split(' ')[0]} can sign in from their phone.</div>
               </div>
               <Btn onClick={() => setShowCreateLogin(true)}>CREATE LOGIN</Btn>
             </div>
@@ -285,7 +285,7 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
 
         {isOwner && (
           <div className="p-6" style={{ background: C.cream, border: `1px solid ${C.gold}` }}>
-            <div className="mono mb-4" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>DANGER ZONE</div>
+            <div className="mono mb-4" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>DANGER ZONE</div>
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
                 <div className="ui-strong" style={{ fontSize: '22px', color: C.ink }}>Delete this member.</div>
@@ -305,7 +305,7 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
             <div className="p-6" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
               <div className="flex items-start justify-between gap-4 flex-wrap">
                 <div>
-                  <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.goldDeep }}>CURRENT MEMBERSHIP</div>
+                  <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>CURRENT MEMBERSHIP</div>
                   <div className="prog-name" style={{ fontSize: '28px' }}>{activePlan.name}</div>
                   <div className="flex items-baseline gap-2 mt-1">
                     {active.courtesy ? (
@@ -374,8 +374,8 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
             <div className="p-8 text-center" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
               <div className="ui-strong" style={{ fontSize: '24px', color: C.ink }}>{lapsed ? 'Membership expired.' : 'No active membership.'}</div>
               {lapsed
-                ? <div className="help mt-2 mb-5" style={{ fontSize: '16px', color: C.goldDeep }}>— {lapsed.plan.name} lapsed {lapsed.rs.date}. Renew to reactivate, or assign a new plan.</div>
-                : <div className="help mt-2 mb-5" style={{ fontSize: '16px', color: C.goldDeep }}>— assign a plan to set their standard.</div>}
+                ? <div className="help mt-2 mb-5" style={{ fontSize: '16px', color: C.gold }}>— {lapsed.plan.name} lapsed {lapsed.rs.date}. Renew to reactivate, or assign a new plan.</div>
+                : <div className="help mt-2 mb-5" style={{ fontSize: '16px', color: C.gold }}>— assign a plan to set their standard.</div>}
               <div className="flex justify-center gap-2 flex-wrap">
                 {lapsed && canRenew(lapsed.mb, lapsed.plan) && <Btn variant="gold" onClick={() => doRenew(lapsed.mb, lapsed.plan)} disabled={renewing}>{renewing ? 'RENEWING…' : '↻ RENEW'}</Btn>}
                 <Btn icon={Plus} onClick={() => setShowAssign(true)}>ASSIGN PLAN</Btn>
@@ -470,7 +470,7 @@ function GuardianCard({ member }) {
             <Avatar member={guardian} size={40} />
             <div className="min-w-0">
               <div className="ui-strong" style={{ fontSize: '22px', color: C.ink }}>Dependent of {guardian.name}.</div>
-              <div className="help mt-0.5" style={{ fontSize: '15px', color: C.goldDeep }}>
+              <div className="help mt-0.5" style={{ fontSize: '15px', color: C.gold }}>
                 — {guardian.name.split(' ')[0]} can switch into {first}&rsquo;s account from their own login.
               </div>
             </div>
@@ -483,7 +483,7 @@ function GuardianCard({ member }) {
       ) : dependents.length === 0 ? (
         <div>
           <div className="ui-strong" style={{ fontSize: '22px', color: C.ink }}>Not a dependent.</div>
-          <div className="help mt-1 mb-4" style={{ fontSize: '15px', color: C.goldDeep }}>
+          <div className="help mt-1 mb-4" style={{ fontSize: '15px', color: C.gold }}>
             — if {first} can&rsquo;t have their own email, attach them to the adult who brings them.
           </div>
           <SearchSelect value="" onChange={(id) => save(id, 'Guardian set.')} options={candidates}

@@ -239,7 +239,7 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
                   ))}
                 </div>
               )}
-              <div className="help mt-1.5" style={{ fontSize: '13px', color: C.goldDeep }}>— copied, not shared. Editing it here never touches their program.</div>
+              <div className="help mt-1.5" style={{ fontSize: '13px', color: C.gold }}>— copied, not shared. Editing it here never touches their program.</div>
             </div>
           )}
           <Btn full onClick={handleAddDay}>ADD DAY</Btn>
@@ -249,7 +249,7 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
       {step === 'import' && (
         <div className="space-y-3">
           <button onClick={() => { setImportForm({ programId: '', startDate: '' }); setStep('list'); }} className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>← BACK TO CALENDAR</button>
-          <div className="help text-center" style={{ fontSize: '14px', color: C.goldDeep }}>— a catalog program copied into {member.name.split(' ')[0]}'s calendar as real dates. workouts are cloned — editing here won't touch the originals.</div>
+          <div className="help text-center" style={{ fontSize: '14px', color: C.gold }}>— a catalog program copied into {member.name.split(' ')[0]}'s calendar as real dates. workouts are cloned — editing here won't touch the originals.</div>
           <Field label="START DATE (DAY 1 OF WEEK 1)"><input type="date" value={importForm.startDate} onChange={(e) => setImportForm({ ...importForm, startDate: e.target.value })} className={inputClass} style={inputStyle} /></Field>
           <div>
             <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>PROGRAM</div>
@@ -272,7 +272,7 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
             <div className="mono flex items-center gap-2 flex-wrap" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>
               <span>{pp.schedule.length} DAY{pp.schedule.length === 1 ? '' : 'S'}</span>
               <span style={{ color: C.gold, fontWeight: 600 }}>✓ {completedCount} DONE</span>
-              {missedCount > 0 && <span style={{ color: C.goldDeep, fontWeight: 600 }}>✕ {missedCount} MISSED</span>}
+              {missedCount > 0 && <span style={{ color: C.gold, fontWeight: 600 }}>✕ {missedCount} MISSED</span>}
               {clip && (
                 <span className="flex items-center gap-1 px-2 py-0.5" style={{ background: C.cream }}>
                   <span style={{ color: C.sand }}>⧉ COPIED</span>

@@ -24,7 +24,7 @@ import ProgressPhotos from './ProgressPhotos';
 // and go missing in the other.
 const BODY_METRICS = [
   { key: 'weight', label: 'WEIGHT', short: 'W', unit: '', color: C.ink, second: C.gold },
-  { key: 'bodyFat', label: 'BODY FAT %', short: 'BF', unit: '%', color: C.goldDeep, second: C.ink },
+  { key: 'bodyFat', label: 'BODY FAT %', short: 'BF', unit: '%', color: C.gold, second: C.ink },
   { key: 'muscleMass', label: 'MUSCLE', short: 'M', unit: '', color: C.gold, second: C.gold },
 ];
 // Every cell in the body-comp grid is this tall, charts and entry list alike.

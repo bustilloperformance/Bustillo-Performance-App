@@ -114,7 +114,7 @@ export default function MembersList({ onSelect }) {
               <Field label="PHONE"><input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className={inputClass} style={inputStyle} /></Field>
             </div>
             <div className="p-2.5" style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
-              <div className="help" style={{ fontSize: '14px', color: C.goldDeep }}>
+              <div className="help" style={{ fontSize: '14px', color: C.gold }}>
                 — new members have no plan yet; assign one from their profile. login accounts come next (invite-by-owner).
               </div>
             </div>
