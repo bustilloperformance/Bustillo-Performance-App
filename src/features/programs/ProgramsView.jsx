@@ -206,7 +206,7 @@ export default function ProgramsView() {
             <>
               <div className="flex items-center gap-2 mb-2"><Building size={12} style={{ color: C.gold }} /><div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>WEEKLY TEMPLATE · STANDALONE PROGRAM</div></div>
               <div className="help mb-3" style={{ fontSize: '14px', color: C.goldDeep }}>— design once. assign it to any client's personal program later.</div>
-              <div className="overflow-x-auto" style={{ background: '#fff', border: `1px solid ${C.charcoal}20` }}>
+              <div className="overflow-x-auto" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <table className="w-full text-xs">
                   <thead>
                     <tr style={{ background: C.ink, color: C.bone }}>
@@ -236,7 +236,7 @@ export default function ProgramsView() {
             <>
               <div className="flex items-center gap-2 mb-2"><Globe size={12} style={{ color: C.goldDeep }} /><div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>WEEK × DAY GRID · SELF-PACED</div></div>
               <div className="help mb-2" style={{ fontSize: '14px', color: C.goldDeep }}>— clients work through Day 1, 2, 3… at their own pace.</div>
-              <div className="overflow-x-auto" style={{ background: '#fff', border: `1px solid ${C.charcoal}20` }}>
+              <div className="overflow-x-auto" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <table className="w-full text-xs">
                   <thead>
                     <tr style={{ background: C.ink, color: C.bone }}>

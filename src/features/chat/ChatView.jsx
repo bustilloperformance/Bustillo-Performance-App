@@ -172,7 +172,7 @@ export default function ChatView({ memberId, staff = false }) {
           </div>
 
           {/* Conversación */}
-          <div className={`${mobileThread ? '' : 'hidden md:flex'} md:col-span-2 flex flex-col`} style={{ background: '#fff', border: `1px solid ${C.charcoal}20`, maxHeight: '75vh' }}>
+          <div className={`${mobileThread ? '' : 'hidden md:flex'} md:col-span-2 flex flex-col`} style={{ background: C.cream, border: `1px solid ${C.charcoal}20`, maxHeight: '75vh' }}>
             {selected && (
               <>
                 <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: `1px solid ${C.charcoal}15`, background: C.cream }}>
@@ -321,7 +321,7 @@ function GroupEditor({ group, members, memberships, plans, createdBy, onClose, o
             <button type="button" onClick={pickActive} className="mono px-2.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.bone, color: C.ink, border: `1px solid ${C.charcoal}25`, whiteSpace: 'nowrap' }}>ALL ACTIVE</button>
             <button type="button" onClick={() => setPicked(new Set())} className="mono px-2.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.bone, color: C.moss, border: `1px solid ${C.charcoal}25` }}>NONE</button>
           </div>
-          <div className="max-h-72 overflow-y-auto" style={{ border: `1px solid ${C.charcoal}20`, background: '#fff' }}>
+          <div className="max-h-72 overflow-y-auto" style={{ border: `1px solid ${C.charcoal}20`, background: C.cream }}>
             {list.map((m) => {
               const on = picked.has(m.id);
               const plan = planOf(m);

@@ -34,6 +34,16 @@
     outline: none;
     border-color: #C4A464 !important;
   }
+
+  /* El texto de sugerencia lo atenua cada navegador por su cuenta, y sobre
+     el carbon de los campos acababa invisible. Se fija al acero de la
+     paleta: 5.89:1 sobre carbon, legible sin competir con lo que se
+     escribe encima. */
+  input::placeholder,
+  textarea::placeholder {
+    color: #9A968E;
+    opacity: 1;
+  }
 }
 
 @layer components {

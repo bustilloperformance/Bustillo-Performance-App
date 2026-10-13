@@ -217,7 +217,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                   {g.circuits.flatMap((c) => c.items).map((it) => {
                     const idx = findItemIdx(it);
                     return (
-                      <div key={idx} className="flex items-start gap-3 px-3 py-2" style={{ background: '#fff', border: `1px solid ${C.charcoal}15` }}>
+                      <div key={idx} className="flex items-start gap-3 px-3 py-2" style={{ background: C.cream, border: `1px solid ${C.charcoal}15` }}>
                         <div className="mono pt-0.5" style={{ fontSize: '14px', color: C.gold }}>·</div>
                         <textarea value={it.text || ''} onChange={(e) => updateItem(idx, { text: e.target.value })} rows="2" autoFocus={!it.text}
                           placeholder="e.g. Set up bench at station 2, foam roller within reach..." className="flex-1 px-2 py-1 text-sm" style={inputStyle} />
@@ -232,7 +232,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                     <div className="help text-center py-3" style={{ fontSize: '15px', color: C.moss }}>— tap + NEW CIRCUIT above to add your first exercise.</div>
                   )}
                   {g.circuits.map((c) => (
-                    <div key={c.letter} style={{ background: '#fff', border: `1px solid ${C.charcoal}15` }}>
+                    <div key={c.letter} style={{ background: C.cream, border: `1px solid ${C.charcoal}15` }}>
                       <div className="flex items-center justify-between px-3 py-2" style={{ background: C.cream, borderBottom: `1px solid ${C.charcoal}15` }}>
                         <div className="flex items-center gap-3">
                           <div className="ui-strong" style={{ fontSize: '24px', color: C.goldDeep, lineHeight: 1 }}>{c.letter}</div>

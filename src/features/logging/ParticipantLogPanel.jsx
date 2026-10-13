@@ -347,7 +347,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
       )}
 
       {/* Readiness */}
-      <div className="p-4" style={{ background: '#fff', border: `1px solid ${C.charcoal}20` }}>
+      <div className="p-4" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
         <div className="mono mb-1" style={{ fontSize: '13px', letterSpacing: '0.1em', color: C.moss, fontWeight: 600 }}>READINESS</div>
         <div className="mb-3" style={{ fontSize: '15px', color: C.ink }}>How recovered &amp; prepared did you feel going in?</div>
         <div className="flex gap-1.5">
@@ -366,7 +366,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
       ) : (
         <div className="space-y-3">
           {grouped.map((g) => (
-            <div key={g.section} style={{ background: '#fff', border: `1px solid ${C.charcoal}20` }}>
+            <div key={g.section} style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
               <button type="button" onClick={() => toggleSection(g.section)} className="w-full flex items-center justify-between p-3 text-left" style={{ background: C.ink, color: C.bone }}>
                 <div>
                   <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold, fontWeight: 600 }}>SECTION</div>
@@ -401,7 +401,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                           {c.items.map((it, ii) => {
                             const ex = data.exercises.find((e) => e.id === it.exerciseId);
                             return (
-                              <div key={ii} className="px-3 py-2" style={{ background: '#fff', border: `1px solid ${C.charcoal}10` }}>
+                              <div key={ii} className="px-3 py-2" style={{ background: C.cream, border: `1px solid ${C.charcoal}10` }}>
                                 <span className="prog-name" style={{ fontSize: '20px' }}>{ex?.name || '?'}</span>
                                 {ex?.videoUrl && <span className="ml-2 align-middle"><VideoDemo url={ex.videoUrl} /></span>}
                               </div>
@@ -502,7 +502,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                     if (!last) return null;
                                     const best = bestPastSet(last.sets, ex);
                                     return (
-                                      <div className="px-3 py-2" style={{ background: '#fff', borderLeft: `3px solid ${C.forest}` }}>
+                                      <div className="px-3 py-2" style={{ background: C.cream, borderLeft: `3px solid ${C.forest}` }}>
                                         <div className="mono mb-0.5" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>LAST TIME · BEST SET · {last.date}</div>
                                         <div className="mono" style={{ fontSize: '16px', color: C.ink, fontWeight: 700 }}>{(best && fmtPastSet(best, ex, wUnitFor(exId))) || '—'}</div>
                                         {last.note && <div className="mt-1" style={{ fontSize: '14px', color: C.gold, fontStyle: 'italic', lineHeight: 1.35 }}>“{last.note}”</div>}
@@ -593,7 +593,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                   })()}
                                   <div className="pt-1">
                                     <input value={exerciseNotes[exId] || ''} onChange={(e) => setExerciseNotes((prev) => ({ ...prev, [exId]: e.target.value }))}
-                                      placeholder="Notes — form cues, how it felt, pain..." className="w-full px-2.5 py-1.5 text-sm" style={{ background: '#fff', color: C.ink, border: `1px solid ${C.charcoal}25`, fontStyle: 'italic' }} />
+                                      placeholder="Notes — form cues, how it felt, pain..." className="w-full px-2.5 py-1.5 text-sm" style={{ background: C.cream, color: C.ink, border: `1px solid ${C.charcoal}25`, fontStyle: 'italic' }} />
                                   </div>
                                 </div>
                               )}
@@ -640,7 +640,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
           the keyboard while logging sets instead of stranding mid-screen. */}
       <BottomBar className="z-40 flex gap-2 px-3" style={{ paddingTop: '10px', paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 10px)', background: C.bone, borderTop: `1px solid ${C.charcoal}25`, boxShadow: '0 -4px 16px rgba(0,0,0,0.14)' }}>
         <div className="flex gap-2 w-full max-w-3xl mx-auto">
-          <button onClick={onDone} className="mono px-4 py-3" style={{ fontSize: '13px', letterSpacing: '0.1em', background: '#fff', color: C.moss, border: `1px solid ${C.charcoal}30` }}>CLOSE</button>
+          <button onClick={onDone} className="mono px-4 py-3" style={{ fontSize: '13px', letterSpacing: '0.1em', background: C.cream, color: C.moss, border: `1px solid ${C.charcoal}30` }}>CLOSE</button>
           <button onClick={save} disabled={saving} className="mono flex-1 py-3" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>{saving ? 'SAVING…' : existingLog ? 'UPDATE SESSION' : 'SAVE SESSION →'}</button>
         </div>
       </BottomBar>

@@ -57,7 +57,7 @@ export default function SearchSelect({ value, onChange, options, placeholder = '
       )}
       {open && (
         <div className="absolute z-30 left-0 right-0 mt-1 max-h-64 overflow-y-auto"
-          style={{ background: '#fff', border: `1px solid ${C.charcoal}25`, boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}>
+          style={{ background: C.cream, border: `1px solid ${C.charcoal}25`, boxShadow: '0 8px 28px rgba(0,0,0,0.6)' }}>
           {filtered.length === 0 && (
             <div className="px-3 py-3 ui-strong" style={{ fontSize: '14px', color: C.moss }}>{emptyText}</div>
           )}

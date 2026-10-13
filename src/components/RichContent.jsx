@@ -100,7 +100,7 @@ export function ContentEditor({ content, onChange }) {
       <input ref={fileRef} type="file" accept="image/*" onChange={onPickImage} style={{ display: 'none' }} />
 
       {blocks.map((b, i) => (
-        <div key={i} className="p-2" style={{ background: '#fff', border: `1px solid ${C.charcoal}20` }}>
+        <div key={i} className="p-2" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
           <div className="flex items-center justify-between mb-1.5">
             <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.goldDeep }}>{b.type.toUpperCase()}</span>
             <div className="flex gap-1">

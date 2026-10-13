@@ -304,7 +304,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
                       <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>{b.date}</div>
                       <div className="flex gap-1.5 flex-wrap mt-1">
                         {BODY_METRICS.map((m) => b[m.key] != null && (
-                          <span key={m.key} className="mono px-1.5 py-0.5" style={{ fontSize: '11px', background: '#fff', border: `1px solid ${C.charcoal}20`, color: C.ink }}>
+                          <span key={m.key} className="mono px-1.5 py-0.5" style={{ fontSize: '11px', background: C.cream, border: `1px solid ${C.charcoal}20`, color: C.ink }}>
                             <span style={{ color: C.moss }}>{m.short}</span> {b[m.key]}{m.unit}
                           </span>
                         ))}

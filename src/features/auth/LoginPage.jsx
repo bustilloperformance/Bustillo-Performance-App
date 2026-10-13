@@ -72,7 +72,7 @@ export default function LoginPage() {
                 placeholder="you@example.com"
                 autoFocus
                 className="w-full px-3 py-2.5 text-sm"
-                style={{ background: '#fff', color: C.ink, border: `1px solid ${C.charcoal}30` }}
+                style={{ background: C.cream, color: C.ink, border: `1px solid ${C.charcoal}30` }}
               />
             </div>
             <div>
@@ -85,7 +85,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 className="w-full px-3 py-2.5 text-sm"
-                style={{ background: '#fff', color: C.ink, border: `1px solid ${C.charcoal}30` }}
+                style={{ background: C.cream, color: C.ink, border: `1px solid ${C.charcoal}30` }}
               />
             </div>
 

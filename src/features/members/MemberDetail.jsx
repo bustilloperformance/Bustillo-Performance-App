@@ -501,7 +501,7 @@ function GuardianCard({ member }) {
           </div>
           <div className="flex flex-wrap gap-2">
             {dependents.map((d) => (
-              <div key={d.id} className="flex items-center gap-2 px-3 py-2" style={{ background: '#fff', border: `1px solid ${C.charcoal}20` }}>
+              <div key={d.id} className="flex items-center gap-2 px-3 py-2" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <Avatar member={d} size={26} fontSize={11} />
                 <span className="ui-strong" style={{ fontSize: '16px', color: C.ink }}>{d.name}</span>
               </div>
