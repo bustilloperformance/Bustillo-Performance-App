@@ -54,7 +54,7 @@ export default function ReportsView() {
     <div className="p-4 md:p-10 anim-fade">
       <PageHeader sectionNo="14" section="STUDIO · ACCOUNTING" title="Reports."
         subtitle="— profit & loss · balance sheet · cash flow."
-        action={<button onClick={() => window.print()} className="mono px-4 py-3 flex items-center gap-2 no-print" style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}><Printer size={14} /> PRINT / PDF</button>} />
+        action={<button onClick={() => window.print()} className="mono px-4 py-3 flex items-center gap-2 no-print" style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}><Printer size={14} /> PRINT / PDF</button>} />
 
       {/* Period selector */}
       <div className="flex items-center gap-2 mb-6 flex-wrap no-print">

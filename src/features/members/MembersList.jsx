@@ -148,7 +148,7 @@ export default function MembersList({ onSelect }) {
           );
           return (
             <button key={m.id} onClick={() => onSelect(m.id)}
-              className="w-full flex md:grid md:grid-cols-12 md:items-center gap-3 px-4 py-3 text-sm hover:bg-amber-50 transition text-left"
+              className="w-full flex md:grid md:grid-cols-12 md:items-center gap-3 px-4 py-3 text-sm hover:bg-[#C4A46420] transition text-left"
               style={{ borderBottom: `1px solid ${C.charcoal}10` }}>
               {/* Member — avatar + name/email (+ mobile meta) */}
               <div className="flex items-center gap-3 min-w-0 flex-1 md:col-span-5">

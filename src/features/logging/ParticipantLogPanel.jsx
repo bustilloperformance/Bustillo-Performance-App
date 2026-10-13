@@ -367,7 +367,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
         <div className="space-y-3">
           {grouped.map((g) => (
             <div key={g.section} style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-              <button type="button" onClick={() => toggleSection(g.section)} className="w-full flex items-center justify-between p-3 text-left" style={{ background: C.cream, color: C.ink }}>
+              <button type="button" onClick={() => toggleSection(g.section)} className="w-full flex items-center justify-between p-3 text-left" style={{ background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.ink }}>
                 <div>
                   <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold, fontWeight: 600 }}>SECTION</div>
                   <div className="display leading-tight" style={{ fontSize: '22px', color: C.cream, fontWeight: 600, letterSpacing: '0.02em' }}>{g.section}</div>
@@ -641,7 +641,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
       <BottomBar className="z-40 flex gap-2 px-3" style={{ paddingTop: '10px', paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 10px)', background: C.bone, borderTop: `1px solid ${C.charcoal}25`, boxShadow: '0 -4px 16px rgba(0,0,0,0.14)' }}>
         <div className="flex gap-2 w-full max-w-3xl mx-auto">
           <button onClick={onDone} className="mono px-4 py-3" style={{ fontSize: '13px', letterSpacing: '0.1em', background: C.cream, color: C.moss, border: `1px solid ${C.charcoal}30` }}>CLOSE</button>
-          <button onClick={save} disabled={saving} className="mono flex-1 py-3" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>{saving ? 'SAVING…' : existingLog ? 'UPDATE SESSION' : 'SAVE SESSION →'}</button>
+          <button onClick={save} disabled={saving} className="mono flex-1 py-3" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>{saving ? 'SAVING…' : existingLog ? 'UPDATE SESSION' : 'SAVE SESSION →'}</button>
         </div>
       </BottomBar>
 

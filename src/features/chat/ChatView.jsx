@@ -184,7 +184,7 @@ export default function ChatView({ memberId, staff = false }) {
                     </div>
                   </div>
                   {staff && (
-                    <button onClick={() => setEditor(selected)} className="mono px-2.5 py-1.5 flex items-center gap-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
+                    <button onClick={() => setEditor(selected)} className="mono px-2.5 py-1.5 flex items-center gap-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>
                       <Settings2 size={12} /> EDIT
                     </button>
                   )}
@@ -243,7 +243,7 @@ export default function ChatView({ memberId, staff = false }) {
                     <textarea value={draft} onChange={(e) => setDraft(e.target.value)} rows={1} placeholder="Write a message…"
                       onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(); } }}
                       className={`${inputClass} flex-1`} style={{ ...inputStyle, resize: 'none', minHeight: 40, maxHeight: 120 }} />
-                    <button onClick={send} disabled={sending || (!draft.trim() && !file)} className="p-2.5 flex-shrink-0" style={{ background: C.cream, color: C.gold, opacity: (sending || (!draft.trim() && !file)) ? 0.45 : 1 }}><Send size={16} /></button>
+                    <button onClick={send} disabled={sending || (!draft.trim() && !file)} className="p-2.5 flex-shrink-0" style={{ background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold, opacity: (sending || (!draft.trim() && !file)) ? 0.45 : 1 }}><Send size={16} /></button>
                   </div>
                 </div>
               </>

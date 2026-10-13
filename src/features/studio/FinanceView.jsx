@@ -395,7 +395,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
                   <div className="mono" style={{ fontSize: '11px', color: C.moss }}>{(t.appliesTo || []).map((s) => (TYPE_LABEL[s] || s)).join(', ') || 'no sources'} · from {t.effectiveFrom}</div>
                 </div>
                 <button onClick={() => flip(t)} className="mono px-2 py-1" style={{ fontSize: '10px', letterSpacing: '0.1em', background: t.enabled ? C.forest : C.sand, color: t.enabled ? C.ink : C.bone }}>{t.enabled ? 'ON' : 'OFF'}</button>
-                <button onClick={() => edit(t)} className="p-1" style={{ background: C.cream }}><Edit2 size={11} /></button>
+                <button onClick={() => edit(t)} className="p-1" style={{ background: C.cream, border: `1px solid ${C.charcoal}40` }}><Edit2 size={11} /></button>
                 <button onClick={() => del(t.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button>
               </div>
             ))}

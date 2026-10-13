@@ -161,7 +161,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
         if (openDay) {
           return (
             <div>
-              <button onClick={() => setExpandedDate(null)} className="mono mb-3 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>← BACK TO CALENDAR</button>
+              <button onClick={() => setExpandedDate(null)} className="mono mb-3 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>← BACK TO CALENDAR</button>
               <div className="p-3 mb-2 flex items-center justify-between gap-2" style={{ background: openDay.date === today ? C.gold : C.cream, color: openDay.date === today ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
                 <div className="min-w-0">
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: openDay.date === today ? C.gold : C.moss }}>{niceDate(openDay.date)}{openDay.date === today ? ' · TODAY' : ''}</div>

@@ -178,7 +178,7 @@ export default function ExerciseLibrary() {
               {/* Video + actions */}
               <div className="flex items-center gap-1.5 flex-shrink-0 ml-2 md:ml-0 md:col-span-3 md:justify-end">
                 {hasVideo && <span onClick={(ev) => ev.stopPropagation()}><VideoDemo url={e.videoUrl} label="PLAY" /></span>}
-                <button onClick={() => openEdit(e)} className="p-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition" style={{ background: C.bone }}><Edit2 size={11} /></button>
+                <button onClick={() => openEdit(e)} className="p-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><Edit2 size={11} /></button>
                 <button onClick={() => remove(e.id)} className="p-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition" style={{ background: C.gold }}><Trash2 size={11} /></button>
               </div>
             </div>

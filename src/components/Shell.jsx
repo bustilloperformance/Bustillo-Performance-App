@@ -621,7 +621,7 @@ function Overview({ setView, can }) {
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>{x.plan.name.toUpperCase()} · {x.rs.state === 'expired' ? 'WAS DUE' : 'DUE'} {x.rs.date}{x.rs.state === 'expiring' && x.rs.days != null ? ` · ${x.rs.days}d` : ''}</div>
                       </button>
                       {canRenew(x.plan) && (
-                        <button onClick={() => doRenew(x)} disabled={busyRenew === x.mb.id} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
+                        <button onClick={() => doRenew(x)} disabled={busyRenew === x.mb.id} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>
                           {busyRenew === x.mb.id ? '…' : '↻ RENEW +1'}
                         </button>
                       )}
@@ -724,7 +724,7 @@ function Overview({ setView, can }) {
             {quickActions.map((qa) => {
               const Icon = qa.icon;
               return (
-                <button key={qa.target} onClick={() => setView(qa.target)} className="p-4 flex items-center justify-between transition-all hover:bg-amber-100" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
+                <button key={qa.target} onClick={() => setView(qa.target)} className="p-4 flex items-center justify-between transition-all hover:bg-[#C4A46420]" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                   <div className="flex items-center gap-2"><Icon size={14} strokeWidth={1.8} style={{ color: C.ink }} /><span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>{qa.label}</span></div>
                   <ChevronRight size={14} style={{ color: C.moss }} />
                 </button>

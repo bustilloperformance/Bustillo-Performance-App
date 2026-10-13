@@ -58,7 +58,7 @@ export default function CommsView() {
           {data.communications.map((c) => (
             <div key={c.id} className="p-5 group relative" style={{ background: c.status === 'active' ? C.cream : C.bone, border: `1px solid ${C.charcoal}20`, opacity: c.status === 'active' ? 1 : 0.7 }}>
               <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100">
-                <button onClick={() => openEdit(c)} className="p-1" style={{ background: C.bone }}><Edit2 size={10} /></button>
+                <button onClick={() => openEdit(c)} className="p-1" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><Edit2 size={10} /></button>
                 <button onClick={() => remove(c)} className="p-1" style={{ background: C.gold }}><Trash2 size={10} /></button>
               </div>
               <div className="flex items-start justify-between mb-3 pr-12">
@@ -76,7 +76,7 @@ export default function CommsView() {
                   <div className="stat-num" style={{ fontSize: '32px' }}>{c.sent}</div>
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>LOGGED SENDS</div>
                 </div>
-                <button onClick={() => send(c)} disabled={c.status !== 'active'} className="mono px-3 py-2 flex items-center gap-1" style={{ background: C.cream, color: C.gold, fontSize: '11px', letterSpacing: '0.1em', opacity: c.status !== 'active' ? 0.3 : 1 }}>
+                <button onClick={() => send(c)} disabled={c.status !== 'active'} className="mono px-3 py-2 flex items-center gap-1" style={{ background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold, fontSize: '11px', letterSpacing: '0.1em', opacity: c.status !== 'active' ? 0.3 : 1 }}>
                   <Send size={10} /> LOG SEND
                 </button>
               </div>

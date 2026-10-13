@@ -234,7 +234,7 @@ export default function ClientHome({ clientMemberId, setView }) {
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>${p.price} / {recurrenceLabel(p)}</div>
                         {planHasPage(p) && <div className="mono mt-1" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold }}>▸ TAP FOR DETAILS</div>}
                       </div>
-                      <button onClick={(e) => { e.stopPropagation(); subscribe(p.id); }} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
+                      <button onClick={(e) => { e.stopPropagation(); subscribe(p.id); }} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>
                         SUBSCRIBE →
                       </button>
                     </div>

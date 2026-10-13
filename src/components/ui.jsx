@@ -120,7 +120,7 @@ export function Modal({ title, eyebrow, onClose, children, size = 'md' }) {
     <div className="fixed inset-0 z-[65] flex items-stretch md:items-start justify-center md:p-6 overflow-y-auto
                     bg-[#0B0B0C] md:bg-[rgba(0,0,0,0.85)]" onClick={onClose}>
       <div className={`w-full ${widths[size]} md:my-8 anim-up flex flex-col min-h-screen md:min-h-0`}
-           style={{ background: C.cream }} onClick={(e) => e.stopPropagation()}>
+           style={{ background: C.cream, border: `1px solid ${C.charcoal}25` }} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between p-4 md:p-5 sticky top-0 z-10"
              style={{ background: C.cream, color: C.ink, borderBottom: `2px solid ${C.gold}` }}>
           <div className="min-w-0 flex-1">
@@ -141,11 +141,19 @@ export function Modal({ title, eyebrow, onClose, children, size = 'md' }) {
 }
 
 export function Btn({ variant = 'primary', children, onClick, disabled, type, icon: Icon, full }) {
+  // Sobre fondo oscuro un botón necesita SILUETA, no solo texto legible.
+  // `primary` es carbón (#1A1A1D) y la página es negra (#0B0B0C): 1.13:1
+  // entre sí, así que el botón se leía pero no se veía dónde empezaba ni
+  // dónde terminaba. En la app clara original ese mismo relleno era la
+  // tinta oscura y recortaba solo contra el hueso.
+  //
+  // El borde dorado también jerarquiza: relleno de oro = la acción más
+  // fuerte, contorno de oro = la acción principal, filo de hueso = el resto.
   const styles = {
-    primary: { background: C.cream, color: C.ink },
-    gold: { background: C.gold, color: C.bone },
+    primary: { background: C.cream, color: C.ink, border: `1px solid ${C.gold}` },
+    gold: { background: C.gold, color: C.bone, border: `1px solid ${C.gold}` },
     ghost: { background: 'transparent', color: C.ink, border: `1px solid ${C.charcoal}40` },
-    forest: { background: C.forest, color: C.ink },
+    forest: { background: C.forest, color: C.ink, border: `1px solid ${C.charcoal}40` },
   };
   return (
     <button onClick={onClick} disabled={disabled} type={type}

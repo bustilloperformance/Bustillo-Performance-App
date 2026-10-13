@@ -55,7 +55,7 @@ function ConfirmDialog({ dialog, onClose }) {
       style={{ background: 'rgba(11, 26, 20, 0.85)' }}
       onClick={onClose}
     >
-      <div className="w-full max-w-md anim-up" style={{ background: C.cream }} onClick={(e) => e.stopPropagation()}>
+      <div className="w-full max-w-md anim-up" style={{ background: C.cream, border: `1px solid ${C.charcoal}25` }} onClick={(e) => e.stopPropagation()}>
         <div className="p-5" style={{ background: C.cream, color: C.ink, borderBottom: `2px solid ${danger ? C.gold : C.forest}` }}>
           <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.sand }}>
             CONFIRMATION REQUIRED

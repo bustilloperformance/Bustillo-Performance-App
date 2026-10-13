@@ -22,7 +22,7 @@ export function AddSectionDropdown({ sections, onAdd }) {
         <div className="absolute left-1/2 -translate-x-1/2 top-full mt-1 z-20 w-64"
           style={{ background: C.cream, border: `1px solid ${C.charcoal}30`, boxShadow: '0 8px 16px rgba(0,0,0,0.2)' }}>
           {sections.map((s) => (
-            <button key={s.id} onClick={() => { onAdd(s.id); setOpen(false); }} className="w-full text-left px-3 py-2 hover:bg-amber-100"
+            <button key={s.id} onClick={() => { onAdd(s.id); setOpen(false); }} className="w-full text-left px-3 py-2 hover:bg-[#C4A46420]"
               style={{ borderBottom: `1px solid ${C.charcoal}10` }}>
               <div className="ui-strong" style={{ fontSize: '16px', color: C.ink }}>{s.label}</div>
               <div className="help" style={{ fontSize: '13px', color: C.gold }}>— {s.hint}</div>
@@ -155,7 +155,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
             <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={`Search all ${section.toLowerCase()} exercises...`} autoFocus
               className="w-full px-2 py-1 text-sm" style={inputStyle} />
             {cat && !searching ? (
-              <button onClick={() => setCat('')} className="mono mt-1.5 px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
+              <button onClick={() => setCat('')} className="mono mt-1.5 px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>
                 ← ALL CATEGORIES
               </button>
             ) : (
@@ -175,7 +175,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
                 </div>
               )}
               {categories.map((c) => (
-                <button key={c} onClick={() => setCat(c)} className="w-full text-left px-3 py-2.5 hover:bg-amber-100 flex items-center justify-between gap-2"
+                <button key={c} onClick={() => setCat(c)} className="w-full text-left px-3 py-2.5 hover:bg-[#C4A46420] flex items-center justify-between gap-2"
                   style={{ borderBottom: `1px solid ${C.charcoal}10` }}>
                   <span className="ui-strong" style={{ fontSize: '16px', color: C.ink, fontWeight: 600 }}>{c}</span>
                   <span className="mono flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>{catCounts[c]} →</span>
@@ -193,14 +193,14 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
                   {/* El momento exacto en que hace falta crearlo: buscó algo y no
                       está. El nombre ya viene escrito de la búsqueda. */}
                   {onCreate && searching && (
-                    <button onClick={abrirNuevo} className="mono mt-2 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
+                    <button onClick={abrirNuevo} className="mono mt-2 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>
                       + CREATE “{search.trim().slice(0, 22)}”
                     </button>
                   )}
                 </div>
               )}
               {filtered.map((ex) => (
-                <button key={ex.id} onClick={() => { onPick(ex.id); reset(); }} className="w-full text-left px-3 py-2 hover:bg-amber-100">
+                <button key={ex.id} onClick={() => { onPick(ex.id); reset(); }} className="w-full text-left px-3 py-2 hover:bg-[#C4A46420]">
                   <div className="prog-name" style={{ fontSize: '15px', color: C.ink }}>{ex.name}</div>
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>{ex.category?.toUpperCase()} · {ex.measure?.toUpperCase()}</div>
                 </button>

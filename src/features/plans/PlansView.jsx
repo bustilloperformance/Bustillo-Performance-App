@@ -114,7 +114,7 @@ export default function PlansView() {
             return (
               <div key={p.id} className="p-6 group relative" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100 transition">
-                  <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: C.bone }}><Edit2 size={12} /></button>
+                  <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><Edit2 size={12} /></button>
                   <button onClick={() => remove(p.id)} className="p-1.5" style={{ background: C.gold, color: C.bone }}><Trash2 size={12} /></button>
                 </div>
                 <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>

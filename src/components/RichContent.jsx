@@ -104,8 +104,8 @@ export function ContentEditor({ content, onChange }) {
           <div className="flex items-center justify-between mb-1.5">
             <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.gold }}>{b.type.toUpperCase()}</span>
             <div className="flex gap-1">
-              <button type="button" onClick={() => move(i, -1)} className="p-1" style={{ background: C.bone }}><ArrowUp size={11} /></button>
-              <button type="button" onClick={() => move(i, 1)} className="p-1" style={{ background: C.bone }}><ArrowDown size={11} /></button>
+              <button type="button" onClick={() => move(i, -1)} className="p-1" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><ArrowUp size={11} /></button>
+              <button type="button" onClick={() => move(i, 1)} className="p-1" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><ArrowDown size={11} /></button>
               <button type="button" onClick={() => remove(i)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button>
             </div>
           </div>
@@ -117,7 +117,7 @@ export function ContentEditor({ content, onChange }) {
             <div className="space-y-1.5">
               {b.url && <img src={b.url} alt="" style={{ maxHeight: 120, borderRadius: 2 }} />}
               <div className="flex gap-1.5">
-                <button type="button" onClick={() => { pendingImageIdx.current = i; fileRef.current?.click(); }} className="mono px-3 py-2 flex items-center gap-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}><Upload size={11} /> UPLOAD</button>
+                <button type="button" onClick={() => { pendingImageIdx.current = i; fileRef.current?.click(); }} className="mono px-3 py-2 flex items-center gap-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}><Upload size={11} /> UPLOAD</button>
                 <input value={(b.url || '').startsWith('data:') ? '' : (b.url || '')} onChange={(e) => update(i, { url: e.target.value })} placeholder="…or paste an image URL" className={`${inputClass} flex-1`} style={inputStyle} />
               </div>
             </div>
