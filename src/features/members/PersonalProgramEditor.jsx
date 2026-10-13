@@ -274,7 +274,7 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
               <span style={{ color: C.gold, fontWeight: 600 }}>✓ {completedCount} DONE</span>
               {missedCount > 0 && <span style={{ color: C.goldDeep, fontWeight: 600 }}>✕ {missedCount} MISSED</span>}
               {clip && (
-                <span className="flex items-center gap-1 px-2 py-0.5" style={{ background: C.ink }}>
+                <span className="flex items-center gap-1 px-2 py-0.5" style={{ background: C.cream }}>
                   <span style={{ color: C.sand }}>⧉ COPIED</span>
                   <span className="prog-name" style={{ fontSize: '12px', color: C.gold }}>{clip.name}</span>
                   <button onClick={() => setClip(null)} className="ml-0.5" style={{ fontSize: '12px', color: C.sand }}>×</button>
@@ -331,9 +331,9 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
                             <div className="prog-name mb-1" style={{ fontSize: '14px', color: C.ink, lineHeight: 1.2 }}>{w?.name || '—'}</div>
                             <div className="mono mb-2" style={{ fontSize: '11px', letterSpacing: '0.1em', color: done ? C.forest : missed ? C.gold : C.moss, fontWeight: 600 }}>{done ? '✓ COMPLETED BY CLIENT' : missed ? '✕ NOT DONE (PAST)' : '· NOT LOGGED YET'}</div>
                             <div className="space-y-1">
-                              <button onClick={() => { setEditingWorkoutId(slot.workoutId); setStep('edit'); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>✎ EDIT WORKOUT</button>
+                              <button onClick={() => { setEditingWorkoutId(slot.workoutId); setStep('edit'); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>✎ EDIT WORKOUT</button>
                               <button onClick={() => { copyDay(date); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.forest, color: C.ink }}>⧉ COPY</button>
-                              <button onClick={() => { promoteToCatalog(slot.workoutId); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.navy, color: C.bone }}>↥ SAVE TO CATALOG</button>
+                              <button onClick={() => { promoteToCatalog(slot.workoutId); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.navy, color: C.ink }}>↥ SAVE TO CATALOG</button>
                               {clip && <button onClick={() => { pasteToDate(date); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.gold, color: C.bone }}>⤵ PASTE HERE (replace)</button>}
                               <button onClick={() => { deleteDay(date); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 text-left" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.sand, color: C.bone }}>✕ REMOVE DAY</button>
                             </div>
@@ -342,7 +342,7 @@ export default function PersonalProgramEditor({ memberId, onClose }) {
                           <>
                             <div className="help mb-2" style={{ fontSize: '13px', color: C.moss }}>— no workout assigned.</div>
                             {clip && <button onClick={() => { pasteToDate(date); setPopoverDate(null); }} className="w-full mono px-2 py-1.5 mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.gold, color: C.bone }}>⤵ PASTE HERE</button>}
-                            <button onClick={() => { setAddForm({ date, source: '' }); setStep('add'); setPopoverDate(null); }} className="w-full mono px-2 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>+ ASSIGN WORKOUT</button>
+                            <button onClick={() => { setAddForm({ date, source: '' }); setStep('add'); setPopoverDate(null); }} className="w-full mono px-2 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>+ ASSIGN WORKOUT</button>
                           </>
                         )}
                         <button onClick={() => setPopoverDate(null)} className="w-full mono mt-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>CLOSE</button>

@@ -53,7 +53,7 @@ export default function NutritionEditor({ member }) {
           </div>
         </div>
         <div className="flex gap-2 flex-shrink-0">
-          <label className="mono px-4 py-3 flex items-center" style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep, cursor: busy ? 'default' : 'pointer', opacity: busy ? 0.6 : 1 }}>
+          <label className="mono px-4 py-3 flex items-center" style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.cream, color: C.gold, cursor: busy ? 'default' : 'pointer', opacity: busy ? 0.6 : 1 }}>
             {busy ? 'PROCESSING…' : member.hasNutrition ? '↑ REPLACE PDF' : '↑ UPLOAD PDF'}
             <input type="file" accept="application/pdf" onChange={onFile} disabled={busy} style={{ display: 'none' }} />
           </label>

@@ -72,7 +72,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
   return (
     <div className={coach ? 'anim-fade' : 'p-4 md:p-10 anim-fade'}>
       {coach ? (
-        <div className="mb-4 px-4 py-3" style={{ background: C.ink, color: C.goldDeep, border: `1px solid ${C.gold}` }}>
+        <div className="mb-4 px-4 py-3" style={{ background: C.cream, color: C.gold, border: `1px solid ${C.gold}` }}>
           <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>COACH MODE · LOGGING FOR {(me.name || '').toUpperCase()}</div>
           <div className="help mt-0.5" style={{ fontSize: '13px', color: C.bone }}>— open a day to record their sets & weights.</div>
         </div>
@@ -109,7 +109,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
         const done = (program.schedule || []).filter((s) => s.dayNumber && programLog(s.workoutId, s.week, s.dayNumber)).length;
         return (
           <div key={mp.id} className="mb-5">
-            <div className="p-4 mb-2" style={{ background: C.ink, color: C.bone }}>
+            <div className="p-4 mb-2" style={{ background: C.cream, color: C.ink }}>
               <div className="flex items-center justify-between flex-wrap gap-2">
                 <div className="mono flex items-center gap-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>☁ ONLINE PROGRAM</div>
                 <div className="mono" style={{ fontSize: '11px', color: C.sand }}>{done}/{total} DONE · {total ? Math.round((done / total) * 100) : 0}%</div>
@@ -161,7 +161,7 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
         if (openDay) {
           return (
             <div>
-              <button onClick={() => setExpandedDate(null)} className="mono mb-3 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>← BACK TO CALENDAR</button>
+              <button onClick={() => setExpandedDate(null)} className="mono mb-3 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>← BACK TO CALENDAR</button>
               <div className="p-3 mb-2 flex items-center justify-between gap-2" style={{ background: openDay.date === today ? C.ink : C.cream, color: openDay.date === today ? C.bone : C.ink, border: `1px solid ${C.charcoal}20` }}>
                 <div className="min-w-0">
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: openDay.date === today ? C.gold : C.moss }}>{niceDate(openDay.date)}{openDay.date === today ? ' · TODAY' : ''}</div>

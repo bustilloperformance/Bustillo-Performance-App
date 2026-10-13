@@ -85,7 +85,7 @@ export default function PullToRefresh() {
   const y = pull - 52;
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 80, display: 'flex', justifyContent: 'center', pointerEvents: 'none', transform: `translateY(${y}px)`, transition: refreshing || pull === 0 ? 'transform 0.25s ease' : 'none' }}>
-      <div style={{ width: 40, height: 40, borderRadius: '50%', background: C.ink, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(0,0,0,0.35)' }}>
+      <div style={{ width: 40, height: 40, borderRadius: '50%', background: C.cream, display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 14px rgba(0,0,0,0.35)' }}>
         {refreshing ? (
           <span style={{ width: 18, height: 18, borderRadius: '50%', border: `3px solid ${C.gold}`, borderTopColor: 'transparent', display: 'inline-block', animation: 'ptr-spin 0.7s linear infinite' }} />
         ) : (

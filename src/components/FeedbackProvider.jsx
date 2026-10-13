@@ -34,7 +34,7 @@ export function FeedbackProvider({ children }) {
         {toast && (
           <div
             className="fixed bottom-6 right-6 px-5 py-3 anim-up shadow-2xl flex items-center gap-2 z-[70]"
-            style={{ background: C.ink, color: C.goldDeep, fontFamily: 'JetBrains Mono', fontSize: '12px', letterSpacing: '0.1em' }}
+            style={{ background: C.cream, color: C.gold, fontFamily: 'IBM Plex Mono', fontSize: '12px', letterSpacing: '0.1em' }}
           >
             <Check size={14} />
             {toast}
@@ -56,7 +56,7 @@ function ConfirmDialog({ dialog, onClose }) {
       onClick={onClose}
     >
       <div className="w-full max-w-md anim-up" style={{ background: C.cream }} onClick={(e) => e.stopPropagation()}>
-        <div className="p-5" style={{ background: C.ink, color: C.bone, borderBottom: `2px solid ${danger ? C.gold : C.forest}` }}>
+        <div className="p-5" style={{ background: C.cream, color: C.ink, borderBottom: `2px solid ${danger ? C.gold : C.forest}` }}>
           <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.sand }}>
             CONFIRMATION REQUIRED
           </div>

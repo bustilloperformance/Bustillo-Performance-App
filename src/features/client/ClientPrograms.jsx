@@ -38,7 +38,7 @@ export default function ClientPrograms({ clientMemberId, setView }) {
           {listed.map((p) => {
             const owned = owns(p.id);
             return (
-              <div key={p.id} onClick={() => hasPage(p) && setDetail(p)} className="p-6 flex flex-col transition-all hover:opacity-95" style={{ background: C.ink, color: C.bone, border: `1px solid ${C.charcoal}20`, cursor: hasPage(p) ? 'pointer' : 'default' }}>
+              <div key={p.id} onClick={() => hasPage(p) && setDetail(p)} className="p-6 flex flex-col transition-all hover:opacity-95" style={{ background: C.cream, color: C.ink, border: `1px solid ${C.charcoal}20`, cursor: hasPage(p) ? 'pointer' : 'default' }}>
                 <div className="flex items-center gap-1.5 mb-2 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>
                   <Globe size={11} /> — ONLINE · {p.durationWeeks}WK{p.focus ? ` · ${p.focus.toUpperCase()}` : ''}
                 </div>

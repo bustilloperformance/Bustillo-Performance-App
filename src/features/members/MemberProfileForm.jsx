@@ -78,11 +78,11 @@ export default function MemberProfileForm({ member, notesEditable = true }) {
         <div className="mono mb-4" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.moss }}>01 — IDENTITY</div>
         <div className="flex items-start gap-6 flex-wrap">
           <div className="flex flex-col items-center gap-2">
-            <div className="w-28 h-28 flex items-center justify-center overflow-hidden flex-shrink-0" style={{ background: C.ink, color: C.goldDeep }}>
+            <div className="w-28 h-28 flex items-center justify-center overflow-hidden flex-shrink-0" style={{ background: C.cream, color: C.gold }}>
               {form.photoUrl ? (
                 <img src={form.photoUrl} alt={form.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               ) : (
-                <span style={{ fontSize: '40px', fontFamily: 'Fraunces', fontStyle: 'italic' }}>
+                <span style={{ fontSize: '40px', fontFamily: 'Archivo', fontStyle: 'italic' }}>
                   {(form.name || '?').split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)}
                 </span>
               )}
@@ -90,7 +90,7 @@ export default function MemberProfileForm({ member, notesEditable = true }) {
             <input ref={fileRef} type="file" accept="image/*" onChange={handlePhoto} style={{ display: 'none' }} />
             <div className="flex gap-1">
               <button onClick={() => fileRef.current?.click()} className="mono px-2 py-1.5 flex items-center gap-1"
-                style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>
+                style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
                 <Upload size={11} /> {form.photoUrl ? 'CHANGE' : 'UPLOAD'}
               </button>
               {form.photoUrl && (
@@ -152,7 +152,7 @@ export default function MemberProfileForm({ member, notesEditable = true }) {
           the visible bottom edge even while the keyboard is up. */}
       {dirty && (
         <BottomBar className="z-50 flex justify-center px-4 pointer-events-none">
-          <div className="flex items-center justify-between gap-4 px-4 py-3 pointer-events-auto anim-up" style={{ background: C.ink, border: `2px solid ${C.gold}`, boxShadow: '0 8px 28px rgba(0,0,0,0.4)', width: '100%', maxWidth: 460, marginBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)' }}>
+          <div className="flex items-center justify-between gap-4 px-4 py-3 pointer-events-auto anim-up" style={{ background: C.cream, border: `2px solid ${C.gold}`, boxShadow: '0 8px 28px rgba(0,0,0,0.4)', width: '100%', maxWidth: 460, marginBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)' }}>
             <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.sand }}>· UNSAVED CHANGES</div>
             <button onClick={save} disabled={saving} className="mono px-5 py-2.5 flex items-center gap-2"
               style={{ background: C.gold, color: C.bone, fontSize: '14px', letterSpacing: '0.1em', opacity: saving ? 0.6 : 1 }}>

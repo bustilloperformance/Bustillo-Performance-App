@@ -50,7 +50,7 @@ export function ContentView({ content, dark = false }) {
           const id = getYouTubeId(b.url);
           if (!id) return null;
           return (
-            <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: C.ink, overflow: 'hidden' }}>
+            <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: C.cream, overflow: 'hidden' }}>
               <iframe src={`https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1`} title="Video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }} />
             </div>
           );
@@ -117,7 +117,7 @@ export function ContentEditor({ content, onChange }) {
             <div className="space-y-1.5">
               {b.url && <img src={b.url} alt="" style={{ maxHeight: 120, borderRadius: 2 }} />}
               <div className="flex gap-1.5">
-                <button type="button" onClick={() => { pendingImageIdx.current = i; fileRef.current?.click(); }} className="mono px-3 py-2 flex items-center gap-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}><Upload size={11} /> UPLOAD</button>
+                <button type="button" onClick={() => { pendingImageIdx.current = i; fileRef.current?.click(); }} className="mono px-3 py-2 flex items-center gap-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}><Upload size={11} /> UPLOAD</button>
                 <input value={(b.url || '').startsWith('data:') ? '' : (b.url || '')} onChange={(e) => update(i, { url: e.target.value })} placeholder="…or paste an image URL" className={`${inputClass} flex-1`} style={inputStyle} />
               </div>
             </div>

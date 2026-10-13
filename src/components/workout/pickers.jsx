@@ -15,7 +15,7 @@ export function AddSectionDropdown({ sections, onAdd }) {
   return (
     <div className="relative inline-block">
       <button onClick={() => setOpen((o) => !o)} className="mono px-3 py-2"
-        style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep, border: `1px solid ${C.gold}`, whiteSpace: 'nowrap' }}>
+        style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold, border: `1px solid ${C.gold}`, whiteSpace: 'nowrap' }}>
         {open ? '× CLOSE' : '+ ADD SECTION'}
       </button>
       {open && (
@@ -139,7 +139,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
               className="w-full px-2 py-1 text-sm" style={inputStyle} />
             <div className="flex gap-1 pt-0.5">
               <button onClick={crear} disabled={!nuevo.name.trim() || guardando} className="mono flex-1 py-2"
-                style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep, opacity: (!nuevo.name.trim() || guardando) ? 0.45 : 1 }}>
+                style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold, opacity: (!nuevo.name.trim() || guardando) ? 0.45 : 1 }}>
                 {guardando ? 'SAVING…' : 'CREATE & ADD'}
               </button>
               <button onClick={() => setNuevo(null)} className="mono px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.sand, color: C.bone }}>CANCEL</button>
@@ -155,7 +155,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
             <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder={`Search all ${section.toLowerCase()} exercises...`} autoFocus
               className="w-full px-2 py-1 text-sm" style={inputStyle} />
             {cat && !searching ? (
-              <button onClick={() => setCat('')} className="mono mt-1.5 px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>
+              <button onClick={() => setCat('')} className="mono mt-1.5 px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
                 ← ALL CATEGORIES
               </button>
             ) : (
@@ -193,7 +193,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
                   {/* El momento exacto en que hace falta crearlo: buscó algo y no
                       está. El nombre ya viene escrito de la búsqueda. */}
                   {onCreate && searching && (
-                    <button onClick={abrirNuevo} className="mono mt-2 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>
+                    <button onClick={abrirNuevo} className="mono mt-2 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
                       + CREATE “{search.trim().slice(0, 22)}”
                     </button>
                   )}
@@ -212,7 +212,7 @@ export function AddToSectionPicker({ section, circuit, hint, label = '+ ADD', ex
               descubre navegando, no solo al buscarlo por su nombre. */}
           {onCreate && (
             <button onClick={abrirNuevo} className="w-full mono px-3 py-2 text-left"
-              style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.bone, color: C.goldDeep, borderTop: `1px solid ${C.charcoal}20` }}>
+              style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.bone, color: C.gold, borderTop: `1px solid ${C.charcoal}20` }}>
               + NEW EXERCISE{cat && !searching ? ` · ${cat.toUpperCase()}` : ''}
             </button>
           )}

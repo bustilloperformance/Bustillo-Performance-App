@@ -21,9 +21,20 @@
 // par de contraste — solo lo voltea. Renombrar 1,826 llamadas habria sido
 // mucho riesgo para cero beneficio visual.
 //
-// Lo unico que la inversion rompio fueron los 30 botones
-// `background: C.ink, color: C.gold`: al volverse claro el panel, el oro
-// caia a 1.98:1. Se cambiaron a `goldDeep`. De ahi la regla de abajo.
+// ------------------------------------------------------------
+//  QUE SUPERFICIES SON CLARAS
+// ------------------------------------------------------------
+// Solo dos: la barra lateral y la barra superior movil. Todo lo demas es
+// negro o carbon.
+//
+// La inversion mecanica habia dejado 61 paneles de hueso — los que antes
+// eran acentos oscuros sobre pagina clara. Eran demasiados (el brand book
+// pide 15% de hueso) y cada uno obligaba a revisar el color de todos sus
+// hijos, porque sobre hueso el acero cae a 2.46:1 y el oro a 1.98:1. Se
+// pasaron a carbon, donde el acero da 5.89:1 y el oro 7.31:1, y la clase
+// de error desaparecio.
+//
+// Por eso `goldDeep` y `mossDeep` solo se usan en el cromo.
 //
 // ------------------------------------------------------------
 //  LA REGLA DEL ORO

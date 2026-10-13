@@ -100,7 +100,7 @@ export default function CheckInsView() {
             </div>
             {ci && (
               <button onClick={() => setOpen({ member, ci })} className="mono px-3 py-2 flex-shrink-0 ml-auto"
-                style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>VER RESPUESTAS</button>
+                style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>VER RESPUESTAS</button>
             )}
           </div>
         ))}

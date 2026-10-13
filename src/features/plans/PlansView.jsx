@@ -122,9 +122,9 @@ export default function PlansView() {
                 </div>
                 <div className="prog-name mb-2" style={{ fontSize: '32px' }}>{p.name}</div>
                 <div className="flex flex-wrap gap-1 mb-3">
-                  <span className="mono px-2 py-0.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.navy, color: C.bone }}>☁ 1-ON-1 ONLINE</span>
+                  <span className="mono px-2 py-0.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.navy, color: C.ink }}>☁ 1-ON-1 ONLINE</span>
                   {p.listed === true ? (
-                    <span className="mono px-2 py-0.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.bone }}>◉ LISTED</span>
+                    <span className="mono px-2 py-0.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.ink }}>◉ LISTED</span>
                   ) : (
                     <span className="mono px-2 py-0.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.sand, color: C.bone }}>○ HIDDEN</span>
                   )}
@@ -152,7 +152,7 @@ export default function PlansView() {
                 </div>
                 <div className="flex flex-wrap gap-1 pt-3" style={{ borderTop: `1px solid ${C.charcoal}20` }}>
                   {p.paymentMethods.map((m) => (
-                    <span key={m} className="mono px-2 py-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', background: C.ink, color: C.bone }}>
+                    <span key={m} className="mono px-2 py-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', background: C.cream, color: C.ink }}>
                       {m.toUpperCase()}
                     </span>
                   ))}
@@ -306,7 +306,7 @@ export default function PlansView() {
                 minimum term is enforced by this app, not by Stripe, so it only
                 reaches the checkout page because we put it there. */}
             {planTermsLine(form) && (
-              <div className="p-3" style={{ background: C.ink, color: C.bone }}>
+              <div className="p-3" style={{ background: C.cream, color: C.ink }}>
                 <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.sand }}>MEMBER SEES AT CHECKOUT</div>
                 <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>{planTermsLine(form)}</div>
               </div>

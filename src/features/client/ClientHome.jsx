@@ -131,7 +131,7 @@ export default function ClientHome({ clientMemberId, setView }) {
       const cols = stats.length >= 4 ? 'grid-cols-2 md:grid-cols-4' : stats.length === 3 ? 'grid-cols-3' : 'grid-cols-2';
       const size = stats.length >= 4 ? 'clamp(42px,7.5vw,62px)' : 'clamp(48px,9vw,78px)';
       return (
-      <div className="p-5 md:p-6 mb-3 md:mb-4" style={{ background: C.ink, color: C.bone }}>
+      <div className="p-5 md:p-6 mb-3 md:mb-4" style={{ background: C.cream, color: C.ink }}>
         <div className="flex items-center justify-between gap-3 mb-5 flex-wrap">
           <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.gold }}>— YOUR NUMBERS</div>
           <div className="flex gap-1">
@@ -213,7 +213,7 @@ export default function ClientHome({ clientMemberId, setView }) {
                 {myMembership?.pause && <div className="mono mt-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.goldDeep }}>❚❚ PAUSED</div>}
               </div>
             </div>
-              <div className="p-4" style={{ background: C.ink, color: C.bone, borderLeft: `3px solid ${C.gold}` }}>
+              <div className="p-4" style={{ background: C.cream, color: C.ink, borderLeft: `3px solid ${C.gold}` }}>
                 <div className="mono mb-1" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold }}>☁ 1-ON-1 · PERSONAL PROGRAM</div>
                 <div className="hand" style={{ fontSize: '17px', color: C.sand }}>— tu entrenamiento es a tu medida. abre My Training para ver la semana.</div>
               </div>
@@ -234,7 +234,7 @@ export default function ClientHome({ clientMemberId, setView }) {
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>${p.price} / {recurrenceLabel(p)}</div>
                         {planHasPage(p) && <div className="mono mt-1" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.goldDeep }}>▸ TAP FOR DETAILS</div>}
                       </div>
-                      <button onClick={(e) => { e.stopPropagation(); subscribe(p.id); }} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>
+                      <button onClick={(e) => { e.stopPropagation(); subscribe(p.id); }} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
                         SUBSCRIBE →
                       </button>
                     </div>

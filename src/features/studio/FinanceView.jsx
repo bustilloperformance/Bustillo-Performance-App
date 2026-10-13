@@ -347,7 +347,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
 
         {/* Owed summary */}
         <div className="grid grid-cols-2 gap-3">
-          <div className="p-3" style={{ background: C.ink, color: C.bone }}>
+          <div className="p-3" style={{ background: C.cream, color: C.ink }}>
             <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.sand }}>TAX OWED (ALL TIME)</div>
             <div className="display" style={{ fontSize: '26px', fontWeight: 600, color: C.gold }}>${payable.toLocaleString(undefined, { maximumFractionDigits: 2 })}</div>
           </div>

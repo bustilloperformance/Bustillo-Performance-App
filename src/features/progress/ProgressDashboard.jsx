@@ -327,7 +327,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
       {/* Consistency — full width too. Left at half it would sit alone in one
           column with dead black space beside it, now that body comp takes a
           whole row. Every section on this screen is a full-width band. */}
-      <div className="p-6 lg:col-span-2" style={{ background: C.ink, color: C.bone }}>
+      <div className="p-6 lg:col-span-2" style={{ background: C.cream, color: C.ink }}>
         <div className="serif-italic mb-4" style={{ fontSize: '28px', color: C.cream }}>Consistency</div>
         <div className="grid grid-cols-3 gap-3 mb-5 md:max-w-lg">
           <Stat value={logs.length} label="SESSIONS" gold />
@@ -390,7 +390,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
                   : <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>NOT TRACKED HERE</div>}
                 {editable && (
                   <>
-                    <button onClick={() => openGoalEditor(g)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }} title="Edit this goal">✎ EDIT</button>
+                    <button onClick={() => openGoalEditor(g)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }} title="Edit this goal">✎ EDIT</button>
                     <button onClick={() => onCompleteGoal(g.id, true)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.forest, color: C.ink }} title="Mark this goal hit">✓ DONE</button>
                     {/* Hover-only would never appear on a touch screen. */}
                     <button onClick={() => onRemoveGoal(g.id)} className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition p-1" style={{ background: C.sand }} title="Remove goal"><X size={11} /></button>
@@ -423,7 +423,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
                     </div>
                     {editable && (
                       <div className="flex items-center gap-1 flex-shrink-0">
-                        <button onClick={() => openGoalEditor(g)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }} title="Edit this goal">✎</button>
+                        <button onClick={() => openGoalEditor(g)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }} title="Edit this goal">✎</button>
                         <button onClick={() => onCompleteGoal(g.id, false)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.sand, color: C.bone }} title="Put this goal back in play">↺ REOPEN</button>
                         <button onClick={() => onRemoveGoal(g.id)} className="opacity-0 group-hover:opacity-100 transition p-1" title="Delete for good"><X size={11} style={{ color: C.moss }} /></button>
                       </div>

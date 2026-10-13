@@ -31,7 +31,9 @@ export const PathMark = ({ size = 24, color = 'currentColor', accent = color, cl
 
 // Avatar — photo if available, else initials.
 export const Avatar = ({ member, size = 32, bg, fg, fontSize }) => {
-  const bgC = bg || C.ink;
+  // Carbón con las iniciales en oro: 7.31:1. Antes el fondo era hueso, donde
+  // el oro cae a 1.98:1 y las iniciales desaparecían.
+  const bgC = bg || C.cream;
   const fgC = fg || C.gold;
   return (
     <div className="flex items-center justify-center overflow-hidden flex-shrink-0"
@@ -39,7 +41,7 @@ export const Avatar = ({ member, size = 32, bg, fg, fontSize }) => {
       {member?.photoUrl ? (
         <img src={member.photoUrl} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
       ) : (
-        <span style={{ fontSize: fontSize || Math.round(size * 0.36), fontFamily: 'JetBrains Mono, monospace', fontWeight: 600 }}>
+        <span style={{ fontSize: fontSize || Math.round(size * 0.36), fontFamily: 'IBM Plex Mono, monospace', fontWeight: 600 }}>
           {member?.photo}
         </span>
       )}
@@ -53,7 +55,7 @@ export function PageHeader({ section, sectionNo, title, subtitle, action }) {
     <div className="mb-8">
       <div className="flex items-center justify-between mb-1 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>
         <span>{sectionNo} — {section}</span>
-        <span className="hidden md:inline">— FW · THE WAY WE RAISE THE STANDARD</span>
+        <span className="hidden md:inline">— BP · BUILD THE ATHLETE</span>
       </div>
       <div style={{ borderTop: `1px solid ${C.charcoal}30` }} className="pt-4">
         <div className="flex items-end justify-between gap-4 flex-wrap">
@@ -61,7 +63,7 @@ export function PageHeader({ section, sectionNo, title, subtitle, action }) {
             <h1 className="serif-italic" style={{ fontSize: 'clamp(48px, 6vw, 84px)', color: C.ink, fontWeight: 400 }}>
               {title}
             </h1>
-            {subtitle && <div className="help mt-2" style={{ fontSize: '20px', color: C.goldDeep }}>{subtitle}</div>}
+            {subtitle && <div className="help mt-2" style={{ fontSize: '20px', color: C.gold }}>{subtitle}</div>}
           </div>
           {action}
         </div>
@@ -72,9 +74,12 @@ export function PageHeader({ section, sectionNo, title, subtitle, action }) {
 
 export function StatCard({ label, value, change, icon: Icon, accent = 'ink' }) {
   const themes = {
-    ink: { bg: C.ink, fg: C.bone, accent: C.gold },
-    forest: { bg: C.forest, fg: C.bone, accent: C.gold },
-    gold: { bg: C.gold, fg: C.ink, accent: C.ink },
+    // Rellenos oscuros con texto hueso, salvo el dorado, que lleva texto
+    // negro: sobre oro el hueso da 1.98:1 y el negro 8.28:1. Sobre el azul
+    // el acento también va hueso — el oro ahí solo da 4.01:1.
+    ink: { bg: C.cream, fg: C.ink, accent: C.gold },
+    forest: { bg: C.forest, fg: C.ink, accent: C.ink },
+    gold: { bg: C.gold, fg: C.bone, accent: C.bone },
     bone: { bg: C.cream, fg: C.ink, accent: C.gold, border: true },
   };
   const t = themes[accent] || themes.ink;
@@ -113,17 +118,16 @@ export function Modal({ title, eyebrow, onClose, children, size = 'md' }) {
   // where the dialog really is a card floating over the page.
   return createPortal(
     <div className="fixed inset-0 z-[65] flex items-stretch md:items-start justify-center md:p-6 overflow-y-auto
-                    bg-[#FAF4E6] md:bg-[rgba(11,26,20,0.85)]" onClick={onClose}>
+                    bg-[#0B0B0C] md:bg-[rgba(0,0,0,0.85)]" onClick={onClose}>
       <div className={`w-full ${widths[size]} md:my-8 anim-up flex flex-col min-h-screen md:min-h-0`}
            style={{ background: C.cream }} onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between p-4 md:p-5 sticky top-0 z-10"
-             style={{ background: C.ink, color: C.bone, borderBottom: `2px solid ${C.gold}` }}>
+             style={{ background: C.cream, color: C.ink, borderBottom: `2px solid ${C.gold}` }}>
           <div className="min-w-0 flex-1">
             {/* Sin truncate: el eyebrow suele ser una fecha, y una fecha a
                 medias ("DEL 14 AL 20 DE SE…") no dice nada. Que baje de
                 renglón en pantallas angostas. */}
-            {/* Arena, no musgo: este encabezado es tinta, y musgo sobre tinta
-                da 1.84:1 — dos oscuros encimados. Arena da 8.99:1. */}
+            {/* Acero sobre el carbón del encabezado: 5.89:1. */}
             {eyebrow && <div className="mono mb-1" style={{ fontSize: '11px', letterSpacing: '0.1em', lineHeight: 1.5, color: C.sand }}>{eyebrow}</div>}
             <div className="ui-strong text-xl md:text-2xl">{title}</div>
           </div>
@@ -138,7 +142,7 @@ export function Modal({ title, eyebrow, onClose, children, size = 'md' }) {
 
 export function Btn({ variant = 'primary', children, onClick, disabled, type, icon: Icon, full }) {
   const styles = {
-    primary: { background: C.ink, color: C.bone },
+    primary: { background: C.cream, color: C.ink },
     gold: { background: C.gold, color: C.bone },
     ghost: { background: 'transparent', color: C.ink, border: `1px solid ${C.charcoal}40` },
     forest: { background: C.forest, color: C.ink },

@@ -263,7 +263,7 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
                         </button>
                       );
                     })}
-                    <button onClick={() => setShowResetPw(true)} className="mono px-3 py-1.5 ml-auto" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>🔑 RESET PASSWORD</button>
+                    <button onClick={() => setShowResetPw(true)} className="mono px-3 py-1.5 ml-auto" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>🔑 RESET PASSWORD</button>
                     <button onClick={removeLogin} className="mono px-3 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.sand, color: C.bone }}>REMOVE LOGIN</button>
                   </div>
                   <div className="help mt-2" style={{ fontSize: '13px', color: C.moss }}>— change what this member can access, reset their password, or remove their login.</div>
@@ -291,7 +291,7 @@ export default function MemberDetail({ memberId, onBack, isOwner = false }) {
                 <div className="ui-strong" style={{ fontSize: '22px', color: C.ink }}>Delete this member.</div>
                 <div className="help mt-1" style={{ fontSize: '15px', color: C.moss }}>— removes their profile, memberships, logs & programs for good. Past payments stay on the books.</div>
               </div>
-              <button onClick={removeMember} className="mono px-4 py-3" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>DELETE MEMBER</button>
+              <button onClick={removeMember} className="mono px-4 py-3" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>DELETE MEMBER</button>
             </div>
           </div>
         )}

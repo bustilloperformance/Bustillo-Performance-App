@@ -10,8 +10,8 @@ import AssignPlanModal from './AssignPlanModal';
 import { PauseMembershipModal, CancelMembershipModal } from './membershipModals';
 
 const STATUS_BADGE = {
-  active: { label: '· ACTIVE', bg: C.forest, fg: C.bone },
-  paused: { label: '· PAUSED', bg: C.sand, fg: C.ink },
+  active: { label: '· ACTIVE', bg: C.forest, fg: C.ink },
+  paused: { label: '· PAUSED', bg: C.sand, fg: C.bone },
   cancelled: { label: '· CANCELLED', bg: C.charcoal, fg: C.bone },
   ended: { label: '· ENDED', bg: C.charcoal, fg: C.bone },
 };
@@ -99,9 +99,9 @@ export default function MembershipsView() {
           // que una membresía sin fecha de cobro sigue viva, y sin decirlo la
           // fila se lee como un error de captura.
           const badge = (mb.status === 'active' && membershipNotStarted(mb))
-            ? { label: '· POR EMPEZAR', bg: C.forest, fg: C.bone }
+            ? { label: '· POR EMPEZAR', bg: C.forest, fg: C.ink }
             : mb.courtesy
-            ? { label: '· CORTESÍA', bg: C.gold, fg: C.ink }
+            ? { label: '· CORTESÍA', bg: C.gold, fg: C.bone }
             : (expired ? { label: '· EXPIRED', bg: C.charcoal, fg: C.bone } : (STATUS_BADGE[mb.status] || STATUS_BADGE.active));
           const isActive = mb.status === 'active' && !expired;
           return (

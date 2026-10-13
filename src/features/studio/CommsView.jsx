@@ -67,7 +67,7 @@ export default function CommsView() {
                   <div className="ui-strong leading-tight" style={{ fontSize: '24px' }}>{c.name}</div>
                 </div>
                 <button onClick={() => toggle(c)} className="w-12 h-6 relative flex-shrink-0" style={{ background: c.status === 'active' ? C.gold : C.sand }}>
-                  <div className="absolute top-0.5 w-5 h-5 transition-all" style={{ background: C.ink, left: c.status === 'active' ? '24px' : '2px' }} />
+                  <div className="absolute top-0.5 w-5 h-5 transition-all" style={{ background: C.cream, left: c.status === 'active' ? '24px' : '2px' }} />
                 </button>
               </div>
               {c.trigger && <div className="text-xs mb-4"><span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>TRIGGER:</span> {c.trigger}</div>}
@@ -76,7 +76,7 @@ export default function CommsView() {
                   <div className="stat-num" style={{ fontSize: '32px' }}>{c.sent}</div>
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>LOGGED SENDS</div>
                 </div>
-                <button onClick={() => send(c)} disabled={c.status !== 'active'} className="mono px-3 py-2 flex items-center gap-1" style={{ background: C.ink, color: C.goldDeep, fontSize: '11px', letterSpacing: '0.1em', opacity: c.status !== 'active' ? 0.3 : 1 }}>
+                <button onClick={() => send(c)} disabled={c.status !== 'active'} className="mono px-3 py-2 flex items-center gap-1" style={{ background: C.cream, color: C.gold, fontSize: '11px', letterSpacing: '0.1em', opacity: c.status !== 'active' ? 0.3 : 1 }}>
                   <Send size={10} /> LOG SEND
                 </button>
               </div>

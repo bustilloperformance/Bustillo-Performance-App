@@ -621,7 +621,7 @@ function Overview({ setView, can }) {
                         <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>{x.plan.name.toUpperCase()} · {x.rs.state === 'expired' ? 'WAS DUE' : 'DUE'} {x.rs.date}{x.rs.state === 'expiring' && x.rs.days != null ? ` · ${x.rs.days}d` : ''}</div>
                       </button>
                       {canRenew(x.plan) && (
-                        <button onClick={() => doRenew(x)} disabled={busyRenew === x.mb.id} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>
+                        <button onClick={() => doRenew(x)} disabled={busyRenew === x.mb.id} className="mono px-3 py-2 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>
                           {busyRenew === x.mb.id ? '…' : '↻ RENEW +1'}
                         </button>
                       )}
@@ -683,7 +683,7 @@ function Overview({ setView, can }) {
         )}
 
         {/* Right: live activity */}
-        <div className="p-5" style={{ background: C.ink, color: C.bone }}>
+        <div className="p-5" style={{ background: C.cream, color: C.ink }}>
           <div className="mono mb-3" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.sand }}>03 — {showMoney ? 'LIVE ACTIVITY' : 'NEW MEMBERS'}</div>
           <div className="space-y-2.5">
             {showMoney ? (

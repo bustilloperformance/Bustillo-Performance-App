@@ -55,7 +55,7 @@ export default function RoleEditor() {
           const count = assignedCount(role.name);
           return (
             <div key={role.id} style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-              <div className="flex items-center justify-between p-4" style={{ background: C.ink, color: C.bone }}>
+              <div className="flex items-center justify-between p-4" style={{ background: C.cream, color: C.ink }}>
                 <div className="flex items-center gap-3">
                   <Shield size={16} style={{ color: C.gold }} />
                   <div>

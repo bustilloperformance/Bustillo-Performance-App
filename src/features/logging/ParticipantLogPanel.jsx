@@ -367,7 +367,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
         <div className="space-y-3">
           {grouped.map((g) => (
             <div key={g.section} style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
-              <button type="button" onClick={() => toggleSection(g.section)} className="w-full flex items-center justify-between p-3 text-left" style={{ background: C.ink, color: C.bone }}>
+              <button type="button" onClick={() => toggleSection(g.section)} className="w-full flex items-center justify-between p-3 text-left" style={{ background: C.cream, color: C.ink }}>
                 <div>
                   <div className="mono" style={{ fontSize: '12px', letterSpacing: '0.1em', color: C.gold, fontWeight: 600 }}>SECTION</div>
                   <div className="display leading-tight" style={{ fontSize: '22px', color: C.cream, fontWeight: 600, letterSpacing: '0.02em' }}>{g.section}</div>
@@ -389,7 +389,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                     const p = { rounds: c.items[0]?.rounds ?? 1, workSec: c.items[0]?.workSec ?? 0, restSec: c.items[0]?.restSec ?? 0 };
                     return (
                       <div key={c.letter} style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
-                        <div className="flex items-center justify-between gap-2 px-3 py-2.5" style={{ background: C.ink, color: C.bone }}>
+                        <div className="flex items-center justify-between gap-2 px-3 py-2.5" style={{ background: C.cream, color: C.ink }}>
                           <div className="flex items-center gap-3 min-w-0">
                             <div className="display" style={{ fontSize: '24px', color: C.gold, fontWeight: 600, lineHeight: 1 }}>{p.rounds}<span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}> ROUNDS</span></div>
                             <div className="mono" style={{ fontSize: '13px', letterSpacing: '0.1em', color: C.sand }}>{p.workSec}s WORK · {p.restSec}s REST</div>
@@ -463,7 +463,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                   <div className="flex items-center gap-1.5 flex-wrap mt-1.5">
                                     <span className="mono px-2.5 py-1.5" style={{ fontSize: '15px', background: C.gold, color: C.bone, fontWeight: 700 }}>{item.sets} × {item.target}{measure !== 'reps' && unit ? ` ${unitLabel(unit)}` : ''}{item.perSide ? ' / side' : ''}</span>
                                     {tempoStr && <span className="mono px-2.5 py-1.5" style={{ fontSize: '15px', background: C.forest, color: C.ink, fontWeight: 600 }}>{tempoStr}</span>}
-                                    {isTrackable && item?.loadPct > 0 && <span className="mono px-2.5 py-1.5" title={rmSourceName ? `${item.loadPct}% of your ${rmSourceName} 1RM` : `${item.loadPct}% of your estimated 1RM`} style={{ fontSize: '15px', background: C.ink, color: C.goldDeep, fontWeight: 600 }}>{item.loadPct}%{suggested ? ` · ${wUnitFor(exId) === 'kg' ? `${lbToKgDisplay(suggested)}kg` : `${suggested}lb`}` : ''}{rmSourceName ? ' ▲' : ''}</span>}
+                                    {isTrackable && item?.loadPct > 0 && <span className="mono px-2.5 py-1.5" title={rmSourceName ? `${item.loadPct}% of your ${rmSourceName} 1RM` : `${item.loadPct}% of your estimated 1RM`} style={{ fontSize: '15px', background: C.cream, color: C.gold, fontWeight: 600 }}>{item.loadPct}%{suggested ? ` · ${wUnitFor(exId) === 'kg' ? `${lbToKgDisplay(suggested)}kg` : `${suggested}lb`}` : ''}{rmSourceName ? ' ▲' : ''}</span>}
                                   </div>
                                 </div>
                                 {isTrackable && (
@@ -490,7 +490,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                   {ex.videoUrl && <VideoDemo url={ex.videoUrl} big />}
                                   {timeSeconds > 0 && (
                                     <button type="button" onClick={() => setTimer({ rounds: 1, workSec: timeSeconds, restSec: 0, exercises: [ex.name] })}
-                                      className="mono inline-flex items-center gap-1.5 px-3 py-2" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep, fontWeight: 600, border: 0, cursor: 'pointer' }}>▶ {timeSeconds}s TIMER</button>
+                                      className="mono inline-flex items-center gap-1.5 px-3 py-2" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.cream, color: C.gold, fontWeight: 600, border: 0, cursor: 'pointer' }}>▶ {timeSeconds}s TIMER</button>
                                   )}
                                 </div>
                               )}
@@ -613,7 +613,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
       )}
 
       {workout.closingMessage && (
-        <div className="p-4 text-center" style={{ background: C.ink, border: `2px solid ${C.gold}` }}>
+        <div className="p-4 text-center" style={{ background: C.cream, border: `2px solid ${C.gold}` }}>
           <div className="mono mb-1.5" style={{ fontSize: '11px', letterSpacing: '0.14em', color: C.gold }}>— FROM YOUR COACH —</div>
           {/* Caveat. La guía de marca la reserva para "personal · coach note" y
               este texto lleva el rótulo "FROM YOUR COACH" encima: si algo en la
@@ -641,7 +641,7 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
       <BottomBar className="z-40 flex gap-2 px-3" style={{ paddingTop: '10px', paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 10px)', background: C.bone, borderTop: `1px solid ${C.charcoal}25`, boxShadow: '0 -4px 16px rgba(0,0,0,0.14)' }}>
         <div className="flex gap-2 w-full max-w-3xl mx-auto">
           <button onClick={onDone} className="mono px-4 py-3" style={{ fontSize: '13px', letterSpacing: '0.1em', background: C.cream, color: C.moss, border: `1px solid ${C.charcoal}30` }}>CLOSE</button>
-          <button onClick={save} disabled={saving} className="mono flex-1 py-3" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep }}>{saving ? 'SAVING…' : existingLog ? 'UPDATE SESSION' : 'SAVE SESSION →'}</button>
+          <button onClick={save} disabled={saving} className="mono flex-1 py-3" style={{ fontSize: '14px', letterSpacing: '0.1em', background: C.cream, color: C.gold }}>{saving ? 'SAVING…' : existingLog ? 'UPDATE SESSION' : 'SAVE SESSION →'}</button>
         </div>
       </BottomBar>
 

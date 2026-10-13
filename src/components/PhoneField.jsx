@@ -51,6 +51,11 @@ export default function PhoneField({ label = 'PHONE', value, onChange, whatsapp 
         <input value={num} onChange={(e) => emit(code, e.target.value)} placeholder="555 123 4567" inputMode="tel" className={`${inputClass} flex-1 min-w-0`} style={inputStyle} />
         {whatsapp && (
           canWa ? (
+            /* Blanco sobre el verde de WhatsApp da 1.98:1, por debajo de lo que
+               pide el estándar. Se deja a propósito: ese par ES la identidad de
+               WhatsApp, y su botón con otros colores deja de reconocerse. Es un
+               glifo de 16px al lado del teléfono ya escrito en texto legible,
+               no información que exista solo aquí. */
             <a href={`https://wa.me/${digits}`} target="_blank" rel="noopener noreferrer" title="Message on WhatsApp"
               className="flex items-center justify-center px-3 flex-shrink-0 no-underline" style={{ background: '#25D366', color: '#fff', fontSize: '16px' }}>✆</a>
           ) : (

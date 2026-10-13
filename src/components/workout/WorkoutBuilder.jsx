@@ -199,7 +199,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
         <div className="space-y-4">
           {grouped.map((g) => (
             <div key={g.section} style={{ background: C.bone, border: `1px solid ${C.charcoal}20` }}>
-              <div className="flex items-center justify-between p-3" style={{ background: C.ink, color: C.bone }}>
+              <div className="flex items-center justify-between p-3" style={{ background: C.cream, color: C.ink }}>
                 <div>
                   <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>— SECTION</div>
                   <div className="display" style={{ fontSize: '22px', color: C.cream, fontWeight: 600, letterSpacing: '0.02em' }}>{g.section}</div>

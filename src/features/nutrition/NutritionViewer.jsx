@@ -46,7 +46,7 @@ export default function NutritionViewer({ memberId }) {
     <div className="space-y-3">
       <a href={url} target="_blank" rel="noreferrer"
         className="mono flex items-center justify-center px-5 py-4"
-        style={{ fontSize: '13px', letterSpacing: '0.1em', background: C.ink, color: C.goldDeep, textDecoration: 'none' }}>
+        style={{ fontSize: '13px', letterSpacing: '0.1em', background: C.cream, color: C.gold, textDecoration: 'none' }}>
         ↗ OPEN NUTRITION PLAN
       </a>
       {isIOS ? (

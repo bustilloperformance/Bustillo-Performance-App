@@ -248,7 +248,7 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
             <textarea value={custom.notes} onChange={(e) => setCustom({ ...custom, notes: e.target.value })} rows="2" className={inputClass} style={inputStyle} />
           </Field>
 
-          <div className="p-3 flex items-center justify-between" style={{ background: C.ink, color: C.bone }}>
+          <div className="p-3 flex items-center justify-between" style={{ background: C.cream, color: C.ink }}>
             <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.sand }}>EFFECTIVE FIRST CHARGE</span>
             <span className="display" style={{ fontSize: '28px', fontWeight: 600, color: C.gold }}>${pricePreview}</span>
           </div>

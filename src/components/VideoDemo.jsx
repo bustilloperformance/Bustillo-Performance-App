@@ -24,8 +24,8 @@ export default function VideoDemo({ url, label = 'DEMO', big = false }) {
   // `big` matches the timer button's sizing so both read as the same control.
   const btnClass = big ? 'mono inline-flex items-center gap-1.5 px-3 py-2' : 'mono inline-flex items-center gap-1.5 px-3 py-1.5';
   const btnStyle = big
-    ? { fontSize: '13px', letterSpacing: '0.15em', fontWeight: 600, background: C.ink, color: C.goldDeep, border: 0, cursor: 'pointer' }
-    : { fontSize: '10px', letterSpacing: '0.2em', background: C.ink, color: C.goldDeep, border: 0, cursor: 'pointer' };
+    ? { fontSize: '13px', letterSpacing: '0.15em', fontWeight: 600, background: C.cream, color: C.gold, border: 0, cursor: 'pointer' }
+    : { fontSize: '10px', letterSpacing: '0.2em', background: C.cream, color: C.gold, border: 0, cursor: 'pointer' };
 
   // Non-YouTube link → just open in a new tab (can't embed it safely).
   if (!id) {
@@ -46,7 +46,7 @@ export default function VideoDemo({ url, label = 'DEMO', big = false }) {
             <div className="flex justify-end mb-2">
               <button type="button" onClick={() => setOpen(false)} className="mono px-3 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.gold, color: C.bone, border: 0, cursor: 'pointer' }}>✕ CLOSE</button>
             </div>
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: C.ink, boxShadow: '0 12px 40px rgba(0,0,0,0.5)' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', background: C.cream, boxShadow: '0 12px 40px rgba(0,0,0,0.5)' }}>
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`}
                 title="Exercise demo"

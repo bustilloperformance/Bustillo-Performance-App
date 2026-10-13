@@ -209,7 +209,7 @@ export default function ProgramsView() {
               <div className="overflow-x-auto" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <table className="w-full text-xs">
                   <thead>
-                    <tr style={{ background: C.ink, color: C.bone }}>
+                    <tr style={{ background: C.cream, color: C.ink }}>
                       <th className="p-2 text-left mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>WEEK</th>
                       {DAYS.map((d) => <th key={d} className="p-2 text-left mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>{d.toUpperCase()}</th>)}
                     </tr>
@@ -239,7 +239,7 @@ export default function ProgramsView() {
               <div className="overflow-x-auto" style={{ background: C.cream, border: `1px solid ${C.charcoal}20` }}>
                 <table className="w-full text-xs">
                   <thead>
-                    <tr style={{ background: C.ink, color: C.bone }}>
+                    <tr style={{ background: C.cream, color: C.ink }}>
                       <th className="p-2 text-left mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>WEEK</th>
                       {Array.from({ length: form.daysPerWeek }).map((_, i) => <th key={i} className="p-2 text-left mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>DAY {i + 1}</th>)}
                     </tr>
