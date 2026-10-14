@@ -52,7 +52,7 @@ function ConfirmDialog({ dialog, onClose }) {
   return (
     <div
       className="fixed inset-0 z-[80] flex items-center justify-center p-6"
-      style={{ background: 'rgba(11, 26, 20, 0.85)' }}
+      style={{ background: 'rgba(0, 0, 0, 0.85)' }}
       onClick={onClose}
     >
       <div className="w-full max-w-md anim-up" style={{ background: C.cream, border: `1px solid ${C.charcoal}25` }} onClick={(e) => e.stopPropagation()}>

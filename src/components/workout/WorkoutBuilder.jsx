@@ -221,7 +221,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                         <div className="mono pt-0.5" style={{ fontSize: '14px', color: C.gold }}>·</div>
                         <textarea value={it.text || ''} onChange={(e) => updateItem(idx, { text: e.target.value })} rows="2" autoFocus={!it.text}
                           placeholder="e.g. Set up bench at station 2, foam roller within reach..." className="flex-1 px-2 py-1 text-sm" style={inputStyle} />
-                        <button onClick={() => removeItem(idx)} className="p-1.5 flex-shrink-0" style={{ background: C.sand }} title="Remove note"><X size={11} /></button>
+                        <button onClick={() => removeItem(idx)} className="p-1.5 flex-shrink-0" style={{ background: C.sand, color: C.bone }} title="Remove note"><X size={11} /></button>
                       </div>
                     );
                   })}
@@ -279,7 +279,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                                 <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.moss }}>{ex?.category?.toUpperCase()}</div>
                                 <input value={it.note || ''} onChange={(e) => updateItem(idx, { note: e.target.value })} placeholder="Note (optional)" className="w-full mt-1 px-2 py-1 text-sm" style={{ ...inputStyle, fontStyle: 'italic' }} />
                               </div>
-                              <button onClick={() => removeItem(idx)} className="p-1.5 flex-shrink-0" style={{ background: C.sand }} title="Remove"><X size={11} /></button>
+                              <button onClick={() => removeItem(idx)} className="p-1.5 flex-shrink-0" style={{ background: C.sand, color: C.bone }} title="Remove"><X size={11} /></button>
                             </div>
                           );
                         }
@@ -299,7 +299,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                               )}
                               </div>
                               </div>
-                              <button onClick={() => removeItem(idx)} className="md:hidden p-1.5 flex-shrink-0" style={{ background: C.sand }} title="Remove"><X size={12} /></button>
+                              <button onClick={() => removeItem(idx)} className="md:hidden p-1.5 flex-shrink-0" style={{ background: C.sand, color: C.bone }} title="Remove"><X size={12} /></button>
                             </div>
                             <div className="col-span-3 md:col-span-2">
                               <label className="mono block mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>CIRCUIT</label>
@@ -345,7 +345,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                               ) : <div />}
                             </div>
                             <div className="hidden md:block md:col-span-1 text-right">
-                              <button onClick={() => removeItem(idx)} className="p-1.5" style={{ background: C.sand }} title="Remove"><X size={11} /></button>
+                              <button onClick={() => removeItem(idx)} className="p-1.5" style={{ background: C.sand, color: C.bone }} title="Remove"><X size={11} /></button>
                             </div>
 
                             <div className="col-span-6 md:col-span-12 pt-2 mt-1" style={{ borderTop: `1px solid ${C.charcoal}10` }}>
@@ -354,18 +354,19 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                                   style={{ background: it.trackable === false ? C.bone : C.ink, border: `1px solid ${it.trackable === false ? C.charcoal + '30' : C.gold}` }}
                                   title={it.trackable === false ? 'Not logged — client just performs it' : 'Logged — client records weight/reps'}>
                                   <div className="w-3 h-3 flex items-center justify-center" style={{ background: it.trackable === false ? C.sand : C.gold }}>
-                                    {it.trackable !== false && <Check size={9} style={{ color: C.ink }} strokeWidth={3} />}
+                                    {it.trackable !== false && <Check size={9} style={{ color: C.bone }} strokeWidth={3} />}
                                   </div>
-                                  <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: it.trackable === false ? C.moss : C.gold }}>{it.trackable === false ? 'NOT LOGGED' : 'LOGGED'}</span>
+                                  {/* Activo rellena de hueso, donde el oro da 1.98:1. */}
+                                  <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: it.trackable === false ? C.moss : C.bone }}>{it.trackable === false ? 'NOT LOGGED' : 'LOGGED'}</span>
                                 </button>
                                 <span className="help" style={{ fontSize: '12px', color: C.moss }}>{it.trackable === false ? '— performed only, no entry' : '— client records weight & reps'}</span>
                                 <button type="button" onClick={() => updateItem(idx, { perSide: !it.perSide })} className="flex items-center gap-2 px-2 py-1"
                                   style={{ background: it.perSide ? C.ink : C.bone, border: `1px solid ${it.perSide ? C.gold : C.charcoal + '30'}` }}
                                   title="Reps/target are per side — e.g. 5 each leg on a split squat">
                                   <div className="w-3 h-3 flex items-center justify-center" style={{ background: it.perSide ? C.gold : C.sand }}>
-                                    {it.perSide && <Check size={9} style={{ color: C.ink }} strokeWidth={3} />}
+                                    {it.perSide && <Check size={9} style={{ color: C.bone }} strokeWidth={3} />}
                                   </div>
-                                  <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: it.perSide ? C.gold : C.moss }}>PER SIDE</span>
+                                  <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: it.perSide ? C.bone : C.moss }}>PER SIDE</span>
                                 </button>
                                 {(it.measure || ex?.measure) === 'reps' && it.trackable !== false && (
                                   <>

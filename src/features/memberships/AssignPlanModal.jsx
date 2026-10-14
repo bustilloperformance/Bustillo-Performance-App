@@ -181,12 +181,14 @@ export default function AssignPlanModal({ memberId: fixedMemberId, onClose }) {
             className="w-full text-left p-3.5 flex items-center gap-3"
             style={{ background: custom.courtesy ? C.ink : C.cream, border: `1px solid ${custom.courtesy ? C.gold : `${C.charcoal}25`}` }}>
             <span className="flex items-center justify-center flex-shrink-0"
-              style={{ width: 22, height: 22, background: custom.courtesy ? C.gold : C.cream, border: `1px solid ${custom.courtesy ? C.gold : `${C.charcoal}35`}`, color: C.ink, fontSize: '14px', fontWeight: 700 }}>
+              style={{ width: 22, height: 22, background: custom.courtesy ? C.gold : C.cream, border: `1px solid ${custom.courtesy ? C.gold : `${C.charcoal}35`}`, color: custom.courtesy ? C.bone : C.moss, fontSize: '14px', fontWeight: 700 }}>
               {custom.courtesy ? '✓' : ''}
             </span>
             <span className="min-w-0">
-              <span className="mono block" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, color: custom.courtesy ? C.gold : C.moss }}>CORTESÍA</span>
-              <span className="block" style={{ fontSize: '13px', lineHeight: 1.4, color: custom.courtesy ? C.sand : C.moss }}>
+              {/* Cortesia activa rellena la fila de hueso: ahi el oro da
+                  1.98:1 y la arena 2.46:1. */}
+              <span className="mono block" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, color: custom.courtesy ? C.bone : C.moss }}>CORTESÍA</span>
+              <span className="block" style={{ fontSize: '13px', lineHeight: 1.4, color: custom.courtesy ? C.cream : C.moss }}>
                 Sin cobro y sin vencimiento. No se le factura ni pierde acceso.
               </span>
             </span>

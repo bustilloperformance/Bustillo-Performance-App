@@ -336,12 +336,15 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
       {/* Autosave + session status */}
       {status && (
         <div className="flex items-center justify-between gap-2 px-3 py-2.5" style={{ background: restored ? C.forest : C.cream, border: `1px solid ${C.charcoal}20` }}>
-          <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.12em', color: restored ? C.bone : C.moss }}>
+          {/* Sobre el azul el negro da 2.06:1; el hueso da 7.94:1. */}
+          <span className="mono" style={{ fontSize: '11px', letterSpacing: '0.12em', color: restored ? C.ink : C.moss }}>
             {restored ? '↻ WE SAVED YOUR PROGRESS' : '✓ AUTO-SAVED · leave & come back anytime'}
           </span>
           <span className="mono px-2.5 py-1 flex-shrink-0" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700,
             background: status === 'COMPLETED' ? C.gold : status === 'IN PROGRESS' ? C.ink : 'transparent',
-            color: status === 'COMPLETED' ? C.ink : status === 'IN PROGRESS' ? C.gold : C.moss,
+            // Los dos rellenos son claros (oro y hueso): el contenido va negro.
+            // Hueso sobre oro daba 1.98:1 y oro sobre hueso lo mismo.
+            color: status === 'NOT STARTED' ? C.moss : C.bone,
             border: status === 'NOT STARTED' ? `1px solid ${C.charcoal}30` : 'none' }}>{status}</span>
         </div>
       )}
@@ -353,8 +356,8 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
         <div className="flex gap-1.5">
           {[1, 2, 3, 4, 5].map((n) => (
             <button key={n} onClick={() => setReadiness(n)} className="flex-1 py-3 text-center" style={{ background: readiness === n ? C.gold : C.cream, border: `1px solid ${readiness === n ? C.gold : C.charcoal + '25'}` }}>
-              <div className="ui-strong" style={{ fontSize: '26px', lineHeight: 1, color: readiness === n ? C.gold : C.ink }}>{n}</div>
-              <div className="mono mt-1" style={{ fontSize: '11px', letterSpacing: '0.05em', color: readiness === n ? C.sand : C.moss }}>{READINESS_LABELS[n].label.toUpperCase()}</div>
+              <div className="ui-strong" style={{ fontSize: '26px', lineHeight: 1, color: readiness === n ? C.bone : C.ink }}>{n}</div>
+              <div className="mono mt-1" style={{ fontSize: '11px', letterSpacing: '0.05em', color: readiness === n ? C.cream : C.moss }}>{READINESS_LABELS[n].label.toUpperCase()}</div>
             </button>
           ))}
         </div>
@@ -470,7 +473,8 @@ export default function ParticipantLogPanel({ workout, member, existingLog, onDo
                                   <div className="flex items-center gap-2 flex-shrink-0">
                                     {completed ? <span className="mono" style={{ fontSize: '12px', color: C.gold, fontWeight: 700 }}>✓ {exSets.length}/{exSets.length}</span>
                                       : anyEntered ? <span className="mono" style={{ fontSize: '12px', color: C.gold, fontWeight: 700 }}>{exSets.filter(isEntered).length}/{exSets.length}</span>
-                                      : <span className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: isExpanded ? C.gold : C.ink, background: isExpanded ? C.ink : C.gold, fontWeight: 700 }}>{isExpanded ? 'LOGGING' : `LOG ${exSets.length}`}</span>}
+                                      // Los dos estados rellenan claro — hueso u oro — asi que el texto va negro en los dos.
+                                      : <span className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.bone, background: isExpanded ? C.ink : C.gold, fontWeight: 700 }}>{isExpanded ? 'LOGGING' : `LOG ${exSets.length}`}</span>}
                                     <ChevronDown size={20} style={{ color: C.moss, flexShrink: 0, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
                                   </div>
                                 )}

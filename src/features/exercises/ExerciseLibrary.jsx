@@ -178,8 +178,8 @@ export default function ExerciseLibrary() {
               {/* Video + actions */}
               <div className="flex items-center gap-1.5 flex-shrink-0 ml-2 md:ml-0 md:col-span-3 md:justify-end">
                 {hasVideo && <span onClick={(ev) => ev.stopPropagation()}><VideoDemo url={e.videoUrl} label="PLAY" /></span>}
-                <button onClick={() => openEdit(e)} className="p-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><Edit2 size={11} /></button>
-                <button onClick={() => remove(e.id)} className="p-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition" style={{ background: C.gold }}><Trash2 size={11} /></button>
+                <button onClick={() => openEdit(e)} className="p-1.5 md:opacity-55 md:group-hover:opacity-100 transition" style={{ background: C.bone, border: `1px solid ${C.charcoal}40`, color: C.ink }}><Edit2 size={11} /></button>
+                <button onClick={() => remove(e.id)} className="p-1.5 md:opacity-55 md:group-hover:opacity-100 transition" style={{ background: C.gold, color: C.bone }}><Trash2 size={11} /></button>
               </div>
             </div>
           );
@@ -287,8 +287,10 @@ export default function ExerciseLibrary() {
                       <button key={id} type="button" onClick={() => setForm({ ...form, ...patch })}
                         className="px-3 py-2 flex-1 text-left" style={{ minWidth: 132,
                           background: actual === id ? C.gold : C.cream, border: `1px solid ${actual === id ? C.gold : C.charcoal + '30'}` }}>
-                        <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: actual === id ? C.gold : C.moss }}>{label}</div>
-                        <div style={{ fontSize: '12px', marginTop: 2, color: actual === id ? C.sand : C.moss }}>{eg}</div>
+                        {/* La opcion elegida rellena de oro, donde el oro y la
+                            arena se borran (1.00:1 y 1.24:1). */}
+                        <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: actual === id ? C.bone : C.moss }}>{label}</div>
+                        <div style={{ fontSize: '12px', marginTop: 2, color: actual === id ? C.cream : C.moss }}>{eg}</div>
                       </button>
                     ))}
                   </div>

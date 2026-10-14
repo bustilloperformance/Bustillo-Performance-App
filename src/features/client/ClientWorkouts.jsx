@@ -164,7 +164,8 @@ export default function ClientWorkouts({ clientMemberId, coach = false, staff = 
               <button onClick={() => setExpandedDate(null)} className="mono mb-3 px-3 py-2" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }}>← BACK TO CALENDAR</button>
               <div className="p-3 mb-2 flex items-center justify-between gap-2" style={{ background: openDay.date === today ? C.gold : C.cream, color: openDay.date === today ? C.bone : C.moss, border: `1px solid ${C.charcoal}20` }}>
                 <div className="min-w-0">
-                  <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: openDay.date === today ? C.gold : C.moss }}>{niceDate(openDay.date)}{openDay.date === today ? ' · TODAY' : ''}</div>
+                  {/* El dia de hoy rellena de oro: el oro encima desaparece. */}
+                  <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: openDay.date === today ? C.bone : C.moss }}>{niceDate(openDay.date)}{openDay.date === today ? ' · TODAY' : ''}</div>
                   <div className="prog-name leading-tight" style={{ fontSize: '24px', color: openDay.date === today ? C.cream : C.ink }}>{openDay.workout.name}</div>
                 </div>
                 {openDay.logged && <span className="mono px-3 py-1.5 flex-shrink-0" style={{ fontSize: '12px', letterSpacing: '0.1em', background: C.forest, color: C.ink, fontWeight: 600 }}>✓ DONE</span>}

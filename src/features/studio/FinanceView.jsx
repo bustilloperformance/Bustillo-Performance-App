@@ -222,7 +222,7 @@ export default function FinanceView({ setView }) {
                 {/* Income had no way out at all — only expenses could be
                     deleted. A renewal booked on a comped member, or any charge
                     entered twice, was stuck in the totals for good. */}
-                <button onClick={() => removeTransaction(t)} className="p-1 shrink-0 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition" title="Delete this transaction">
+                <button onClick={() => removeTransaction(t)} className="p-1 shrink-0 md:opacity-55 md:group-hover:opacity-100 transition" title="Delete this transaction">
                   <Trash2 size={11} style={{ color: C.moss }} />
                 </button>
               </div>
@@ -396,7 +396,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
                 </div>
                 <button onClick={() => flip(t)} className="mono px-2 py-1" style={{ fontSize: '10px', letterSpacing: '0.1em', background: t.enabled ? C.forest : C.sand, color: t.enabled ? C.ink : C.bone }}>{t.enabled ? 'ON' : 'OFF'}</button>
                 <button onClick={() => edit(t)} className="p-1" style={{ background: C.cream, border: `1px solid ${C.charcoal}40` }}><Edit2 size={11} /></button>
-                <button onClick={() => del(t.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button>
+                <button onClick={() => del(t.id)} className="p-1" style={{ background: C.sand, color: C.bone }}><Trash2 size={11} /></button>
               </div>
             ))}
           </div>
@@ -418,7 +418,7 @@ function TaxSettingsModal({ taxes, remittances, incomeCats, payable, periodColle
               {[...remittances].sort((a, b) => (b.date || '').localeCompare(a.date || '')).map((rr) => (
                 <div key={rr.id} className="flex items-center justify-between px-2 py-1.5" style={{ background: C.bone }}>
                   <span className="mono" style={{ fontSize: '11px', color: C.moss }}>{rr.date} · {rr.paidFrom.toUpperCase()}</span>
-                  <div className="flex items-center gap-2"><span className="mono" style={{ fontSize: '13px', fontWeight: 600 }}>${rr.amount.toLocaleString()}</span><button onClick={() => delRemit(rr.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={10} /></button></div>
+                  <div className="flex items-center gap-2"><span className="mono" style={{ fontSize: '13px', fontWeight: 600 }}>${rr.amount.toLocaleString()}</span><button onClick={() => delRemit(rr.id)} className="p-1" style={{ background: C.sand, color: C.bone }}><Trash2 size={10} /></button></div>
                 </div>
               ))}
             </div>
@@ -475,7 +475,7 @@ function CategoryGroup({ title, categories, kind, defaults, onDelete }) {
           {custom.map((c) => (
             <div key={c.id} className="flex items-center justify-between px-3 py-1.5" style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
               <span className="ui-strong" style={{ fontSize: '16px' }}>{c.name}</span>
-              <button onClick={() => onDelete(c.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button>
+              <button onClick={() => onDelete(c.id)} className="p-1" style={{ background: C.sand, color: C.bone }}><Trash2 size={11} /></button>
             </div>
           ))}
         </div>

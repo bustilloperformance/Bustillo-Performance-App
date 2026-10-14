@@ -196,7 +196,7 @@ function ManageItemsModal({ items, onClose, refresh, showToast }) {
           {items.map((it) => (
             <div key={it.id} className="flex items-center justify-between px-3 py-2" style={{ background: C.bone, border: `1px solid ${C.charcoal}15` }}>
               <div><span className="mono px-1.5 py-0.5 mr-2" style={{ fontSize: '10px', letterSpacing: '0.1em', background: it.kind === 'asset' ? C.forest : C.gold, color: it.kind === 'asset' ? C.ink : C.bone }}>{it.kind.toUpperCase()}</span><span className="ui-strong" style={{ fontSize: '16px' }}>{it.name}</span></div>
-              <div className="flex items-center gap-2"><span className="mono" style={{ fontSize: '14px', fontWeight: 600 }}>${it.amount.toLocaleString()}</span><button onClick={() => del(it.id)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button></div>
+              <div className="flex items-center gap-2"><span className="mono" style={{ fontSize: '14px', fontWeight: 600 }}>${it.amount.toLocaleString()}</span><button onClick={() => del(it.id)} className="p-1" style={{ background: C.sand, color: C.bone }}><Trash2 size={11} /></button></div>
             </div>
           ))}
         </div>

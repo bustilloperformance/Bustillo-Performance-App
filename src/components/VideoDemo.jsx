@@ -41,7 +41,7 @@ export default function VideoDemo({ url, label = 'DEMO', big = false }) {
 
       {open && createPortal(
         <div onClick={() => setOpen(false)} className="anim-fade"
-          style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'rgba(11, 26, 20, 0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
+          style={{ position: 'fixed', inset: 0, zIndex: 70, background: 'rgba(0, 0, 0, 0.9)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16 }}>
           <div onClick={(e) => e.stopPropagation()} style={{ width: '100%', maxWidth: 760 }}>
             <div className="flex justify-end mb-2">
               <button type="button" onClick={() => setOpen(false)} className="mono px-3 py-1.5" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.gold, color: C.bone, border: 0, cursor: 'pointer' }}>✕ CLOSE</button>

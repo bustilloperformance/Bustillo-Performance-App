@@ -252,7 +252,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
                         <span className="mono" style={{ fontSize: '12px', color: C.moss }}>{e.date}</span>
                         <span className="mono ml-2" style={{ fontSize: '14px', color: C.ink, fontWeight: 600 }}>{e.values.join(' · ')}</span>
                       </div>
-                      <button onClick={() => deleteEntry(e)} className="p-1.5 flex-shrink-0" style={{ background: C.sand }} title="Delete this entry"><Trash2 size={12} /></button>
+                      <button onClick={() => deleteEntry(e)} className="p-1.5 flex-shrink-0" style={{ background: C.sand, color: C.bone }} title="Delete this entry"><Trash2 size={12} /></button>
                     </div>
                   ))}
                 </div>
@@ -393,7 +393,7 @@ export default function ProgressDashboard({ memberId, editable = false }) {
                     <button onClick={() => openGoalEditor(g)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.cream, border: `1px solid ${C.charcoal}40`, color: C.gold }} title="Edit this goal">✎ EDIT</button>
                     <button onClick={() => onCompleteGoal(g.id, true)} className="mono px-2 py-1" style={{ fontSize: '11px', letterSpacing: '0.1em', background: C.forest, color: C.ink }} title="Mark this goal hit">✓ DONE</button>
                     {/* Hover-only would never appear on a touch screen. */}
-                    <button onClick={() => onRemoveGoal(g.id)} className="opacity-100 md:opacity-0 md:group-hover:opacity-100 transition p-1" style={{ background: C.sand }} title="Remove goal"><X size={11} /></button>
+                    <button onClick={() => onRemoveGoal(g.id)} className="md:opacity-55 md:group-hover:opacity-100 transition p-1" style={{ background: C.sand, color: C.bone }} title="Remove goal"><X size={11} /></button>
                   </>
                 )}
               </div>

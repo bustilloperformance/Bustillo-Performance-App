@@ -415,9 +415,9 @@ export default function Shell({ profile, onSignOut }) {
             {canViewAsClient && (
               <div className="mt-2 flex gap-1 p-1" style={{ background: C.forest }}>
                 <button onClick={() => switchMode(false)} className="mono flex-1 py-1.5"
-                  style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 600, background: !viewAsClient ? C.gold : 'transparent', color: !viewAsClient ? C.bone : C.moss }}>ADMIN</button>
+                  style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 600, background: !viewAsClient ? C.gold : 'transparent', color: !viewAsClient ? C.bone : C.cream }}>ADMIN</button>
                 <button onClick={() => switchMode(true)} className="mono flex-1 py-1.5"
-                  style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 600, background: viewAsClient ? C.gold : 'transparent', color: viewAsClient ? C.bone : C.moss }}>CLIENT</button>
+                  style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 600, background: viewAsClient ? C.gold : 'transparent', color: viewAsClient ? C.bone : C.cream }}>CLIENT</button>
               </div>
             )}
           </div>
@@ -431,7 +431,7 @@ export default function Shell({ profile, onSignOut }) {
                   const active = view === item.id;
                   return (
                     <button key={item.id} onClick={() => go(item.id)} className="w-full flex items-center gap-2.5 px-3 py-1.5 transition-all"
-                      style={{ background: active ? C.gold : 'transparent', color: active ? C.bone : C.moss, fontSize: clientMode ? '13px' : '12px', fontFamily: 'Archivo, sans-serif', fontWeight: active ? 700 : 500 }}>
+                      style={{ background: active ? C.gold : 'transparent', color: active ? C.bone : C.cream, fontSize: clientMode ? '13px' : '12px', fontFamily: 'Archivo, sans-serif', fontWeight: active ? 700 : 500 }}>
                       <Icon size={clientMode ? 14 : 13} strokeWidth={1.8} />{item.label}
                     </button>
                   );

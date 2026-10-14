@@ -106,7 +106,7 @@ export function ContentEditor({ content, onChange }) {
             <div className="flex gap-1">
               <button type="button" onClick={() => move(i, -1)} className="p-1" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><ArrowUp size={11} /></button>
               <button type="button" onClick={() => move(i, 1)} className="p-1" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><ArrowDown size={11} /></button>
-              <button type="button" onClick={() => remove(i)} className="p-1" style={{ background: C.sand }}><Trash2 size={11} /></button>
+              <button type="button" onClick={() => remove(i)} className="p-1" style={{ background: C.sand, color: C.bone }}><Trash2 size={11} /></button>
             </div>
           </div>
 

@@ -162,7 +162,8 @@ export default function ChatView({ memberId, staff = false }) {
                   <div className="flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36, background: on ? C.gold : C.bone, color: on ? C.bone : C.moss }}><Users size={16} /></div>
                   <div className="min-w-0 flex-1">
                     <div className="prog-name truncate" style={{ fontSize: '18px', lineHeight: 1.1 }}>{g.name}</div>
-                    <div className="mono truncate" style={{ fontSize: '11px', letterSpacing: '0.1em', color: on ? C.sand : C.moss }}>
+                    {/* Arena sobre el relleno de oro da 1.24:1. */}
+                    <div className="mono truncate" style={{ fontSize: '11px', letterSpacing: '0.1em', color: on ? C.cream : C.moss }}>
                       {g.memberIds.length} {g.memberIds.length === 1 ? 'MEMBER' : 'MEMBERS'}{g.description ? ` · ${g.description.toUpperCase()}` : ''}
                     </div>
                   </div>
@@ -210,10 +211,11 @@ export default function ChatView({ memberId, staff = false }) {
                               {m.imagePath && (
                                 urls[m.imagePath]
                                   ? <a href={urls[m.imagePath]} target="_blank" rel="noreferrer"><img src={urls[m.imagePath]} alt="" className="block mb-1" style={{ maxWidth: '100%', maxHeight: 320, objectFit: 'contain' }} /></a>
-                                  : <div className="mono mb-1" style={{ fontSize: '10px', color: mine ? C.sand : C.moss }}>LOADING PHOTO…</div>
+                                  : <div className="mono mb-1" style={{ fontSize: '10px', color: mine ? C.cream : C.moss }}>LOADING PHOTO…</div>
                               )}
                               {m.body && <div className="text-sm" style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', lineHeight: 1.4 }}>{m.body}</div>}
-                              <div className={`mono mt-1 flex items-center gap-2 ${mine ? 'justify-end' : ''}`} style={{ fontSize: '9px', letterSpacing: '0.1em', color: mine ? C.sand : C.moss }}>
+                              {/* La burbuja propia es oro: la hora va en negro suave, no en arena. */}
+                              <div className={`mono mt-1 flex items-center gap-2 ${mine ? 'justify-end' : ''}`} style={{ fontSize: '9px', letterSpacing: '0.1em', color: mine ? C.cream : C.moss }}>
                                 {hhmm(m.createdAt)}
                                 {(mine || staff) && (
                                   <button onClick={() => remove(m)} title="Delete" className="opacity-60 hover:opacity-100" style={{ color: 'inherit' }}><X size={10} /></button>
@@ -327,7 +329,7 @@ function GroupEditor({ group, members, memberships, plans, createdBy, onClose, o
               const plan = planOf(m);
               return (
                 <button key={m.id} type="button" onClick={() => toggle(m.id)} className="w-full flex items-center gap-3 px-3 py-2 text-left" style={{ background: on ? C.cream : 'transparent', borderBottom: `1px solid ${C.charcoal}10` }}>
-                  <div className="w-4 h-4 flex items-center justify-center flex-shrink-0" style={{ background: on ? C.gold : C.cream, border: `1px solid ${on ? C.gold : C.charcoal + '40'}` }}>{on && <span style={{ color: C.gold, fontSize: 10, fontWeight: 700 }}>✓</span>}</div>
+                  <div className="w-4 h-4 flex items-center justify-center flex-shrink-0" style={{ background: on ? C.gold : C.cream, border: `1px solid ${on ? C.gold : C.charcoal + '40'}` }}>{on && <span style={{ color: C.bone, fontSize: 10, fontWeight: 700 }}>✓</span>}</div>
                   <Avatar member={m} size={28} />
                   <div className="min-w-0 flex-1">
                     <div className="ui-strong truncate" style={{ fontSize: '15px', color: C.ink }}>{m.name}</div>

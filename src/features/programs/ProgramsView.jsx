@@ -111,24 +111,27 @@ export default function ProgramsView() {
                   <button onClick={() => openEdit(p)} className="p-1.5" style={{ background: isOnline ? C.forest : C.bone, color: isOnline ? C.ink : C.moss }}><Edit2 size={11} /></button>
                   <button onClick={() => remove(p.id)} className="p-1.5" style={{ background: C.gold, color: C.bone }}><Trash2 size={11} /></button>
                 </div>
-                <div className="flex items-center gap-1.5 mb-2 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: C.gold }}>
+                {/* La tarjeta online es un relleno de oro, asi que aqui el oro
+                    desaparece (1.00:1). Sobre oro el contenido va negro. */}
+                <div className="flex items-center gap-1.5 mb-2 mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: isOnline ? C.bone : C.gold }}>
                   {isOnline ? <Globe size={11} /> : <Building size={11} />}
                   — {mode.toUpperCase()} · {p.durationWeeks}WK{p.focus ? ` · ${p.focus.toUpperCase()}` : ''}
                   {isOnline && p.listed && <span className="ml-auto mono px-1.5 py-0.5" style={{ fontSize: '10px', background: C.gold, color: C.bone, letterSpacing: '0.1em' }}>LISTED</span>}
                 </div>
                 <div className="prog-name mb-3" style={{ fontSize: '36px', color: isOnline ? C.cream : C.ink }}>{p.name}</div>
                 {isOnline && p.price > 0 && (
-                  <div className="mb-2 mono" style={{ fontSize: '14px', color: C.gold, fontWeight: 600 }}>
+                  // Este bloque solo existe en la tarjeta online, que es oro.
+                  <div className="mb-2 mono" style={{ fontSize: '14px', color: C.bone, fontWeight: 600 }}>
                     ${p.price}
                     {p.pricingType === 'monthly' && <span style={{ fontSize: '11px', opacity: 0.7 }}> / MONTH</span>}
                     {p.pricingType === 'annual' && <span style={{ fontSize: '11px', opacity: 0.7 }}> / YEAR</span>}
                     {(!p.pricingType || p.pricingType === 'one-time') && <span style={{ fontSize: '11px', opacity: 0.7 }}> · ONE-TIME</span>}
                   </div>
                 )}
-                <div className="text-sm mb-4" style={{ color: isOnline ? C.sand : C.charcoal }}>{p.description}</div>
+                <div className="text-sm mb-4" style={{ color: isOnline ? C.cream : C.charcoal }}>{p.description}</div>
                 <div className="pt-4" style={{ borderTop: `1px solid ${isOnline ? C.forest : C.charcoal + '20'}` }}>
                   <div className="stat-num" style={{ fontSize: '32px', color: isOnline ? C.cream : C.ink }}>{p.schedule.length}</div>
-                  <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: isOnline ? C.sand : C.moss }}>SESSIONS SCHEDULED</div>
+                  <div className="mono" style={{ fontSize: '10px', letterSpacing: '0.1em', color: isOnline ? C.cream : C.moss }}>SESSIONS SCHEDULED</div>
                 </div>
               </div>
             );
@@ -146,10 +149,10 @@ export default function ProgramsView() {
                 return (
                   <button key={m.id} onClick={() => setForm({ ...form, mode: m.id, schedule: [] })} className="p-3 text-left flex items-start gap-3"
                     style={{ background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
-                    <Ic size={20} style={{ color: active ? C.gold : C.moss, marginTop: '2px' }} />
+                    <Ic size={20} style={{ color: active ? C.bone : C.moss, marginTop: '2px' }} />
                     <div>
                       <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em' }}>{m.label}</div>
-                      <div className="help" style={{ fontSize: '14px', color: active ? C.gold : C.moss }}>— {m.sub}</div>
+                      <div className="help" style={{ fontSize: '14px', color: active ? C.cream : C.moss }}>— {m.sub}</div>
                     </div>
                   </button>
                 );
@@ -179,8 +182,8 @@ export default function ProgramsView() {
                     return (
                       <button key={opt.id} type="button" onClick={() => setForm({ ...form, pricingType: opt.id })} className="flex-1 p-2 text-left"
                         style={{ background: active ? C.gold : C.cream, color: active ? C.bone : C.moss, border: `1px solid ${active ? C.gold : C.charcoal + '30'}` }}>
-                        <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: active ? C.gold : C.moss }}>{opt.label}</div>
-                        <div className="help mt-1" style={{ fontSize: '12px', color: active ? C.sand : C.moss }}>— {opt.desc}</div>
+                        <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', color: active ? C.bone : C.moss }}>{opt.label}</div>
+                        <div className="help mt-1" style={{ fontSize: '12px', color: active ? C.cream : C.moss }}>— {opt.desc}</div>
                       </button>
                     );
                   })}

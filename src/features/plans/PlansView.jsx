@@ -190,8 +190,8 @@ export default function PlansView() {
                   : { ...f, recurrence: 'monthly', billingCycles: '' }))}
                   className="px-3 py-2.5 text-left"
                   style={{ background: (id === 'once') === pagoUnico ? C.gold : C.cream, border: `1px solid ${(id === 'once') === pagoUnico ? C.gold : `${C.charcoal}30`}` }}>
-                  <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, color: (id === 'once') === pagoUnico ? C.gold : C.moss }}>{label}</div>
-                  <div style={{ fontSize: '12px', marginTop: 2, lineHeight: 1.35, color: (id === 'once') === pagoUnico ? C.sand : C.moss }}>{eg}</div>
+                  <div className="mono" style={{ fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, color: (id === 'once') === pagoUnico ? C.bone : C.moss }}>{label}</div>
+                  <div style={{ fontSize: '12px', marginTop: 2, lineHeight: 1.35, color: (id === 'once') === pagoUnico ? C.cream : C.moss }}>{eg}</div>
                 </button>
               ))}
             </div>

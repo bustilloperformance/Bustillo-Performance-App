@@ -59,7 +59,7 @@ export default function CommsView() {
             <div key={c.id} className="p-5 group relative" style={{ background: c.status === 'active' ? C.cream : C.bone, border: `1px solid ${C.charcoal}20`, opacity: c.status === 'active' ? 1 : 0.7 }}>
               <div className="absolute top-3 right-3 flex gap-1 opacity-0 group-hover:opacity-100">
                 <button onClick={() => openEdit(c)} className="p-1" style={{ background: C.bone, border: `1px solid ${C.charcoal}40` }}><Edit2 size={10} /></button>
-                <button onClick={() => remove(c)} className="p-1" style={{ background: C.gold }}><Trash2 size={10} /></button>
+                <button onClick={() => remove(c)} className="p-1" style={{ background: C.gold, color: C.bone }}><Trash2 size={10} /></button>
               </div>
               <div className="flex items-start justify-between mb-3 pr-12">
                 <div>

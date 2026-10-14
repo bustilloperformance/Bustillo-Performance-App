@@ -175,8 +175,10 @@ export default function ClientHome({ clientMemberId, setView }) {
             {ciDone ? '✓ CHECK-IN ENVIADO'
               : ci.late ? 'TE FALTA TU CHECK-IN' : 'CHECK-IN SEMANAL'}
           </div>
+          {/* Carbon sobre el azul da 1.82:1. Las dos superficies de esta
+              tarjeta son oscuras, asi que el hueso sirve en las dos. */}
           <div className="serif-italic mb-2" style={{ fontSize: 'clamp(26px,6.5vw,30px)',
-            textWrap: 'balance', color: ciDone ? C.ink : C.cream }}>
+            textWrap: 'balance', color: C.ink }}>
             {ciDone ? 'Gracias por tu check-in.'
               : ci.late ? 'Aún estás a tiempo.' : 'Cuéntame cómo te fue.'}
           </div>

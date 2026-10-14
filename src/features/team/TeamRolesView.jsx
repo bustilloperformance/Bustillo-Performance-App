@@ -33,7 +33,10 @@ function RoleSection({ title, hint, list, currentUserId, onChangeRole, onRemove 
                   <button key={r} onClick={() => u.role !== r && u.id !== currentUserId && onChangeRole(u.id, r)} disabled={u.role === r || u.id === currentUserId} className="mono px-2 py-1"
                     style={{ fontSize: '11px', letterSpacing: '0.1em',
                       background: u.role === r ? (r === 'owner' ? C.gold : r === 'coach' ? C.forest : C.moss) : 'transparent',
-                      color: u.role === r ? (r === 'owner' ? C.ink : C.bone) : C.moss,
+                      // Cada relleno pide su propio contenido: sobre oro y
+                      // acero el negro (8.28:1 y 6.68:1), sobre el azul el
+                      // hueso (7.94:1 — el negro ahi daba 2.06:1).
+                      color: u.role === r ? (r === 'owner' ? C.bone : r === 'coach' ? C.ink : C.bone) : C.moss,
                       border: `1px solid ${C.charcoal}30`,
                       cursor: u.role === r || u.id === currentUserId ? 'default' : 'pointer',
                       opacity: u.id === currentUserId && u.role !== r ? 0.4 : 1 }}>
