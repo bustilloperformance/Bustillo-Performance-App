@@ -20,6 +20,9 @@ import { AddSectionDropdown, AddToSectionPicker } from './pickers';
 // tweaks the exceptions. `target` holds reps, distance or time depending on
 // how the exercise is measured.
 const HIIT_DEFAULTS = { rounds: 4, workSec: 40, restSec: 20 };
+// A-Z: debe cubrir el mismo rango que nextCircuitLetter (workoutHelpers.js),
+// que ya asigna cualquier letra del alfabeto cuando se agrega un ejercicio.
+const CIRCUIT_LETTERS = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 // Prep/warm-up/cool-down work is performed, not recorded — the client shouldn't
 // get weight/rep fields for it. Still editable per item in the builder.
 const NOT_LOGGED_SECTIONS = ['Mobility', 'Activation', 'Dynamic Warm-Up', 'Stretch'];
@@ -304,7 +307,12 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                             <div className="col-span-3 md:col-span-2">
                               <label className="mono block mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>CIRCUIT</label>
                               <select value={it.circuit || 'A'} onChange={(e) => updateItem(idx, { circuit: e.target.value })} className="w-full px-1.5 py-1.5 md:py-1" style={{ ...inputStyle, fontSize: '13px' }}>
-                                {['A', 'B', 'C', 'D', 'E', 'F'].map((L) => <option key={L} value={L}>{L}</option>)}
+                                {/* Hasta Z: nextCircuitLetter ya asigna cualquier letra del
+                                    alfabeto, y un día de hipertrofia con muchos ejercicios
+                                    sueltos (sin superserie) usa una letra por ejercicio. Limitarlo
+                                    a A-F aquí hacía que un circuito escrito más allá de F no
+                                    apareciera como opción seleccionada en este selector. */}
+                                {CIRCUIT_LETTERS.map((L) => <option key={L} value={L}>{L}</option>)}
                               </select>
                             </div>
                             <div className="col-span-3 md:col-span-1">
