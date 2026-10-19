@@ -1,5 +1,5 @@
 import { useMemo, useState, useRef, useEffect } from 'react';
-import { X, Check, GripVertical } from 'lucide-react';
+import { X, Check, GripVertical, ChevronUp, ChevronDown } from 'lucide-react';
 import { C } from '../../theme';
 import { marcarEdicion, liberarEdicion } from '../../lib/editing';
 import { unitLabel } from '../../lib/helpers';
@@ -39,6 +39,65 @@ function targetLabel(measure, ex) {
   if (measure === 'time') return unitLabel(ex?.units?.time || 's') === 'min' ? 'MIN' : 'SEC';
   if (measure === 'distance') return unitLabel(ex?.units?.distance || 'yd').toUpperCase();
   return 'REPS';
+}
+
+// Pixeles de arrastre vertical por letra. Un número de calendario (droppable
+// pequeño en el teléfono) necesitaría menos; esto es un control ancho de dos
+// columnas, así que puede pedir un gesto franco sin sentirse nervioso.
+const CIRCUIT_STEP_PX = 22;
+
+// El circuito como control deslizable: arrastrar el dedo hacia arriba avanza
+// la letra (A→B→C…), hacia abajo retrocede. Reemplaza al <select> nativo de
+// 26 opciones, que en el teléfono abría la rueda completa del sistema para
+// mover un ejercicio una sola letra. Las flechas cubren el mismo gesto con
+// un toque, para el mouse y para quien prefiera no arrastrar.
+function CircuitStepper({ value, onChange }) {
+  const [dragging, setDragging] = useState(false);
+  const [nudge, setNudge] = useState(0); // feedback en vivo mientras se arrastra, en px
+  const drag = useRef(null); // { startY, startIdx, lastStep }
+
+  const idx = Math.max(0, CIRCUIT_LETTERS.indexOf(value || 'A'));
+  const step = (delta) => {
+    const next = Math.min(CIRCUIT_LETTERS.length - 1, Math.max(0, idx + delta));
+    if (next !== idx) onChange(CIRCUIT_LETTERS[next]);
+  };
+
+  const onPointerDown = (e) => {
+    drag.current = { startY: e.clientY, startIdx: idx, lastStep: 0 };
+    setDragging(true);
+    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* ignore */ }
+  };
+  const onPointerMove = (e) => {
+    const d = drag.current;
+    if (!d) return;
+    const deltaY = d.startY - e.clientY; // arriba = positivo
+    const stepsNow = Math.trunc(deltaY / CIRCUIT_STEP_PX);
+    if (stepsNow !== d.lastStep) {
+      const next = Math.min(CIRCUIT_LETTERS.length - 1, Math.max(0, d.startIdx + stepsNow));
+      if (CIRCUIT_LETTERS[next] !== value) onChange(CIRCUIT_LETTERS[next]);
+      d.lastStep = stepsNow;
+    }
+    setNudge(deltaY - stepsNow * CIRCUIT_STEP_PX);
+  };
+  const endDrag = () => { drag.current = null; setDragging(false); setNudge(0); };
+
+  return (
+    <div className="w-full flex flex-col" style={{ ...inputStyle, overflow: 'hidden' }}>
+      <button type="button" onClick={() => step(1)} className="flex items-center justify-center" style={{ color: C.moss, padding: '1px 0' }} title="Next circuit letter">
+        <ChevronUp size={11} />
+      </button>
+      <div onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag}
+        className="flex items-center justify-center select-none" style={{ touchAction: 'none', cursor: dragging ? 'grabbing' : 'grab', minHeight: 20 }}>
+        <span className="mono" style={{ fontSize: '15px', fontWeight: 700, color: C.ink,
+          transform: `translateY(${Math.max(-7, Math.min(7, -nudge * 0.3))}px)`, transition: dragging ? 'none' : 'transform 0.15s' }}>
+          {value || 'A'}
+        </span>
+      </div>
+      <button type="button" onClick={() => step(-1)} className="flex items-center justify-center" style={{ color: C.moss, padding: '1px 0' }} title="Previous circuit letter">
+        <ChevronDown size={11} />
+      </button>
+    </div>
+  );
 }
 
 export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClose, title, eyebrow }) {
@@ -306,14 +365,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                             </div>
                             <div className="col-span-3 md:col-span-2">
                               <label className="mono block mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>CIRCUIT</label>
-                              <select value={it.circuit || 'A'} onChange={(e) => updateItem(idx, { circuit: e.target.value })} className="w-full px-1.5 py-1.5 md:py-1" style={{ ...inputStyle, fontSize: '13px' }}>
-                                {/* Hasta Z: nextCircuitLetter ya asigna cualquier letra del
-                                    alfabeto, y un día de hipertrofia con muchos ejercicios
-                                    sueltos (sin superserie) usa una letra por ejercicio. Limitarlo
-                                    a A-F aquí hacía que un circuito escrito más allá de F no
-                                    apareciera como opción seleccionada en este selector. */}
-                                {CIRCUIT_LETTERS.map((L) => <option key={L} value={L}>{L}</option>)}
-                              </select>
+                              <CircuitStepper value={it.circuit || 'A'} onChange={(L) => updateItem(idx, { circuit: L })} />
                             </div>
                             <div className="col-span-3 md:col-span-1">
                               <label className="mono block mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>SETS</label>
