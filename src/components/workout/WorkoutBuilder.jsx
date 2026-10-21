@@ -1,5 +1,5 @@
 import { useMemo, useState, useRef, useEffect } from 'react';
-import { X, Check, GripVertical, ChevronUp, ChevronDown } from 'lucide-react';
+import { X, Check, GripVertical } from 'lucide-react';
 import { C } from '../../theme';
 import { marcarEdicion, liberarEdicion } from '../../lib/editing';
 import { unitLabel } from '../../lib/helpers';
@@ -20,9 +20,6 @@ import { AddSectionDropdown, AddToSectionPicker } from './pickers';
 // tweaks the exceptions. `target` holds reps, distance or time depending on
 // how the exercise is measured.
 const HIIT_DEFAULTS = { rounds: 4, workSec: 40, restSec: 20 };
-// A-Z: debe cubrir el mismo rango que nextCircuitLetter (workoutHelpers.js),
-// que ya asigna cualquier letra del alfabeto cuando se agrega un ejercicio.
-const CIRCUIT_LETTERS = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 // Prep/warm-up/cool-down work is performed, not recorded — the client shouldn't
 // get weight/rep fields for it. Still editable per item in the builder.
 const NOT_LOGGED_SECTIONS = ['Mobility', 'Activation', 'Dynamic Warm-Up', 'Stretch'];
@@ -39,65 +36,6 @@ function targetLabel(measure, ex) {
   if (measure === 'time') return unitLabel(ex?.units?.time || 's') === 'min' ? 'MIN' : 'SEC';
   if (measure === 'distance') return unitLabel(ex?.units?.distance || 'yd').toUpperCase();
   return 'REPS';
-}
-
-// Pixeles de arrastre vertical por letra. Un número de calendario (droppable
-// pequeño en el teléfono) necesitaría menos; esto es un control ancho de dos
-// columnas, así que puede pedir un gesto franco sin sentirse nervioso.
-const CIRCUIT_STEP_PX = 22;
-
-// El circuito como control deslizable: arrastrar el dedo hacia arriba avanza
-// la letra (A→B→C…), hacia abajo retrocede. Reemplaza al <select> nativo de
-// 26 opciones, que en el teléfono abría la rueda completa del sistema para
-// mover un ejercicio una sola letra. Las flechas cubren el mismo gesto con
-// un toque, para el mouse y para quien prefiera no arrastrar.
-function CircuitStepper({ value, onChange }) {
-  const [dragging, setDragging] = useState(false);
-  const [nudge, setNudge] = useState(0); // feedback en vivo mientras se arrastra, en px
-  const drag = useRef(null); // { startY, startIdx, lastStep }
-
-  const idx = Math.max(0, CIRCUIT_LETTERS.indexOf(value || 'A'));
-  const step = (delta) => {
-    const next = Math.min(CIRCUIT_LETTERS.length - 1, Math.max(0, idx + delta));
-    if (next !== idx) onChange(CIRCUIT_LETTERS[next]);
-  };
-
-  const onPointerDown = (e) => {
-    drag.current = { startY: e.clientY, startIdx: idx, lastStep: 0 };
-    setDragging(true);
-    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* ignore */ }
-  };
-  const onPointerMove = (e) => {
-    const d = drag.current;
-    if (!d) return;
-    const deltaY = d.startY - e.clientY; // arriba = positivo
-    const stepsNow = Math.trunc(deltaY / CIRCUIT_STEP_PX);
-    if (stepsNow !== d.lastStep) {
-      const next = Math.min(CIRCUIT_LETTERS.length - 1, Math.max(0, d.startIdx + stepsNow));
-      if (CIRCUIT_LETTERS[next] !== value) onChange(CIRCUIT_LETTERS[next]);
-      d.lastStep = stepsNow;
-    }
-    setNudge(deltaY - stepsNow * CIRCUIT_STEP_PX);
-  };
-  const endDrag = () => { drag.current = null; setDragging(false); setNudge(0); };
-
-  return (
-    <div className="w-full flex flex-col" style={{ ...inputStyle, overflow: 'hidden' }}>
-      <button type="button" onClick={() => step(1)} className="flex items-center justify-center" style={{ color: C.moss, padding: '1px 0' }} title="Next circuit letter">
-        <ChevronUp size={11} />
-      </button>
-      <div onPointerDown={onPointerDown} onPointerMove={onPointerMove} onPointerUp={endDrag} onPointerCancel={endDrag}
-        className="flex items-center justify-center select-none" style={{ touchAction: 'none', cursor: dragging ? 'grabbing' : 'grab', minHeight: 20 }}>
-        <span className="mono" style={{ fontSize: '15px', fontWeight: 700, color: C.ink,
-          transform: `translateY(${Math.max(-7, Math.min(7, -nudge * 0.3))}px)`, transition: dragging ? 'none' : 'transform 0.15s' }}>
-          {value || 'A'}
-        </span>
-      </div>
-      <button type="button" onClick={() => step(-1)} className="flex items-center justify-center" style={{ color: C.moss, padding: '1px 0' }} title="Previous circuit letter">
-        <ChevronDown size={11} />
-      </button>
-    </div>
-  );
 }
 
 export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClose, title, eyebrow }) {
@@ -139,35 +77,72 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
   const updateCircuit = (section, circuit, patch) => setForm((f) => ({ ...f, items: f.items.map((it) => (it.section === section && it.circuit === circuit ? { ...it, ...patch } : it)) }));
   const removeItem = (idx) => setForm((f) => ({ ...f, items: f.items.filter((_, i) => i !== idx) }));
 
-  // Drag to reorder within a circuit (pointer-based — works on touch + mouse). We
-  // track the real form.items object being dragged and, as the finger passes over
-  // another exercise in the SAME circuit, splice it into that spot live.
+  // Drag to reorder, and to move an exercise into a different circuit of the
+  // same section (pointer-based — works on touch + mouse). We track the real
+  // form.items object being dragged and, as the finger passes over another
+  // exercise, splice it into that spot live — reassigning its circuit letter
+  // too when the exercise it lands on belongs to a different one.
+  //
+  // The move/up listeners go on `window`, not on the dragged element itself
+  // (via setPointerCapture, the usual way). A drag that crosses into another
+  // circuit reorders the DOM — React moves the dragged row to its new
+  // position — and in Chrome, moving a pointer-captured element mid-gesture
+  // silently drops the capture: every event after the FIRST reorder goes
+  // nowhere and the drag just stops responding. `window` is never reordered,
+  // so it keeps receiving events for the rest of the gesture regardless of
+  // how many circuits the exercise crosses on the way.
   const dragRef = useRef(null);
   const [draggingItem, setDraggingItem] = useState(null);
   const startDrag = (e, item) => {
     dragRef.current = item;
     setDraggingItem(item);
-    try { e.currentTarget.setPointerCapture(e.pointerId); } catch { /* ignore */ }
+    const onMove = (ev) => {
+      const dragItem = dragRef.current;
+      if (!dragItem) return;
+      const el = document.elementFromPoint(ev.clientX, ev.clientY);
+      const row = el && el.closest ? el.closest('[data-fidx]') : null;
+      if (!row) return;
+      const overIdx = Number(row.getAttribute('data-fidx'));
+      // Set inside the updater below (its own closure runs synchronously),
+      // then read right after — not a React state read, just carrying a
+      // value out of it.
+      let crossedInto = null;
+      setForm((f) => {
+        const from = f.items.indexOf(dragItem);
+        if (from < 0 || from === overIdx) return f;
+        const over = f.items[overIdx];
+        if (!over || over.section !== dragItem.section) return f; // sections stay put — only circuits move
+        const sameCircuit = (over.circuit || 'A') === (dragItem.circuit || 'A');
+        // A HIIT circuit's rounds/work/rest are shared by every exercise in
+        // it (kept as a copy on each item, all updated together). Carrying
+        // one across to another circuit would leave it holding stale
+        // numbers from the one it left — that still only reorders in place.
+        if (!sameCircuit && dragItem.section === 'HIIT') return f;
+        const item = sameCircuit ? dragItem : { ...dragItem, circuit: over.circuit || 'A' };
+        if (!sameCircuit) crossedInto = item;
+        const items = f.items.filter((x) => x !== dragItem);
+        const insertAt = items.indexOf(over) + (from < overIdx ? 1 : 0);
+        items.splice(insertAt, 0, item);
+        return { ...f, items };
+      });
+      // The dragged item's identity changed (new circuit) — keep the drag
+      // tracking it, or the next move event would no longer find it in items.
+      if (crossedInto) {
+        dragRef.current = crossedInto;
+        setDraggingItem(crossedInto);
+      }
+    };
+    const onUp = () => {
+      dragRef.current = null;
+      setDraggingItem(null);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', onUp);
+      window.removeEventListener('pointercancel', onUp);
+    };
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', onUp);
+    window.addEventListener('pointercancel', onUp);
   };
-  const moveDrag = (e) => {
-    const dragItem = dragRef.current;
-    if (!dragItem) return;
-    const el = document.elementFromPoint(e.clientX, e.clientY);
-    const row = el && el.closest ? el.closest('[data-fidx]') : null;
-    if (!row) return;
-    const overIdx = Number(row.getAttribute('data-fidx'));
-    setForm((f) => {
-      const from = f.items.indexOf(dragItem);
-      if (from < 0 || from === overIdx) return f;
-      const over = f.items[overIdx];
-      if (!over || over.section !== dragItem.section || (over.circuit || 'A') !== (dragItem.circuit || 'A')) return f; // same circuit only
-      const items = f.items.filter((x) => x !== dragItem);
-      const insertAt = items.indexOf(over) + (from < overIdx ? 1 : 0);
-      items.splice(insertAt, 0, dragItem);
-      return { ...f, items };
-    });
-  };
-  const endDrag = () => { dragRef.current = null; setDraggingItem(null); };
   // Flat form.items indices of a circuit's exercises, in order — reliable even with
   // duplicate exercises (unlike matching by content).
   const circuitFlatIdxs = (section, letter) =>
@@ -329,7 +304,7 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                         const prog = ex?.progressionId ? data.exercises.find((x) => x.id === ex.progressionId) : null;
                         const isDragging = draggingItem && draggingItem === realItem;
                         const Handle = (
-                          <button type="button" onPointerDown={(e) => startDrag(e, realItem)} onPointerMove={moveDrag} onPointerUp={endDrag} onPointerCancel={endDrag}
+                          <button type="button" onPointerDown={(e) => startDrag(e, realItem)}
                             className="flex-shrink-0 p-1" style={{ touchAction: 'none', cursor: 'grab', color: C.moss }} title="Drag to reorder within the circuit"><GripVertical size={16} /></button>
                         );
                         if (g.section === 'HIIT') {
@@ -365,7 +340,12 @@ export default function WorkoutBuilder({ initialWorkout, editing, onSave, onClos
                             </div>
                             <div className="col-span-3 md:col-span-2">
                               <label className="mono block mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>CIRCUIT</label>
-                              <CircuitStepper value={it.circuit || 'A'} onChange={(L) => updateItem(idx, { circuit: L })} />
+                              {/* Ya no se escribe: se arrastra el ejercicio (el asa de la
+                                  izquierda) sobre otro de un circuito distinto, igual que
+                                  reordenarlo dentro del suyo. */}
+                              <div className="w-full flex items-center justify-center" style={{ ...inputStyle, padding: '7px 0' }} title="Drag the exercise onto another circuit to move it">
+                                <span className="mono" style={{ fontSize: '13px', fontWeight: 700 }}>{it.circuit || 'A'}</span>
+                              </div>
                             </div>
                             <div className="col-span-3 md:col-span-1">
                               <label className="mono block mb-0.5" style={{ fontSize: '10px', letterSpacing: '0.1em', color: C.moss }}>SETS</label>
