@@ -14,6 +14,7 @@ export const SECTIONS = [
   { id: 'Skill',           label: 'Skill',           hint: 'Practice the movement, not the load.' },
   { id: 'Strength',        label: 'Strength',        hint: 'The work that tells the truth.' },
   { id: 'HIIT',            label: 'HIIT',            hint: 'All-out intervals. Empty the tank.' },
+  { id: 'Cardio',          label: 'Cardio',          hint: 'Steady output. Build the engine.' },
   { id: 'Stretch',         label: 'Stretch',         hint: 'Restore length. End calm.' },
 ];
 export const SECTION_IDS = SECTIONS.map((s) => s.id);

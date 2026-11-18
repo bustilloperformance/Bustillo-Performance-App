@@ -26,7 +26,9 @@ const NOT_LOGGED_SECTIONS = ['Mobility', 'Activation', 'Dynamic Warm-Up', 'Stret
 function defaultItemFor(section, measure) {
   const base = { tempo: { type: 'none', seconds: 0 }, loadPct: 0, trackable: !NOT_LOGGED_SECTIONS.includes(section) };
   if (section === 'Mobility' || section === 'Activation') return { ...base, sets: 1, target: '10' };
-  if (section === 'Dynamic Warm-Up') return { ...base, sets: 1, target: measure === 'distance' ? '15' : '20' };
+  // Cardio comparte la forma de Dynamic Warm-Up: un esfuerzo continuo —
+  // "Row 2000m", "Bike 20 min" — no una cuenta de series.
+  if (section === 'Dynamic Warm-Up' || section === 'Cardio') return { ...base, sets: 1, target: measure === 'distance' ? '15' : '20' };
   if (section === 'Stretch') return { ...base, sets: 1, target: measure === 'time' ? '40' : '10' };
   return { ...base, sets: 3, target: '10' }; // Strength, Skill, HIIT, Prep Work
 }
